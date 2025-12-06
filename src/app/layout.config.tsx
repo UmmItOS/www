@@ -13,7 +13,7 @@ export const baseOptions: BaseLayoutProps = {
     title: (
       <>
         <Icon icon="mdi:arch" width={30} height={30} />
-        UmmIt 醬 XD
+        UmmItOS
       </>
     ),
   },
