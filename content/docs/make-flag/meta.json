@@ -1,9 +1,0 @@
-{
-  "title": "Make Flag",
-  "description": "A side project to generate leetspeck flags for CTF events",
-  "defaultOpen": false,
-  "pages": [
-    "index"
-
-  ]
-}
