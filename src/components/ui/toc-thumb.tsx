@@ -1,7 +1,6 @@
-import { type HTMLAttributes, type RefObject, useEffect, useRef } from 'react';
+import { type HTMLAttributes, type RefObject, useCallback, useEffect, useRef } from 'react';
 import * as Primitive from 'fumadocs-core/toc';
 import { useOnChange } from 'fumadocs-core/utils/use-on-change';
-import { useEffectEvent } from 'fumadocs-core/utils/use-effect-event';
 
 export type TOCThumb = [top: number, height: number];
 
@@ -44,11 +43,11 @@ export function TocThumb({
   const active = Primitive.useActiveAnchors();
   const thumbRef = useRef<HTMLDivElement>(null);
 
-  const onResize = useEffectEvent(() => {
+  const onResize = useCallback(() => {
     if (!containerRef.current || !thumbRef.current) return;
 
     update(thumbRef.current, calc(containerRef.current, active));
-  });
+  }, [containerRef, thumbRef, active]);
 
   useEffect(() => {
     if (!containerRef.current) return;
