@@ -8,14 +8,11 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="flex flex-1 flex-col justify-center py-24 md:py-32 px-4 mx-auto w-full max-w-[var(--fd-layout-width)]">
         <div className="max-w-4xl">
-          <div className="mb-8 flex items-center gap-3">
-            <Icon icon="mdi:arch" className="text-fd-foreground flex-shrink-0" width={56} height={56} />
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight" style={{ fontFamily: "'Bitcount Grid Double', monospace" }}>
-              UmmItOS
-            </h1>
-          </div>
-          <p className="text-xl md:text-2xl text-fd-muted-foreground max-w-2xl mb-12 leading-relaxed">
-            A minimal, blazing-fast Arch Linux distribution crafted for power users and enthusiasts.
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal mb-8 leading-tight tracking-tight" style={{ fontFamily: 'var(--font-eb-garamond)' }}>
+            Arch Linux based distribution for power users and Purple enthusiasts
+          </h1>
+          <p className="text-base md:text-lg text-fd-muted-foreground/80 max-w-3xl mb-12 leading-relaxed">
+            The fully optimized Linux distribution that leverages modern tools to streamline your workflow and enhance your productivity.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
