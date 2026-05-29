@@ -183,7 +183,7 @@ export default function HomePage() {
                     <span className="text-[#9ece6a]">bash</span>{' '}
                     <span className="text-[#e0af68]">&lt;(</span>curl
                     <span className="text-[#e0af68]"> -s </span>
-                    https://raw.githubusercontent.com/UmmItKin/Dotfiles/main/setup.sh
+                    https://raw.githubusercontent.com/UmmItOS/UmmItOS/refs/heads/main/install.sh
                     <span className="text-[#e0af68]">)</span>
                   </code>
                 </div>
