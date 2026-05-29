@@ -173,21 +173,23 @@ export default function HomePage() {
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-fd-accent/30 via-fd-accent/10 to-fd-accent/30 rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity" />
             <div className="relative p-1 rounded-2xl bg-fd-border/50">
-              <div className="rounded-xl bg-[#0d1117] text-[#e6edf3] overflow-hidden">
-                <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-white/10">
-                  <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
-                  <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
-                  <div className="w-3 h-3 rounded-full bg-[#27c93f]" />
-                  <span className="ml-2 text-xs text-white/40 font-medium">terminal</span>
+              <div className="rounded-xl bg-[#1a1b26] text-[#a9b1d6] overflow-hidden">
+                <div className="flex items-center justify-between px-4 py-2 border-b border-[#32344a]">
+                  <span className="text-xs font-medium text-[#565f89]">─╼ terminal</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs text-[#565f89]">◉</span>
+                    <span className="text-xs text-[#565f89]">─</span>
+                    <span className="text-xs text-[#565f89]">✕</span>
+                  </div>
                 </div>
                 <div className="px-4 py-3.5">
                   <code className="text-sm md:text-base font-mono break-all">
-                    <span className="text-[#ff79c6]">$</span>{' '}
-                    <span className="text-[#50fa7b]">bash</span>{' '}
-                    <span className="text-[#f1fa8c]">&lt;(</span>curl
-                    <span className="text-[#f1fa8c]"> -s </span>
+                    <span className="text-[#bb9af7]">❯</span>{' '}
+                    <span className="text-[#9ece6a]">bash</span>{' '}
+                    <span className="text-[#e0af68]">&lt;(</span>curl
+                    <span className="text-[#e0af68]"> -s </span>
                     https://raw.githubusercontent.com/UmmItKin/Dotfiles/main/setup.sh
-                    <span className="text-[#f1fa8c]">)</span>
+                    <span className="text-[#e0af68]">)</span>
                   </code>
                 </div>
               </div>
