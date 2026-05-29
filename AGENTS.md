@@ -17,7 +17,7 @@ No `typecheck`, `test`, `preview`, or `codegen` scripts exist. TypeScript and ES
 ## CI / Pre-commit
 
 - **CI** (`.github/workflows/ci.yml`): Runs on push/PR to `master` — `bun install --frozen-lockfile` → `bun run build`.
-- **Deploy** (`.github/workflows/deploy.yml`): On push to `master`, builds and deploys to Vercel (requires `VERCEL_TOKEN` secret).
+- **Deploy**: Vercel auto-deploys on push to `master` (connected via Vercel dashboard).
 - **Pre-commit hook** (`.husky/pre-commit`): Runs `bun run build` before every commit. Managed by Husky v9.
 
 ## Content workflow
