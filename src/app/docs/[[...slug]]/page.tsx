@@ -33,27 +33,36 @@ export default async function Page(props: {
         />
       </DocsBody>
       <DocsBody>
-        <div className="flex items-center justify-between mt-12 pt-6 border-t border-fd-border/60">
-          <p className="text-xs text-fd-muted-foreground">
-            Found an issue? submit a pull request! <br />Don&apos;t be shy, your help is making this documentation better for everyone.
-          </p>
-          <a
-            href={`https://github.com/UmmItKin/ummit-docs/blob/master/content/docs/${page.path}`}
-            rel="noreferrer noopener"
-            target="_blank"
-            className="inline-flex items-center gap-2 px-3 py-2 text-sm font-medium text-fd-muted-foreground bg-fd-muted/30 border border-fd-border rounded-lg transition-all duration-200 hover:bg-fd-accent hover:text-fd-accent-foreground group no-underline"
-          >
-            <Icon 
-              icon="mdi:github" 
-              className="w-4 h-4" 
-            />
-            Edit on GitHub
-            <Icon 
-              icon="lucide:external-link" 
-              className="w-3 h-3 opacity-60" 
-            />
-          </a>
-        </div>
+        <footer className="mt-16 pt-8 border-t border-fd-border/60">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="flex flex-col gap-1.5">
+              <p className="text-sm text-fd-muted-foreground">
+                Found an issue? Help improve this page.
+              </p>
+              <a
+                href={`https://github.com/UmmItOS/www/blob/master/content/docs/${page.path}`}
+                rel="noreferrer noopener"
+                target="_blank"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-fd-muted-foreground hover:text-fd-foreground transition-colors"
+              >
+                <Icon icon="mdi:github" className="w-4 h-4" />
+                Edit on GitHub
+                <Icon icon="lucide:external-link" className="w-3 h-3 opacity-60" />
+              </a>
+            </div>
+            <div className="flex items-center gap-4 text-xs text-fd-muted-foreground">
+              <a href="https://github.com/UmmItOS" target="_blank" rel="noopener noreferrer" className="hover:text-fd-foreground transition-colors">
+                GitHub
+              </a>
+              <span className="w-1 h-1 rounded-full bg-fd-muted-foreground/30" />
+              <a href="https://github.com/UmmItOS/UmmItOS/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" className="hover:text-fd-foreground transition-colors">
+                GPL-3.0
+              </a>
+              <span className="w-1 h-1 rounded-full bg-fd-muted-foreground/30" />
+              <span>© {new Date().getFullYear()} UmmIt Kin</span>
+            </div>
+          </div>
+        </footer>
       </DocsBody>
     </DocsPage>
   );
