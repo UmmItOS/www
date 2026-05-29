@@ -5,6 +5,7 @@
   "scripts": {
     "build": "NODE_OPTIONS=--no-deprecation next build",
     "dev": "NODE_OPTIONS=--no-deprecation next dev --turbo",
+    "dev:fast": "NEXT_DIST_DIR=/tmp/ummitos-next NODE_OPTIONS=--no-deprecation next dev --turbo",
     "start": "NODE_OPTIONS=--no-deprecation next start",
     "postinstall": "fumadocs-mdx",
     "prepare": "husky"
