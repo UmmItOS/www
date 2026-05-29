@@ -74,15 +74,18 @@ export default function HomePage() {
             <Icon icon="mdi:arch" width={16} height={16} />
             Arch Linux
             <span className="w-1 h-1 rounded-full bg-fd-muted-foreground/30" />
+            v0.7.0
+            <span className="w-1 h-1 rounded-full bg-fd-muted-foreground/30" />
             <span>Rolling Release</span>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-normal mb-8 leading-tight tracking-tight" style={{ fontFamily: 'var(--font-eb-garamond)' }}>
-            Built for power users<br />
-            <span className="text-fd-muted-foreground/60">and Purple enthusiasts</span>
-          </h1>
-          <p className="text-base md:text-lg text-fd-muted-foreground max-w-3xl mb-12 leading-relaxed">
-            The fully optimized Linux distribution that leverages modern tools to streamline your workflow and enhance your productivity.
-          </p>
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-normal mb-8 leading-tight tracking-tight" style={{ fontFamily: 'var(--font-eb-garamond)' }}>
+              Built for power users<br />
+              <span className="text-fd-muted-foreground/60">and Purple enthusiasts</span>
+            </h1>
+            <p className="text-base md:text-lg text-fd-muted-foreground max-w-3xl mb-12 leading-relaxed">
+              Hong Kong&apos;s first Linux distribution. A fully optimized Arch Linux experience that
+              leverages modern tools to streamline your workflow and enhance your productivity.
+            </p>
           <div className="flex flex-wrap gap-4">
             <Link
               href="/docs"
@@ -287,9 +290,25 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-4 border-t border-fd-border">
-        <div className="mx-auto max-w-[var(--fd-layout-width)] text-center text-fd-muted-foreground text-sm">
-          © {new Date().getFullYear()} UmmIt Kin. All rights reserved.
+      <footer className="py-10 px-4 border-t border-fd-border">
+        <div className="mx-auto max-w-[var(--fd-layout-width)] flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-fd-muted-foreground">
+          <div className="flex items-center gap-3">
+            <span>© {new Date().getFullYear()} UmmIt Kin</span>
+            <span className="w-1 h-1 rounded-full bg-fd-muted-foreground/30" />
+            <a href="https://github.com/UmmItOS/UmmItOS/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" className="hover:text-fd-foreground transition-colors">
+              GPL-3.0
+            </a>
+          </div>
+          <div className="flex items-center gap-4">
+            <a href="https://github.com/UmmItOS" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-fd-foreground transition-colors">
+              <Icon icon="mdi:github" width={16} height={16} />
+              GitHub
+            </a>
+            <a href="https://docs.ummit.dev" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-fd-foreground transition-colors">
+              <Icon icon="mdi:book-open-outline" width={16} height={16} />
+              Docs
+            </a>
+          </div>
         </div>
       </footer>
     </main>
