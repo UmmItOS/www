@@ -17,7 +17,7 @@ Quick Installation is the recommended way to install UmmItOS. It will install al
 You can simply run the automated installation script:
 
 ```shell
-bash <(curl -s https://raw.githubusercontent.com/UmmItKin/Dotfiles/main/setup.sh)
+bash <(curl -s https://raw.githubusercontent.com/UmmItOS/UmmItOS/refs/heads/main/install.sh)
 ```
 
 The setup script automatically checks for `git` and `paru` dependencies and installs them if needed, then clones the dotfiles repository and copies configurations to your system.
@@ -39,7 +39,7 @@ The installation script performs the following steps, **each step is optional an
 Manual Installation allows you to install UmmItOS manually by cloning the repository and running the installation script yourself.
 
 ```shell
-git clone --depth 1 --shallow-submodules --recursive https://github.com/UmmItKin/Dotfiles.git
+git clone --depth 1 --shallow-submodules --recursive https://github.com/UmmItOS/UmmItOS.git
 cd Dotfiles
 ./install.sh
 ```
