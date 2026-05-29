@@ -17,6 +17,7 @@ export const baseOptions: BaseLayoutProps = {
       </>
     ),
   },
+  themeSwitch: { enabled: false },
   // see https://fumadocs.dev/docs/ui/navigation/links
   links: [],
 };

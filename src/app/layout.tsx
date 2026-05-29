@@ -37,9 +37,10 @@ const ebGaramond = localFont({
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${inter.className} ${ebGaramond.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${inter.className} ${ebGaramond.variable} dark`} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
         <RootProvider
+          theme={{ defaultTheme: 'dark', enableSystem: false }}
           search={{
             options: {
               type: 'static',

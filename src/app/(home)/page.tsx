@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Icon } from '@iconify/react';
 import { YouTubePlayer } from '@/components/youtube-player';
+import { getVersion } from '@/lib/version';
 
 const features = [
   {
@@ -62,7 +63,8 @@ const quickLinks = [
   },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const version = await getVersion();
   return (
     <main className="flex flex-1 flex-col bg-fd-background text-fd-foreground">
       {/* Hero Section */}
@@ -74,7 +76,7 @@ export default function HomePage() {
             <Icon icon="mdi:arch" width={16} height={16} />
             Arch Linux
             <span className="w-1 h-1 rounded-full bg-fd-muted-foreground/30" />
-            <span className="text-green-400 font-semibold">v0.7.0</span>
+            <span className="text-green-400 font-semibold">{version}</span>
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
