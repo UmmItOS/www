@@ -38,7 +38,7 @@ export default function HomePage() {
       <section className="pb-24 md:pb-32 px-4 mx-auto w-full max-w-[var(--fd-layout-width)]">
         <div className="max-w-5xl mx-auto">
           <div className="rounded-2xl overflow-hidden shadow-2xl border border-fd-border">
-            <YouTubePlayer videoId="2txyf_5lsOo" title="UmmItOS Demo" /> 
+            <YouTubePlayer videoId="kd0elrqV0O0" title="UmmItOS Demo" /> 
           </div>
         </div>
       </section>
