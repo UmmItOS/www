@@ -218,7 +218,7 @@ export default function HomePage() {
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
           {[
-            { icon: 'simple-icons:kitty', name: 'Kitty' },
+            { icon: 'mdi:cat', name: 'Kitty' },
             { icon: 'simple-icons:nushell', name: 'Nushell' },
             { icon: 'simple-icons:neovim', name: 'Neovim' },
             { icon: 'simple-icons:wayland', name: 'Waybar' },
@@ -227,7 +227,7 @@ export default function HomePage() {
             { icon: 'mdi:star-outline', name: 'Starship' },
             { icon: 'mdi:image-auto-adjust', name: 'Swww' },
             { icon: 'mdi:theme-light-dark', name: 'Orchis GTK' },
-            { icon: 'simple-icons:papirus', name: 'Papirus Icons' },
+            { icon: 'mdi:palette', name: 'Papirus Icons' },
             { icon: 'mdi:cursor-default-click', name: 'Bibata Cursor' },
             { icon: 'mdi:pier-crane', name: 'Hyprland' },
           ].map((tool) => (
