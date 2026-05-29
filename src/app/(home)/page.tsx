@@ -72,13 +72,15 @@ export default function HomePage() {
         <div className="max-w-4xl relative">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 text-sm font-medium text-fd-muted-foreground bg-fd-muted/50 border border-fd-border rounded-full">
             <Icon icon="mdi:arch" width={16} height={16} />
-            Arch Linux based distribution
+            Arch Linux
+            <span className="w-1 h-1 rounded-full bg-fd-muted-foreground/30" />
+            <span>Rolling Release</span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-normal mb-8 leading-tight tracking-tight" style={{ fontFamily: 'var(--font-eb-garamond)' }}>
             Built for power users<br />
             <span className="text-fd-muted-foreground/60">and Purple enthusiasts</span>
           </h1>
-          <p className="text-base md:text-lg text-fd-muted-foreground/80 max-w-3xl mb-12 leading-relaxed">
+          <p className="text-base md:text-lg text-fd-muted-foreground max-w-3xl mb-12 leading-relaxed">
             The fully optimized Linux distribution that leverages modern tools to streamline your workflow and enhance your productivity.
           </p>
           <div className="flex flex-wrap gap-4">
@@ -107,7 +109,7 @@ export default function HomePage() {
           <h2 className="text-3xl md:text-4xl font-normal mb-4" style={{ fontFamily: 'var(--font-eb-garamond)' }}>
             What makes UmmItOS different
           </h2>
-          <p className="text-fd-muted-foreground/80 max-w-2xl mx-auto">
+          <p className="text-fd-muted-foreground max-w-2xl mx-auto">
             A distribution designed from the ground up for efficiency, aesthetics, and modern workflows.
           </p>
         </div>
@@ -121,7 +123,7 @@ export default function HomePage() {
                 <Icon icon={feature.icon} width={22} height={22} />
               </div>
               <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-              <p className="text-sm text-fd-muted-foreground/80 leading-relaxed">{feature.description}</p>
+              <p className="text-sm text-fd-muted-foreground leading-relaxed">{feature.description}</p>
             </div>
           ))}
         </div>
@@ -133,7 +135,7 @@ export default function HomePage() {
           <h2 className="text-3xl md:text-4xl font-normal mb-4" style={{ fontFamily: 'var(--font-eb-garamond)' }}>
             Explore the documentation
           </h2>
-          <p className="text-fd-muted-foreground/80 max-w-2xl mx-auto">
+          <p className="text-fd-muted-foreground max-w-2xl mx-auto">
             Everything you need to get started with UmmItOS.
           </p>
         </div>
@@ -148,7 +150,7 @@ export default function HomePage() {
                 <Icon icon={link.icon} width={28} height={28} />
               </div>
               <h3 className="text-lg font-semibold mb-1">{link.title}</h3>
-              <p className="text-sm text-fd-muted-foreground/70">{link.description}</p>
+              <p className="text-sm text-fd-muted-foreground">{link.description}</p>
             </Link>
           ))}
         </div>
@@ -161,7 +163,7 @@ export default function HomePage() {
             <h2 className="text-3xl md:text-4xl font-normal mb-4" style={{ fontFamily: 'var(--font-eb-garamond)' }}>
               Get started in one command
             </h2>
-            <p className="text-fd-muted-foreground/80 max-w-2xl mx-auto">
+            <p className="text-fd-muted-foreground max-w-2xl mx-auto">
               Works on any Arch Linux or EndeavourOS installation.
             </p>
           </div>
@@ -207,7 +209,7 @@ export default function HomePage() {
           <h2 className="text-3xl md:text-4xl font-normal mb-4" style={{ fontFamily: 'var(--font-eb-garamond)' }}>
             Powered by modern tools
           </h2>
-          <p className="text-fd-muted-foreground/80 max-w-2xl mx-auto">
+          <p className="text-fd-muted-foreground max-w-2xl mx-auto">
             A carefully curated stack of modern applications, pre-configured and ready to use.
           </p>
         </div>
@@ -245,7 +247,7 @@ export default function HomePage() {
           <h2 className="text-3xl md:text-4xl font-normal mb-4" style={{ fontFamily: 'var(--font-eb-garamond)' }}>
             See it in action
           </h2>
-          <p className="text-fd-muted-foreground/80 max-w-2xl mx-auto">
+          <p className="text-fd-muted-foreground max-w-2xl mx-auto">
             A quick walkthrough of the UmmItOS desktop experience.
           </p>
         </div>
@@ -262,7 +264,7 @@ export default function HomePage() {
           <h2 className="text-3xl md:text-4xl font-normal mb-6" style={{ fontFamily: 'var(--font-eb-garamond)' }}>
             Ready to get started?
           </h2>
-          <p className="text-fd-muted-foreground/80 mb-10 max-w-xl mx-auto">
+          <p className="text-fd-muted-foreground mb-10 max-w-xl mx-auto">
             Jump into the documentation or visit the GitHub repository to begin your UmmItOS journey.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
