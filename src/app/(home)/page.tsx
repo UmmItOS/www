@@ -174,13 +174,8 @@ export default function HomePage() {
             <div className="absolute -inset-1 bg-gradient-to-r from-fd-accent/30 via-fd-accent/10 to-fd-accent/30 rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity" />
             <div className="relative p-1 rounded-2xl bg-fd-border/50">
               <div className="rounded-xl bg-[#1a1b26] text-[#a9b1d6] overflow-hidden">
-                <div className="flex items-center justify-between px-4 py-2 border-b border-[#32344a]">
+                <div className="px-4 py-2 border-b border-[#32344a]">
                   <span className="text-xs font-medium text-[#565f89]">─╼ terminal</span>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs text-[#565f89]">◉</span>
-                    <span className="text-xs text-[#565f89]">─</span>
-                    <span className="text-xs text-[#565f89]">✕</span>
-                  </div>
                 </div>
                 <div className="px-4 py-3.5">
                   <code className="text-sm md:text-base font-mono break-all">
