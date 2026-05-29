@@ -24,8 +24,6 @@ jobs:
         with:
           bun-version: latest
 
-      - uses: actions/configure-pages@v5
-
       - run: bun install --frozen-lockfile
 
       - run: bun run build
