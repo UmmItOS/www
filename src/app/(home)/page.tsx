@@ -218,18 +218,18 @@ export default function HomePage() {
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
           {[
-            { icon: 'mdi:cat', name: 'Kitty' },
+            { icon: 'mdi:console', name: 'Kitty' },
             { icon: 'simple-icons:nushell', name: 'Nushell' },
             { icon: 'simple-icons:neovim', name: 'Neovim' },
-            { icon: 'simple-icons:wayland', name: 'Waybar' },
-            { icon: 'mdi:application-outline', name: 'Rofi' },
-            { icon: 'mdi:folder-open-outline', name: 'Yazi' },
-            { icon: 'mdi:star-outline', name: 'Starship' },
-            { icon: 'mdi:image-auto-adjust', name: 'Swww' },
+            { icon: 'mdi:view-dashboard-outline', name: 'Waybar' },
+            { icon: 'mdi:search-web', name: 'Rofi' },
+            { icon: 'mdi:file-tree', name: 'Yazi' },
+            { icon: 'ph:rocket-launch', name: 'Starship' },
+            { icon: 'mdi:wallpaper', name: 'Swww' },
             { icon: 'mdi:theme-light-dark', name: 'Orchis GTK' },
-            { icon: 'mdi:palette', name: 'Papirus Icons' },
+            { icon: 'mdi:palette-swatch-outline', name: 'Papirus Icons' },
             { icon: 'mdi:cursor-default-click', name: 'Bibata Cursor' },
-            { icon: 'mdi:pier-crane', name: 'Hyprland' },
+            { icon: 'mdi:window-maximize', name: 'Hyprland' },
           ].map((tool) => (
             <div
               key={tool.name}
