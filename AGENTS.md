@@ -5,14 +5,14 @@
 ## Commands
 
 | Action | Command | Notes |
-|---|---|---|---|
+|---|---|---|
 | Dev server | `bun run dev` | Turbopack on :3000 |
-| Build | `bun run build` | Next.js production build |
+| Dev (fast FS) | `bun run dev:fast` | Uses `/tmp/ummitos-next` for slow mounted drives |
 | Build | `bun run build` | Next.js production build (Vercel-ready) |
 | Production | `bun run start` | After build |
 | Install | `bun install` | Runs `postinstall` → regenerates `.source/` |
 
-No `typecheck`, `test`, `preview`, or `codegen` scripts exist. TypeScript and ESLint checks run during `next build`.
+No `typecheck`, `test`, `preview`, or `codegen` scripts exist. TypeScript checks run during `next build`. All scripts inject `NODE_OPTIONS=--no-deprecation` (DEP0205 from `fumadocs-mdx` on Node 26+).
 
 ## CI / Pre-commit
 
