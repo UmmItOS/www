@@ -41,6 +41,9 @@ export default function Layout({ children }: { children: ReactNode }) {
       <body className="flex flex-col min-h-screen">
         <RootProvider
           search={{
+            options: {
+              type: 'static',
+            },
             hotKey: [
               {
                 display: (

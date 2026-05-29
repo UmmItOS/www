@@ -5,13 +5,20 @@
 ## Commands
 
 | Action | Command | Notes |
-|---|---|---|
+|---|---|---|---|
 | Dev server | `bun run dev` | Turbopack on :3000 |
 | Build | `bun run build` | Next.js production build |
+| Static export | `EXPORT=true bun run build` | Outputs to `out/` for GitHub Pages |
 | Production | `bun run start` | After build |
 | Install | `bun install` | Runs `postinstall` → regenerates `.source/` |
 
-No `lint`, `typecheck`, `test`, `preview`, or `codegen` scripts exist. Linting only runs implicitly during `next build`.
+No `typecheck`, `test`, `preview`, or `codegen` scripts exist. TypeScript and ESLint checks run during `next build`.
+
+## CI / Pre-commit
+
+- **CI** (`.github/workflows/ci.yml`): Runs on push/PR to `master` — `bun install --frozen-lockfile` → `bun run build`.
+- **Deploy** (`.github/workflows/deploy.yml`): On push to `master`, builds with `EXPORT=true` and deploys static export to GitHub Pages.
+- **Pre-commit hook** (`.husky/pre-commit`): Runs `bun run build` before every commit. Managed by Husky v9.
 
 ## Content workflow
 
