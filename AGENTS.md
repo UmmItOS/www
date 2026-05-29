@@ -1,43 +1,43 @@
-# UmmIt Docs — Agent Guide
+# UmmItOS Docs — Agent Guide
 
-**UmmItOS documentation site.** Next.js 16 App Router + Fumadocs + Tailwind CSS v4.
+**Next.js 16 App Router + Fumadocs + Tailwind v4.** Docs site for the UmmItOS Linux distro.
 
 ## Commands
 
-| Action | Command | Notes |
+| Action | Command | Note |
 |---|---|---|
-| Dev server | `bun run dev` | Turbopack on :3000 |
-| Dev (fast FS) | `bun run dev:fast` | Uses `/tmp/ummitos-next` for slow mounted drives |
-| Build | `bun run build` | Next.js production build (Vercel-ready) |
-| Production | `bun run start` | After build |
+| Dev | `bun run dev` | Turbopack on `:3000` |
+| Dev (fast FS) | `bun run dev:fast` | Uses `/tmp/ummitos-next` for slow drives |
+| Build | `bun run build` | Runs TypeScript checks |
 | Install | `bun install` | Runs `postinstall` → regenerates `.source/` |
 
-No `typecheck`, `test`, `preview`, or `codegen` scripts exist. TypeScript checks run during `next build`. All scripts inject `NODE_OPTIONS=--no-deprecation` (DEP0205 from `fumadocs-mdx` on Node 26+).
+No `test`, `typecheck`, `lint`, or `preview` scripts. TS checks happen during `next build`. All scripts inject `NODE_OPTIONS=--no-deprecation` (DEP0205 from `fumadocs-mdx` on Node 26+).
 
-## CI / Pre-commit
+## CI / Deploy
 
-- **CI** (`.github/workflows/ci.yml`): Runs on push/PR to `master` — `bun install --frozen-lockfile` → `bun run build`.
-- **Deploy**: Vercel auto-deploys on push to `master` (connected via Vercel dashboard).
-- **Pre-commit hook** (`.husky/pre-commit`): Runs `bun run build` before every commit. Managed by Husky v9.
+- **CI** (`.github/workflows/ci.yml`): push/PR to `master` → `bun install --frozen-lockfile` → `bun run build`.
+- **Pre-commit** (`.husky/pre-commit`): `bun run build` (Husky v9).
+- **Deploy**: Vercel auto-deploys on push to `master` (dashboard-connected).
 
-## Content workflow
+## Content
 
-- **MDX source**: `content/docs/` — edit `.mdx` files and `meta.json` alongside them
-- **`meta.json`** controls sidebar navigation. `pages` array uses `"---Section Name---"` for separators. Keys match directory basenames or `.mdx` filenames (without extension).
-- **Generated code**: `postinstall` (`fumadocs-mdx`) scans `content/` and produces `.source/` (gitignored). After adding/renaming/deleting MDX files, re-run `bun install` to regenerate.
-- **Catch-all route**: `src/app/docs/[[...slug]]/page.tsx` renders all doc pages dynamically.
-- **Frontmatter**: Uses Fumadocs default schema (`title`, `description`). Customize in `source.config.ts`.
+- **MDX**: `content/docs/` — edit `.mdx` and `meta.json` alongside.
+- **`meta.json`** controls sidebar nav. Keys match directory basenames or `.mdx` filenames (no extension).
+- **Regenerate**: `bun install` runs `postinstall` → `fumadocs-mdx` scans `content/` → produces `.source/` (gitignored). Run after add/rename/delete of MDX.
+- **Catch-all route**: `src/app/docs/[[...slug]]/page.tsx`.
+- **Frontmatter**: Fumadocs default schema (`title`, `description`).
 
 ## Architecture
 
-- **Path alias**: `@/` → `src/`, `@/.source` → `.source/index.ts`
-- **Components**: Server components by default. Mark interactive ones with `'use client'`. Existing client components: `theme-toggle`, `youtube-player`, `collapsible`, `popover`, `scroll-area`.
-- **CSS**: Tailwind v4 (no `tailwind.config.*`). Config via `postcss.config.mjs` + CSS `@import`. Use Fumadocs CSS variables (`bg-fd-background`, `text-fd-foreground`, `border-fd-border`, etc.) for theme consistency.
+- **Aliases**: `@/` → `src/`, `@/.source` → `.source/index.ts`.
+- **Components**: Server components by default. Client components: `theme-toggle`, `youtube-player`, `collapsible`, `popover`, `scroll-area`.
+- **CSS**: Tailwind v4 via `postcss.config.mjs`. Fumadocs CSS vars (`bg-fd-background`, `text-fd-foreground`, `border-fd-border`, etc.). No `tailwind.config.*`.
 - **Icons**: `@iconify/react` + `lucide-react`.
-- **Search**: Powered by Orama via Fumadocs `createFromSource`. API route at `src/app/api/search/route.ts`.
+- **Theme**: Dark-only (`defaultTheme: 'dark'`, `enableSystem: false`, hardcoded `dark` class on `<html>`). Theme toggle removed from navbar.
+- **Version badge**: Fetched from `api.github.com/repos/UmmItOS/UmmItOS/tags` at build time via `src/lib/version.ts`. Falls back to `v0.7.0`.
+- **Search**: Orama via Fumadocs `createFromSource`, static type, vim-style `/` hotkey.
 
-## Known issues
+## Stale artifacts
 
-- **`make-flag`** is referenced in `content/docs/meta.json` but has no corresponding file — broken nav link.
-- **`keybinds.mdx`** at `content/docs/ummitos-main/configuration/` is not listed in `meta.json` — orphaned page.
-- `cli.json` is a scaffold artifact (no CLI commands defined).
+- `cli.json` — scaffold artifact, no CLI commands defined.
+- `content/docs/ummitos-main/configuration/keybinds.mdx` — orphaned, not in any `meta.json`.
