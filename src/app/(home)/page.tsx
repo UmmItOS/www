@@ -21,7 +21,7 @@ const features = [
   {
     icon: 'mdi:application-brackets',
     title: 'Curated Software Stack',
-    description: 'Kitty, Nushell, Neovim, Waybar, Rofi, Yazi, Starship, and Swww. Pre-configured and ready to go out of the box.',
+    description: 'Kitty, Zsh, Neovim, Waybar, Rofi, Yazi, Starship, and Swww. Pre-configured and ready to go out of the box.',
   },
   {
     icon: 'mdi:chip',
@@ -218,7 +218,7 @@ export default function HomePage() {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
           {[
             { icon: 'mdi:console', name: 'Kitty' },
-            { icon: 'simple-icons:nushell', name: 'Nushell' },
+            { icon: 'simple-icons:zsh', name: 'Zsh' },
             { icon: 'simple-icons:neovim', name: 'Neovim' },
             { icon: 'mdi:view-dashboard-outline', name: 'Waybar' },
             { icon: 'mdi:search-web', name: 'Rofi' },
