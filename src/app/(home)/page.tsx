@@ -154,6 +154,91 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* One-Command Install */}
+      <section className="py-16 md:py-24 px-4 mx-auto w-full max-w-[var(--fd-layout-width)]">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-normal mb-4" style={{ fontFamily: 'var(--font-eb-garamond)' }}>
+              Get started in one command
+            </h2>
+            <p className="text-fd-muted-foreground/80 max-w-2xl mx-auto">
+              Works on any Arch Linux or EndeavourOS installation.
+            </p>
+          </div>
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-fd-accent/30 via-fd-accent/10 to-fd-accent/30 rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity" />
+            <div className="relative p-1 rounded-2xl bg-fd-border/50">
+              <div className="rounded-xl bg-[#0d1117] text-[#e6edf3] overflow-hidden">
+                <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-white/10">
+                  <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
+                  <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
+                  <div className="w-3 h-3 rounded-full bg-[#27c93f]" />
+                  <span className="ml-2 text-xs text-white/40 font-medium">terminal</span>
+                </div>
+                <div className="px-4 py-3.5">
+                  <code className="text-sm md:text-base font-mono break-all">
+                    <span className="text-[#ff79c6]">$</span>{' '}
+                    <span className="text-[#50fa7b]">bash</span>{' '}
+                    <span className="text-[#f1fa8c]">&lt;(</span>curl
+                    <span className="text-[#f1fa8c]"> -s </span>
+                    https://raw.githubusercontent.com/UmmItKin/Dotfiles/main/setup.sh
+                    <span className="text-[#f1fa8c]">)</span>
+                  </code>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="mt-6 text-center">
+            <Link
+              href="/docs/ummitos-main/Installation"
+              className="inline-flex items-center gap-2 text-sm text-fd-muted-foreground hover:text-fd-foreground transition-colors"
+            >
+              <Icon icon="mdi:information-outline" width={16} height={16} />
+              Learn more about the installation process
+              <Icon icon="mdi:arrow-right" width={16} height={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Software Stack */}
+      <section className="py-16 md:py-24 px-4 mx-auto w-full max-w-[var(--fd-layout-width)]">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-normal mb-4" style={{ fontFamily: 'var(--font-eb-garamond)' }}>
+            Powered by modern tools
+          </h2>
+          <p className="text-fd-muted-foreground/80 max-w-2xl mx-auto">
+            A carefully curated stack of modern applications, pre-configured and ready to use.
+          </p>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+          {[
+            { icon: 'simple-icons:kitty', name: 'Kitty' },
+            { icon: 'simple-icons:nushell', name: 'Nushell' },
+            { icon: 'simple-icons:neovim', name: 'Neovim' },
+            { icon: 'simple-icons:wayland', name: 'Waybar' },
+            { icon: 'mdi:application-outline', name: 'Rofi' },
+            { icon: 'mdi:folder-open-outline', name: 'Yazi' },
+            { icon: 'mdi:star-outline', name: 'Starship' },
+            { icon: 'mdi:image-auto-adjust', name: 'Swww' },
+            { icon: 'mdi:theme-light-dark', name: 'Orchis GTK' },
+            { icon: 'simple-icons:papirus', name: 'Papirus Icons' },
+            { icon: 'mdi:cursor-default-click', name: 'Bibata Cursor' },
+            { icon: 'mdi:pier-crane', name: 'Hyprland' },
+          ].map((tool) => (
+            <div
+              key={tool.name}
+              className="flex items-center gap-3 p-4 rounded-xl border border-fd-border bg-fd-muted/20 hover:bg-fd-accent/10 hover:border-fd-accent-foreground/30 transition-all duration-300"
+            >
+              <div className="w-9 h-9 flex items-center justify-center rounded-lg bg-fd-accent/20 text-fd-accent-foreground shrink-0">
+                <Icon icon={tool.icon} width={20} height={20} />
+              </div>
+              <span className="text-sm font-medium">{tool.name}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Video Preview Section */}
       <section className="py-16 md:py-24 px-4 mx-auto w-full max-w-[var(--fd-layout-width)]">
         <div className="text-center mb-12">
