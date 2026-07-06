@@ -30,12 +30,12 @@ No `test`, `typecheck`, `lint`, or `preview` scripts. TS checks happen during `n
 ## Architecture
 
 - **Aliases**: `@/` → `src/`, `@/.source` → `.source/index.ts`.
-- **Components**: Server components by default. Client components: `theme-toggle`, `youtube-player`, `collapsible`, `popover`, `scroll-area`.
+- **Components**: Server components by default. Files marked `'use client'`: `theme-toggle`, `youtube-player`, `collapsible`, `ui/popover`. `ui/toc-thumb` also runs client-side (uses hooks, no directive — only imported from client contexts). `scroll-area.tsx` uses Radix but has no directive; do not add one without testing.
 - **CSS**: Tailwind v4 via `postcss.config.mjs`. Fumadocs CSS vars (`bg-fd-background`, `text-fd-foreground`, `border-fd-border`, etc.). No `tailwind.config.*`.
 - **Icons**: `@iconify/react` + `lucide-react`.
 - **Theme**: Dark-only (`defaultTheme: 'dark'`, `enableSystem: false`, hardcoded `dark` class on `<html>`). Theme toggle removed from navbar.
 - **Version badge**: Fetched from `api.github.com/repos/UmmItOS/UmmItOS/tags` at build time via `src/lib/version.ts`. Falls back to `v0.7.0`.
-- **Search**: Orama via Fumadocs `createFromSource`, static type, vim-style `/` hotkey.
+- **Search**: Orama via Fumadocs `createFromSource`, `force-static` at `src/app/api/search/route.ts` (English language), vim-style `/` hotkey.
 
 ## Stale artifacts
 
