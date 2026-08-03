@@ -1,5 +1,9 @@
 # deps
 /node_modules
+# non-bun lockfiles (Next may auto-create yarn.lock when installing a missing dep)
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
 
 # generated content
 .contentlayer
