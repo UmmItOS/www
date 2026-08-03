@@ -66,46 +66,95 @@ const quickLinks = [
 export default async function HomePage() {
   const version = await getVersion();
   return (
-    <main className="flex flex-1 flex-col bg-fd-background text-fd-foreground">
+    <main className="flex flex-1 flex-col bg-fd-background text-fd-foreground overflow-x-clip">
       {/* Hero Section */}
-      <section className="relative flex flex-col justify-center py-32 md:py-40 px-4 mx-auto w-full max-w-[var(--fd-layout-width)] overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-fd-accent/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-fd-accent/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="max-w-4xl relative">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 text-sm font-medium text-fd-muted-foreground bg-fd-muted/50 border border-fd-border rounded-full">
-            <Icon icon="mdi:arch" width={16} height={16} />
-            Arch Linux
-            <span className="w-1 h-1 rounded-full bg-fd-muted-foreground/30" />
-            <span className="text-green-400 font-semibold">{version}</span>
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
-            </span>
-          </div>
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-normal mb-8 leading-tight tracking-tight" style={{ fontFamily: 'var(--font-eb-garamond)' }}>
+      <section className="relative flex flex-col justify-center py-24 md:py-32 px-4 mx-auto w-full max-w-[var(--fd-layout-width)]">
+        <div className="absolute -top-40 -right-24 w-[32rem] h-[32rem] bg-[#bb9af7]/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Left: copy */}
+          <div>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 text-sm font-medium text-fd-muted-foreground bg-fd-muted/50 border border-fd-border rounded-full">
+              <Icon icon="mdi:arch" width={16} height={16} />
+              Arch Linux
+              <span className="w-1 h-1 rounded-full bg-fd-muted-foreground/30" />
+              <span className="text-green-400 font-semibold">{version}</span>
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
+              </span>
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal mb-8 leading-tight tracking-tight" style={{ fontFamily: 'var(--font-eb-garamond)' }}>
               Built for power users<br />
               <span className="text-fd-muted-foreground/60">and Purple enthusiasts</span>
             </h1>
-            <p className="text-base md:text-lg text-fd-muted-foreground max-w-3xl mb-12 leading-relaxed">
+            <p className="text-base md:text-lg text-fd-muted-foreground mb-10 leading-relaxed">
               Hong Kong&apos;s first Linux distribution. A fully optimized Arch Linux experience that
               leverages modern tools to streamline your workflow and enhance your productivity.
             </p>
-          <div className="flex flex-wrap gap-4">
-            <Link
-              href="/docs"
-              className="inline-flex items-center justify-center px-10 py-3.5 bg-fd-foreground text-fd-background font-semibold rounded-full hover:opacity-90 transition-all hover:scale-105 shadow-lg"
-            >
-              Read Documentation
-            </Link>
-            <a
-              href="https://github.com/UmmItOS"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-10 py-3.5 border-2 border-fd-border text-fd-foreground font-semibold rounded-full hover:bg-fd-accent hover:border-fd-accent-foreground transition-all"
-            >
-              <Icon icon="mdi:github" width={20} height={20} />
-              GitHub
-            </a>
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="/docs"
+                className="inline-flex items-center justify-center px-10 py-3.5 bg-fd-foreground text-fd-background font-semibold rounded-full hover:opacity-90 transition-all hover:scale-105 shadow-lg"
+              >
+                Read Documentation
+              </Link>
+              <a
+                href="https://github.com/UmmItOS"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-10 py-3.5 border-2 border-fd-border text-fd-foreground font-semibold rounded-full hover:bg-fd-accent hover:border-fd-accent-foreground transition-all"
+              >
+                <Icon icon="mdi:github" width={20} height={20} />
+                GitHub
+              </a>
+            </div>
+          </div>
+
+          {/* Right: ummitfetch-style terminal */}
+          <div className="relative">
+            <div className="absolute -inset-1 bg-[#a78bfa]/10 rounded-2xl blur-2xl opacity-70 pointer-events-none" />
+            <div className="relative rounded-xl border border-fd-border shadow-2xl overflow-hidden font-mono text-sm">
+              <div className="p-5 leading-relaxed text-fd-muted-foreground">
+                <div className="mb-3">
+                  <span className="text-[#a78bfa]">❯</span>{' '}
+                  <span className="text-fd-foreground">ummitfetch</span>
+                </div>
+                <div className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-1">
+                  <pre className="text-[#a78bfa] text-[10px] leading-tight self-start">{`      /\\
+     /  \\
+    /    \\
+   /      \\
+  /   ,,   \\
+ /   |  |   \\
+/_-''    ''-_\\`}</pre>
+                  <div>
+                    <div><span className="text-[#a78bfa] font-semibold">ummit</span>@<span className="text-[#a78bfa] font-semibold">ummitos</span></div>
+                    <div className="text-fd-border">───────────────</div>
+                    <div><span className="text-fd-foreground">OS</span>       UmmItOS {version}</div>
+                    <div><span className="text-fd-foreground">Base</span>     Arch Linux</div>
+                    <div><span className="text-fd-foreground">WM</span>       Hyprland</div>
+                    <div><span className="text-fd-foreground">Shell</span>    zsh + Starship</div>
+                    <div><span className="text-fd-foreground">Term</span>     kitty</div>
+                    <div><span className="text-fd-foreground">Editor</span>   Neovim</div>
+                    <div className="mt-2 flex gap-1">
+                      {[0.2, 0.35, 0.5, 0.65, 0.8, 1].map((o) => (
+                        <span key={o} className="w-4 h-3 rounded-sm bg-[#a78bfa]" style={{ opacity: o }} />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <span className="text-[#a78bfa]">❯</span>{' '}
+                  <span className="inline-block w-2 h-4 align-middle bg-fd-muted-foreground animate-pulse" />
+                </div>
+              </div>
+              {/* Bottom status bar */}
+              <div className="flex items-center gap-2 border-t border-fd-border px-3 py-1.5 text-xs">
+                <span className="text-fd-foreground font-medium">ummit@ummitos</span>
+                <span className="text-[#a78bfa]">~</span>
+                <span className="ml-auto text-fd-muted-foreground">zsh</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -175,22 +224,20 @@ export default async function HomePage() {
             </p>
           </div>
           <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-fd-accent/30 via-fd-accent/10 to-fd-accent/30 rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity" />
-            <div className="relative p-1 rounded-2xl bg-fd-border/50">
-              <div className="rounded-xl bg-[#1a1b26] text-[#a9b1d6] overflow-hidden">
-                <div className="px-4 py-2 border-b border-[#32344a]">
-                  <span className="text-xs font-medium text-[#565f89]">─╼ terminal</span>
-                </div>
-                <div className="px-4 py-3.5">
-                  <code className="text-sm md:text-base font-mono break-all">
-                    <span className="text-[#bb9af7]">❯</span>{' '}
-                    <span className="text-[#9ece6a]">bash</span>{' '}
-                    <span className="text-[#e0af68]">&lt;(</span>curl
-                    <span className="text-[#e0af68]"> -s </span>
-                    https://raw.githubusercontent.com/UmmItOS/UmmItOS/refs/heads/main/install.sh
-                    <span className="text-[#e0af68]">)</span>
-                  </code>
-                </div>
+            <div className="absolute -inset-1 bg-[#a78bfa]/10 rounded-2xl blur-2xl opacity-60 group-hover:opacity-90 transition-opacity pointer-events-none" />
+            <div className="relative rounded-xl bg-fd-card border border-fd-border overflow-hidden text-fd-muted-foreground">
+              <div className="px-4 py-2 border-b border-fd-border">
+                <span className="text-xs font-medium text-fd-muted-foreground">─╼ terminal</span>
+              </div>
+              <div className="px-4 py-3.5">
+                <code className="text-sm md:text-base font-mono break-all">
+                  <span className="text-[#a78bfa]">❯</span>{' '}
+                  <span className="text-fd-foreground">bash</span>{' '}
+                  <span className="text-fd-muted-foreground">&lt;(</span>curl
+                  <span className="text-fd-muted-foreground"> -s </span>
+                  https://raw.githubusercontent.com/UmmItOS/UmmItOS/refs/heads/main/install.sh
+                  <span className="text-fd-muted-foreground">)</span>
+                </code>
               </div>
             </div>
           </div>
