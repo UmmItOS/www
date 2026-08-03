@@ -225,12 +225,9 @@ export default async function HomePage() {
           </div>
           <div className="relative group">
             <div className="absolute -inset-1 bg-[#a78bfa]/10 rounded-2xl blur-2xl opacity-60 group-hover:opacity-90 transition-opacity pointer-events-none" />
-            <div className="relative rounded-xl bg-fd-card border border-fd-border overflow-hidden text-fd-muted-foreground">
-              <div className="px-4 py-2 border-b border-fd-border">
-                <span className="text-xs font-medium text-fd-muted-foreground">─╼ terminal</span>
-              </div>
+            <div className="relative rounded-xl border border-fd-border overflow-hidden text-fd-muted-foreground font-mono">
               <div className="px-4 py-3.5">
-                <code className="text-sm md:text-base font-mono break-all">
+                <code className="text-sm md:text-base break-all">
                   <span className="text-[#a78bfa]">❯</span>{' '}
                   <span className="text-fd-foreground">bash</span>{' '}
                   <span className="text-fd-muted-foreground">&lt;(</span>curl
@@ -238,6 +235,11 @@ export default async function HomePage() {
                   https://raw.githubusercontent.com/UmmItOS/UmmItOS/refs/heads/main/install.sh
                   <span className="text-fd-muted-foreground">)</span>
                 </code>
+              </div>
+              <div className="flex items-center gap-2 border-t border-fd-border px-3 py-1.5 text-xs">
+                <span className="text-fd-foreground font-medium">ummit@ummitos</span>
+                <span className="text-[#a78bfa]">~</span>
+                <span className="ml-auto text-fd-muted-foreground">zsh</span>
               </div>
             </div>
           </div>
