@@ -78,7 +78,7 @@ export default function HomePage() {
     <main className="flex flex-1 flex-col bg-fd-background text-fd-foreground overflow-x-clip">
       {/* Hero Section */}
       <section className="relative flex flex-col justify-center py-24 md:py-32 px-4 mx-auto w-full max-w-[var(--fd-layout-width)]">
-        <div className="absolute -top-40 -right-24 w-[32rem] h-[32rem] bg-[#bb9af7]/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="hidden lg:block absolute -top-40 -right-24 w-[32rem] h-[32rem] bg-[#bb9af7]/15 rounded-full blur-3xl pointer-events-none" />
         <div className="relative grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left: copy */}
           <div>
