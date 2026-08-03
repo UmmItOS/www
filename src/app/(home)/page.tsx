@@ -1,7 +1,17 @@
+import { Suspense } from 'react';
 import Link from 'next/link';
 import { Icon } from '@iconify/react';
 import { YouTubePlayer } from '@/components/youtube-player';
 import { getVersion } from '@/lib/version';
+
+async function VersionText() {
+  const version = await getVersion();
+  return <>{version}</>;
+}
+
+const versionSkeleton = (
+  <span className="inline-block h-3.5 w-11 rounded bg-current/30 blur-[2px] animate-pulse align-middle" />
+);
 
 const features = [
   {
@@ -63,8 +73,7 @@ const quickLinks = [
   },
 ];
 
-export default async function HomePage() {
-  const version = await getVersion();
+export default function HomePage() {
   return (
     <main className="flex flex-1 flex-col bg-fd-background text-fd-foreground overflow-x-clip">
       {/* Hero Section */}
@@ -77,7 +86,9 @@ export default async function HomePage() {
               <Icon icon="mdi:arch" width={16} height={16} />
               Arch Linux
               <span className="w-1 h-1 rounded-full bg-fd-muted-foreground/30" />
-              <span className="text-green-400 font-semibold">{version}</span>
+              <span className="text-green-400 font-semibold">
+                <Suspense fallback={versionSkeleton}><VersionText /></Suspense>
+              </span>
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
@@ -130,7 +141,7 @@ export default async function HomePage() {
                   <div>
                     <div><span className="text-[#a78bfa] font-semibold">ummit</span>@<span className="text-[#a78bfa] font-semibold">ummitos</span></div>
                     <div className="text-fd-border">───────────────</div>
-                    <div><span className="text-fd-foreground">OS</span>       UmmItOS {version}</div>
+                    <div><span className="text-fd-foreground">OS</span>       UmmItOS <Suspense fallback={versionSkeleton}><VersionText /></Suspense></div>
                     <div><span className="text-fd-foreground">Base</span>     Arch Linux</div>
                     <div><span className="text-fd-foreground">WM</span>       Hyprland</div>
                     <div><span className="text-fd-foreground">Shell</span>    zsh + Starship</div>
