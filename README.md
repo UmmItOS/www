@@ -1,12 +1,13 @@
-# UmmIt Docs
+# UmmItOS Docs
 
-This is a Next.js application generated with [Create Fumadocs](https://github.com/fuma-nama/fumadocs).
+Documentation site for [UmmItOS](https://github.com/UmmItOS/UmmItOS) — Hong Kong's first Linux distribution, built on Arch. Next.js + Fumadocs.
 
-## Run development server
+## Development
 
 ```bash
 bun install
-bun run dev
+bun run dev    # http://localhost:3000
+bun run build  # production build (also runs TypeScript checks)
 ```
 
-Open http://localhost:3000 with your browser to see the result.
+Docs content lives in `content/docs/` as MDX. See [AGENTS.md](./AGENTS.md) for the full guide.
