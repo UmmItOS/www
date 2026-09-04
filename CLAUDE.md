@@ -11,6 +11,7 @@ See [AGENTS.md](./AGENTS.md) for the full guide. Key points:
 - **Install**: `bun install` — `postinstall` runs `fumadocs-mdx` to regenerate the gitignored `.source/`. Re-run after any add/rename/delete of MDX content.
 - All scripts inject `NODE_OPTIONS=--no-deprecation` to silence DEP0205 from `fumadocs-mdx` on Node 26+.
 - CI and the Husky pre-commit hook both run `bun run build`; Vercel auto-deploys on push to `master`.
+- TypeScript is v7: `tsconfig.json` must not use `baseUrl`, and all `paths` targets must be relative (`./…`). Adding `baseUrl` back breaks `next build`.
 
 ## Architecture
 
