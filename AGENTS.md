@@ -30,14 +30,13 @@ No `test`, `typecheck`, `lint`, or `preview` scripts. TS checks happen during `n
 ## Architecture
 
 - **Aliases**: `@/` → `src/`, `@/.source` → `.source/index.ts`.
-- **Components**: Server components by default. Files marked `'use client'`: `theme-toggle`, `youtube-player`, `collapsible`, `ui/popover`. `ui/toc-thumb` also runs client-side (uses hooks, no directive — only imported from client contexts). `scroll-area.tsx` uses Radix but has no directive; do not add one without testing.
+- **Components**: Server components by default. Only `src/components/youtube-player.tsx` (`'use client'`) remains; the Fumadocs template scaffold (theme-toggle, collapsible, scroll-area, popover, button, toc-thumb, cn/is-active/merge-refs helpers) was deleted as unused.
 - **CSS**: Tailwind v4 via `postcss.config.mjs`. Fumadocs CSS vars (`bg-fd-background`, `text-fd-foreground`, `border-fd-border`, etc.). No `tailwind.config.*`.
-- **Icons**: `@iconify/react` + `lucide-react`.
-- **Theme**: Dark-only (`defaultTheme: 'dark'`, `enableSystem: false`, hardcoded `dark` class on `<html>`). Theme toggle removed from navbar.
-- **Version badge**: Fetched from `api.github.com/repos/UmmItOS/UmmItOS/tags` at build time via `src/lib/version.ts`. Falls back to `v0.7.0`.
+- **Icons**: `@iconify/react`.
+- **Theme**: Dark-only, hardcoded `dark` class on `<html>` (handled by Fumadocs `RootProvider`). Theme toggle removed from navbar.
+- **Version badge**: Fetched from `api.github.com/repos/UmmItOS/UmmItOS/releases/latest` via `src/lib/version.ts` (1h revalidate), through a `<Suspense>` boundary on the home page. Falls back to `v0.7.0`.
 - **Search**: Orama via Fumadocs `createFromSource`, `force-static` at `src/app/api/search/route.ts` (English language), vim-style `/` hotkey.
 
 ## Stale artifacts
 
-- `cli.json` — scaffold artifact, no CLI commands defined.
 - `content/docs/ummitos-main/configuration/keybinds.mdx` — orphaned, not in any `meta.json`.
