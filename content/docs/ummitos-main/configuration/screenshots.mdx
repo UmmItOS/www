@@ -1,0 +1,28 @@
+---
+title: Screenshots
+description: Set up the screenshot directory
+---
+
+# Screenshots
+
+As of **v1.0.0-rc1**, screenshots are handled by the [Quickshell](/docs/ummitos-main/configuration/quickshell) shell (the old Hyprshot is gone). Captures are copied to the clipboard and saved to disk.
+
+## Keybindings
+
+| Keybinding | Mode |
+|------------|------|
+| `Print` | Full screen |
+| `Shift + Print` | Region |
+| `Super + Print` or `Super + Shift + W` | Active window |
+
+## Screenshot directory
+
+The save location comes from the `HYPRSHOT_DIR` variable in `~/.config/hypr/hyprland/env.lua` (default: `~/Pictures`). Edit it to change where screenshots are stored, for example:
+
+```lua
+env = HYPRSHOT_DIR, /home/username/Pictures/Screenshots
+```
+
+<Callout type="info">Use an absolute path (full path), not a relative one.</Callout>
+
+After changing this path, **relogin to apply the change** — it will not take effect until you do.

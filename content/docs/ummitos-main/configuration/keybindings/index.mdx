@@ -7,6 +7,8 @@ description: Complete guide to UmmItOS keybindings and shortcuts
 
 UmmItOS comes with a comprehensive set of keybindings organized into different categories for optimal workflow efficiency.
 
+<Callout type="info">You can always bring up the in-shell **cheat sheet** with `Super + /`.</Callout>
+
 ## Keybinding Categories
 
 Choose a category below to explore specific keybindings in detail.
@@ -15,26 +17,26 @@ import { Cards, Card } from 'fumadocs-ui/components/card';
 import { Keyboard, Laptop, Package, Settings } from 'lucide-react';
 
 <Cards>
-  <Card 
-    icon={<Settings />} 
-    href="/docs/ummitos/configuration/keybindings/hyprland-builtin" 
+  <Card
+    icon={<Settings />}
+    href="/docs/ummitos-main/configuration/keybindings/hyprland-builtin"
     title="Hyprland Built-in"
   >
-    Hyprland built-in features keybindings
+    Window and workspace management keybindings
   </Card>
-  <Card 
-    icon={<Laptop />} 
-    href="/docs/ummitos/configuration/keybindings/laptop" 
+  <Card
+    icon={<Laptop />}
+    href="/docs/ummitos-main/configuration/keybindings/laptop"
     title="Laptop Controls"
   >
     Mainly for laptop users, but you also can check it out :)
   </Card>
-  <Card 
-    icon={<Package />} 
-    href="/docs/ummitos/configuration/keybindings/common-software" 
+  <Card
+    icon={<Package />}
+    href="/docs/ummitos-main/configuration/keybindings/common-software"
     title="Common Software"
   >
-    Application launchers and third-party tools keybindings
+    App launchers, shell and utility keybindings
   </Card>
 </Cards>
 
@@ -46,12 +48,13 @@ import { Keyboard, Laptop, Package, Settings } from 'lucide-react';
 
 ## Configuration files
 
-All keybindings are configured in the following files:
-- **Launcher Config**: `./configs/hypr/hyprland/launcher.conf`
-- **Keybinds Config**: `./configs/hypr/hyprland/hypr_keybinds.conf`
-- **Laptop Config**: `./configs/hypr/hyprland/laptop.conf`
+Keybindings are defined in the Lua Hyprland modules:
+
 - **Location**: `~/.config/hypr/hyprland/` (after installation)
+- **Keybinds**: `~/.config/hypr/hyprland/*.lua`
+
+<Callout type="info">**As of v1.0.0-rc1**, Hyprland is configured in **Lua** (`.lua`), not the old `.conf` files.</Callout>
 
 ## Applying the changes
 
-Hyprland come with auto reload feature. so you don't need to reload the configuration manually, the result will be shown immediately.
+Hyprland auto-reloads its configuration, so changes take effect immediately without a manual reload.

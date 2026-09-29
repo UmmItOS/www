@@ -1,53 +1,52 @@
 ---
 title: Common Software Keybindings
-description: Application launchers and third-party software shortcuts
+description: App launchers, shell and utility shortcuts
 ---
 
 # Common Software Keybindings
 
-These keybindings provide quick access to applications, utilities, and third-party tools integrated into UmmItOS.
+These keybindings provide quick access to applications, the [Quickshell](/docs/ummitos-main/configuration/quickshell) shell, and utilities integrated into UmmItOS.
 
-These keybindings are defined in:
+Keybindings are defined in the Lua Hyprland modules at `~/.config/hypr/hyprland/*.lua`.
 
-- **Source**: `./configs/hypr/hyprland/launcher.conf`
-
-## Application Launchers
+## Applications
 
 | Keybinding | Application | Description |
 |------------|-------------|-------------|
 | `Super + T` | Terminal (Kitty) | Open terminal emulator |
 | `Super + E` | File Manager (Yazi) | Open file manager in terminal |
-| `Super + Return` | Application Launcher | Open Rofi application launcher |
-| `Super + X` | Logout Menu | Open wlogout with blur background |
-| `Super + L` | Lock Screen | Activate Hyprlock screen locker |
+| `Super + Shift + Return` | Upgrade UmmItOS | Run the UmmItOS update script |
 
-## Utility Tools
-
-| Keybinding | Tool | Description |
-|------------|------|-------------|
-| `Alt + V` | Clipboard Manager | Open cliphist clipboard history |
-| `Alt + W` | Wallpaper Picker | Open wallpaper selection script |
-| `Alt + E` | Emoji Picker | Open Smile emoji selector |
-| `Alt + P` | Color Picker | Open Hyprpicker color picker |
-| `Alt + O` | Woomer | Launch Woomer application |
-
-## System Tools
-
-| Keybinding | Tool | Description |
-|------------|------|-------------|
-| `Super + Shift + Return` | Waybar Update | Run Waybar update script in terminal |
-
-## Screenshot Tools (Hyprshot)
-
-| Keybinding | Mode | Description |
-|------------|------|-------------|
-| `Super + Print Screen` | Window Screenshot | Capture active window |
-| `Print Screen` | Full Screen | Capture entire screen output |
-| `Shift + Print Screen` | Region Screenshot | Select area to capture (with zoom) |
-
-## Window Switching (Hyprswitch)
+## Shell (Quickshell)
 
 | Keybinding | Function | Description |
 |------------|----------|-------------|
-| `Alt + Tab` | Workspace Switcher | Switch between workspaces |
-| `Alt + Shift + Tab` | Window Switcher | Reverse workspace switcher |
+| `Super + Return` | App Launcher | Open the application launcher |
+| `Super + X` | Session Menu | Open the power / session menu |
+| `Super + /` | Cheat Sheet | Show the keybind cheat sheet |
+| `Super + D` | Lecture Pen | Draw and zoom over a frozen screen |
+| `Super + L` | Lock Screen | Lock the session |
+| `Alt + V` | Clipboard | Open the clipboard manager |
+| `Alt + W` | Wallpaper Picker | Open the wallpaper picker |
+| `Alt + Tab` | Switcher | Switch between windows |
+| `Alt + Shift + Tab` | Switcher (reverse) | Switch between windows in reverse |
+
+## Utilities
+
+| Keybinding | Tool | Description |
+|------------|------|-------------|
+| `Alt + E` | Emoji Picker | Open Smile emoji selector |
+| `Alt + P` | Color Picker | Open Hyprpicker color picker |
+| `Alt + O` | Magnifier | Launch Woomer screen magnifier |
+
+## Screenshots & Recording
+
+| Keybinding | Mode | Description |
+|------------|------|-------------|
+| `Print` | Full Screen | Capture entire screen |
+| `Shift + Print` | Region | Select area to capture |
+| `Super + Print` or `Super + Shift + W` | Window | Capture active window |
+| `Super + Shift + R` | Recording | Start / stop screen recording |
+| `Super + Shift + Q` | QR Scanner | Scan a QR code on screen |
+
+<Callout type="info">Screenshots are copied to the clipboard and saved to `HYPRSHOT_DIR` (see [Screenshots](/docs/ummitos-main/configuration/screenshots)).</Callout>

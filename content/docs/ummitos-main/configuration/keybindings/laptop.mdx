@@ -9,9 +9,9 @@ These keybindings are specifically designed for laptop users and provide control
 
 Usually these keys only available on laptop users. but you also can check it out! to use is just press the key you can see on the laptop keybaord, a little icon you can see on the key.
 
-These keybindings are configured in the laptop section of the configuration file:
+These keybindings are configured in the laptop section of the Lua Hyprland modules:
 
-**Location**: `./configs/hypr/hyprland/laptop.conf`
+**Location**: `~/.config/hypr/hyprland/*.lua`
 
 ## Brightness Control
 
@@ -36,18 +36,6 @@ These keybindings are configured in the laptop section of the configuration file
 | `Previous Track` | Previous | Skip to previous track |
 | `Next Track` | Next | Skip to next track |
 
-## Special Functions
-
-This are my custom keybindings for using Ollama instead of Copilot key. 
-
-| Keybinding | Action | Description |
-|------------|---------|-------------|
-| `Alt Right + Copilot` | Launch Ollama | Start Ollama with Llama3.1 model in terminal |
-
-<Callout type="warning">
-**Copilot Key**: This refers to the dedicated Copilot key found on some newer laptops. If your laptop doesn't have this key, you can modify the configuration to use a different key combination or just remote this keybindings.
-</Callout>
-
 ## Required Packages
 
 For these keybindings to work properly, ensure these packages are installed:
@@ -55,7 +43,8 @@ For these keybindings to work properly, ensure these packages are installed:
 | Package | Purpose | Install Command |
 |---------|---------|----------------|
 | `brightnessctl` | Brightness control | `paru -S brightnessctl` |
-| `playerctl` | Media control | `paru -S playerctl` |
+
+<Callout type="info">The installer installs `brightnessctl` automatically when a battery is detected. Volume and media keys are handled by WirePlumber (`wpctl`) / `playerctl`.</Callout>
 
 ## Customization
 

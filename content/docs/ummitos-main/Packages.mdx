@@ -5,57 +5,71 @@ description: Packages list for UmmItOS
 
 ## Overview
 
-UmmItOS provides a list of packages that are installed by default. You can view the list of packages in `install/packages_*`, where all the package names used are listed under `packages_*`.
+UmmItOS installs a curated set of packages by default. The single source of truth is [`install/packages_main`](https://github.com/UmmItOS/UmmItOS/blob/main/install/packages_main) in the repository — the table below is a curated summary.
 
-## Table of packages
+<Callout type="info">**As of v1.0.0-rc1**, a custom [Quickshell](https://quickshell.org/) desktop shell (QML) replaces the old Waybar + Rofi + Swaync + Wlogout + Swww + Hyprlock + Hyprshot stack. It now provides the bar, notifications, launcher, lock screen, wallpaper picker, screenshots and more. See [Desktop Shell](/docs/ummitos-main/configuration/quickshell).</Callout>
 
-| Module Type              | Module Name     | Package Manager |
-|--------------------------|-----------------|-----------------|
-| System Information       | Fastfetch       | Pacman          |
-| Prompt Theme             | Starship        | Pacman          |
-| Terminal Emulator        | Kitty           | Pacman          |
-| Shell                    | Nushell         | Pacman          |
-| Text Editor              | Neovim          | Pacman          |
-| Text Editor              | Vim             | Pacman          |
-| Window Manager           | Hyprland        | Pacman          |
-| XDG Portal               | xdg-desktop-portal-hyprland | Pacman |
-| Power Management         | Wlogout         | AUR             |
-| Status Bar               | Waybar          | Pacman          |
-| Application Launcher     | Rofi            | Pacman          |
-| Wallpaper Engine         | Swww            | Pacman          |
-| Notification Daemon      | Swaync          | Pacman          |
-| Clipboard Utility        | Cliphist        | Pacman          |
-| Clipboard Manager        | Clipmenu        | Pacman          |
-| Screenlock Management    | Hyprlock        | Pacman          |
-| Screenshot Tool          | Hyprshot        | AUR             |
-| Screenshot Tool          | Grim            | Pacman          |
-| Display Manager          | Ly              | Pacman          |
-| Sound Server             | Pipewire        | Pacman          |
-| Audio Control            | Pavucontrol     | Pacman          |
-| Audio Control            | Qjackctl        | Pacman          |
-| Audio Session Manager   | Wireplumber     | Pacman          |
-| Graphics Drivers         | Mesa            | Pacman          |
-| Vulkan Drivers           | Vulkan-radeon   | Pacman          |
-| Image Processing         | ImageMagick     | Pacman          |
-| JSON Processor           | JQ              | Pacman          |
-| File Manager             | Yazi            | Pacman          |
-| AUR Helper               | Paru            | Manually (Git)  |
-| Icon Theme               | Papirus         | Pacman          |
-| GTK Theme                | Orchis          | Pacman          |
-| Cursor Theme             | Bibata          | AUR             |
-| IDLE Management          | Hypridle        | Pacman          |
-| Screen Recorder          | wf-recorder     | Pacman          |
-| Font                     | JetBrains Mono  | Pacman          |
-| Font                     | JetBrains Nerd  | Pacman          |
-| Font                     | Overpass        | Pacman          |
-| Font                     | GNU Free Fonts  | Pacman          |
-| Font                     | Apple font (SF Pro)          | AUR             |
-| Windows Management       | Hyprswitch      | AUR             |
-| Video Player             | MPV             | Pacman          |
-| Emoji Picker             | Smile           | AUR             |
-| Color Picker             | Hyprpicker      | Pacman          |
-| Zoomer                   | Woomer          | AUR             |
-| Brightness Control       | Brightnessctl   | Pacman (Laptop) |
-| Media Control            | Playerctl       | Pacman (Laptop) |
+## Core
 
-and more package... 
+| Module Type            | Package                         | Source          |
+|------------------------|---------------------------------|-----------------|
+| Window Manager         | Hyprland                        | Pacman          |
+| Desktop Shell          | Quickshell (0.3.1)              | AUR             |
+| Idle Management        | hypridle                        | Pacman          |
+| Login Screen           | greetd + cage                   | Pacman/AUR      |
+| XDG Portal             | xdg-desktop-portal-hyprland     | Pacman          |
+
+## Terminal & Shell
+
+| Module Type            | Package                         | Source          |
+|------------------------|---------------------------------|-----------------|
+| Terminal Emulator      | Kitty                           | Pacman          |
+| Shell                  | Zsh + oh-my-zsh                 | Pacman/Git      |
+| Prompt Theme           | Starship                        | Pacman          |
+| Directory Jumper       | zoxide                          | Pacman          |
+| Fuzzy Finder           | fzf                             | Pacman          |
+| System Information     | Fastfetch                       | Pacman          |
+| Text Editor            | Neovim                          | Pacman          |
+| File Manager           | Yazi                            | Pacman          |
+
+## Media & Utilities
+
+| Module Type            | Package                         | Source          |
+|------------------------|---------------------------------|-----------------|
+| Video Player           | mpv                             | Pacman          |
+| Audio Visualizer       | cava                            | Pacman          |
+| Clipboard History      | cliphist                        | Pacman          |
+| Color Picker           | hyprpicker                      | Pacman          |
+| Magnifier / Zoomer     | woomer                          | AUR             |
+| Emoji Picker           | Smile                           | AUR             |
+| Screenshot             | grim                            | Pacman          |
+| Screen Recording       | wl-screenrec                    | AUR             |
+| QR Scanner             | zbar                            | Pacman          |
+
+## System
+
+| Module Type            | Package                         | Source          |
+|------------------------|---------------------------------|-----------------|
+| Sound Server           | PipeWire + WirePlumber          | Pacman          |
+| Network                | NetworkManager                  | Pacman          |
+| Bluetooth              | BlueZ                           | Pacman          |
+| Input Method           | fcitx5                          | Pacman          |
+| AUR Helper             | paru                            | Git             |
+
+## Theming & Fonts
+
+| Module Type            | Package                         | Source          |
+|------------------------|---------------------------------|-----------------|
+| GTK Theme              | Orchis                          | Pacman          |
+| Icon Theme             | Papirus                         | Pacman          |
+| Cursor Theme           | Bibata                          | AUR             |
+| Fonts                  | JetBrains Mono (+ Nerd), Material Symbols, Overpass, SF Pro, WQY Zenhei, Noto Emoji | Pacman/AUR |
+
+## Hardware-specific
+
+| Module Type            | Package                         | Source          |
+|------------------------|---------------------------------|-----------------|
+| GPU (AMD only)         | vulkan-radeon, mesa, xf86-video-amdgpu, lib32 drivers | Pacman |
+| Brightness (laptop)    | brightnessctl                   | Pacman          |
+
+<Callout type="warn">NVIDIA GPUs are not supported. Laptop packages install only when a battery is detected.</Callout>

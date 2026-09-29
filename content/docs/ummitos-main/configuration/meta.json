@@ -3,8 +3,9 @@
   "defaultOpen": true,
   "pages": [
     "index",
+    "quickshell",
     "fastfetch",
-    "hyprshot",
+    "screenshots",
     "keybindings"
   ]
 }

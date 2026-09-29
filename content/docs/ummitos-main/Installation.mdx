@@ -5,55 +5,53 @@ description: Complete installation guide for UmmItOS
 
 ## Overview
 
-UmmItOS provides two ways to install: the quick script and manual installation
+UmmItOS provides two ways to install: the quick setup script and manual installation.
 
-- **Quick Installation**: Use the automated installation script (Recommended)
-- **Manual Installation**: Clone the repository and run the installation script manually (For advanced users who only want to install certain parts of the dotfiles)
+- **Quick Installation**: Use the automated setup script (Recommended)
+- **Manual Installation**: Clone the repository and run the installer yourself (for advanced users who want to install only certain parts)
+
+<Callout type="warn">Do not run `install.sh` directly via `curl`. It sources files from `./install/` using relative paths, so it only works from a cloned repository. Use `setup.sh` (below) or clone the repo first.</Callout>
 
 ## Quick Installation
 
-Quick Installation is the recommended way to install UmmItOS. It will install all the necessary packages and copy the configurations to your system. We also provide a post-install script to help you configure your system.
-
-You can simply run the automated installation script:
+The setup script installs `git` and `paru` if they are missing, clones the repository with submodules, then runs the installer:
 
 ```shell
-bash <(curl -s https://raw.githubusercontent.com/UmmItOS/UmmItOS/refs/heads/main/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/UmmItOS/UmmItOS/main/setup.sh)
 ```
-
-The setup script automatically checks for `git` and `paru` dependencies and installs them if needed, then clones the dotfiles repository and copies configurations to your system.
 
 ### Installation Process
 
-The installation script performs the following steps, **each step is optional and can be skipped individually for modular installation.**
+The installer performs the following steps. **Each step is optional and can be skipped individually for a modular installation.**
 
-1. **Required Packages**: Installs necessary packages for the dotfiles
-2. **GPU Detection**: Automatically detects and installs AMD GPU packages if applicable  
-3. **Laptop Detection**: Installs laptop-specific packages when running on laptop hardware
-4. **Configuration Copy**: Copies all configurations to `~/.config`
-5. **Post-Install Script**: Runs the post-install script to help you configure your system
+1. **Packages**: Installs the required packages via `paru`.
+2. **GPU Detection**: Detects and installs AMD GPU packages (`vulkan-radeon`, `mesa`, `xf86-video-amdgpu`, lib32 drivers) when an AMD card is present.
+3. **Laptop Detection**: Installs `brightnessctl` when a battery is detected.
+4. **oh-my-zsh**: Sets up the Zsh framework.
+5. **Configuration Copy**: Copies configurations to `~/.config` (prompts before overwriting existing files).
+6. **Display Manager**: Replaces GDM with `greetd` running the UmmItOS Quickshell login screen. GDM stays installed but disabled.
+7. **Reboot**: Reboot into your new setup.
 
-<Callout type="info">Package installation uses `paru` as the package manager.</Callout>
+<Callout type="info">UmmItOS supports **AMD GPUs only**; NVIDIA is not supported. Install on Arch Linux and do **not** run the installer as root.</Callout>
 
-## Manual Installation (CLI)
+## Manual Installation
 
-Manual Installation allows you to install UmmItOS manually by cloning the repository and running the installation script yourself.
+Clone the repository with submodules (the submodules include the default wallpapers):
 
 ```shell
-git clone --depth 1 --shallow-submodules --recursive https://github.com/UmmItOS/UmmItOS.git
-cd Dotfiles
-./install.sh
+git clone --recursive https://github.com/UmmItOS/UmmItOS.git
+cd UmmItOS
 ```
 
-<Callout type="info">Cloning with submodules includes the wallpaper repository for default wallpapers.</Callout>
+Then run one of the installers:
 
-The `[y/n]` prompt will ask you to confirm the installation. You can press `y` to confirm the installation or `n` to skip it and follow the steps manually.
-
-## Experimental TUI Installation (Not finish.)
-
-You can try our new Terminal User Interface for a more interactive experience:
-
-```bash
-./install-menu.sh
+```shell
+./install-menu.sh   # Interactive TUI installer
+./install.sh        # CLI installer
 ```
 
-<Callout type="warning">The TUI installation is currently in experimental phase. Copying file still be under development.</Callout>
+The installer prompts before overwriting existing configs, so you can pick which parts to apply.
+
+## First Login
+
+On first login the shell offers optional tuning via the post-install script — see [Post-install](/docs/ummitos-main/Post-install).

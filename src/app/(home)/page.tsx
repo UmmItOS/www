@@ -21,8 +21,8 @@ const features = [
   },
   {
     icon: 'mdi:window-maximize',
-    title: 'Hyprland Window Manager',
-    description: 'Dynamic tiling Wayland compositor pre-configured with the full Hyprland ecosystem: Hyprlock, Hypridle, Hyprshot, and more.',
+    title: 'Hyprland + Quickshell',
+    description: 'Dynamic tiling Wayland compositor paired with a custom Quickshell desktop shell: bar, launcher, notifications, lock screen and more in one integrated interface.',
   },
   {
     icon: 'mdi:rocket-launch',
@@ -32,7 +32,7 @@ const features = [
   {
     icon: 'mdi:application-brackets',
     title: 'Curated Software Stack',
-    description: 'Kitty, Zsh, Neovim, Waybar, Rofi, Yazi, Starship, and Swww. Pre-configured and ready to go out of the box.',
+    description: 'Kitty, Zsh, Neovim, Yazi, Starship, Fastfetch, and the Quickshell shell. Pre-configured and ready to go out of the box.',
   },
   {
     icon: 'mdi:chip',
@@ -243,7 +243,7 @@ export default function HomePage() {
                   <span className="text-fd-foreground">bash</span>{' '}
                   <span className="text-fd-muted-foreground">&lt;(</span>curl
                   <span className="text-fd-muted-foreground"> -s </span>
-                  https://raw.githubusercontent.com/UmmItOS/UmmItOS/refs/heads/main/install.sh
+                  https://raw.githubusercontent.com/UmmItOS/UmmItOS/main/setup.sh
                   <span className="text-fd-muted-foreground">)</span>
                 </code>
               </div>
@@ -279,25 +279,42 @@ export default function HomePage() {
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
           {[
+            { icon: 'mdi:window-maximize', name: 'Hyprland' },
+            { img: '/quickshell.svg', name: 'Quickshell' },
             { icon: 'mdi:console', name: 'Kitty' },
             { icon: 'simple-icons:zsh', name: 'Zsh' },
             { icon: 'simple-icons:neovim', name: 'Neovim' },
-            { icon: 'mdi:view-dashboard-outline', name: 'Waybar' },
-            { icon: 'mdi:search-web', name: 'Rofi' },
             { icon: 'mdi:file-tree', name: 'Yazi' },
             { icon: 'ph:rocket-launch', name: 'Starship' },
-            { icon: 'mdi:wallpaper', name: 'Swww' },
+            { icon: 'mdi:information-outline', name: 'Fastfetch' },
             { icon: 'mdi:theme-light-dark', name: 'Orchis GTK' },
             { icon: 'mdi:palette-swatch-outline', name: 'Papirus Icons' },
             { icon: 'mdi:cursor-default-click', name: 'Bibata Cursor' },
-            { icon: 'mdi:window-maximize', name: 'Hyprland' },
-          ].map((tool) => (
+            { icon: 'mdi:music-note-outline', name: 'Cava' },
+          ].map((tool: { name: string; icon?: string; img?: string }) => (
             <div
               key={tool.name}
               className="flex items-center gap-3 p-4 rounded-xl border border-fd-border bg-fd-muted/20 hover:bg-fd-accent/10 hover:border-fd-accent-foreground/30 transition-all duration-300"
             >
               <div className="w-9 h-9 flex items-center justify-center rounded-lg bg-fd-accent/20 text-fd-accent-foreground shrink-0">
-                <Icon icon={tool.icon} width={20} height={20} />
+                {tool.img ? (
+                  <span
+                    aria-hidden
+                    className="w-5 h-5 bg-current"
+                    style={{
+                      maskImage: `url(${tool.img})`,
+                      WebkitMaskImage: `url(${tool.img})`,
+                      maskSize: 'contain',
+                      WebkitMaskSize: 'contain',
+                      maskRepeat: 'no-repeat',
+                      WebkitMaskRepeat: 'no-repeat',
+                      maskPosition: 'center',
+                      WebkitMaskPosition: 'center',
+                    }}
+                  />
+                ) : (
+                  <Icon icon={tool.icon!} width={20} height={20} />
+                )}
               </div>
               <span className="text-sm font-medium">{tool.name}</span>
             </div>
