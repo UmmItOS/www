@@ -1,13 +1,15 @@
 {
   "title": "UmmItOS",
-  "defaultOpen": false,
+  "defaultOpen": true,
   "pages": [
     "index",
+    "---Install---",
     "Prerequisites",
     "Installation",
     "Post-install",
     "Updating",
     "Packages",
+    "---Configure---",
     "configuration"
   ]
 }
