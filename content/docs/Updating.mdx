@@ -16,14 +16,14 @@ In the shell, **Settings → Update** shows whether the shell is linked and offe
 
 Two Settings pages handle updates without the terminal:
 
-- **Update** — lists pending system updates (checking is manual, via **Check**), runs a full upgrade, and pulls the latest UmmItOS from the linked folder. Pull is disabled while an upgrade is running and times out after 60 seconds.
-- **Packages** — lists the installer packages that are missing on your system and installs them in one click.
+- **Update**: lists pending system updates (checking is manual, via **Check**), runs a full upgrade, and pulls the latest UmmItOS from the linked folder. Pull is disabled while an upgrade is running and times out after 60 seconds.
+- **Packages**: lists the installer packages that are missing on your system and installs them in one click.
 
 After `update.sh` finishes an upgrade in the terminal, it asks whether to return to the shell instead of closing.
 
 ## Clone the repository
 
-Clone with submodules — the wallpapers are a submodule:
+Clone with submodules (the wallpapers are a submodule):
 
 ```shell
 git clone --recursive https://github.com/UmmItOS/UmmItOS ~/UmmItOS
@@ -57,11 +57,11 @@ cd ~/UmmItOS && git pull
 
 …or use **Settings → Update → Pull**.
 
-<Callout type="warn">Do **not** link `~/.config/hypr` — it holds your own values (monitor layout, etc.) and stays a copy. After a `git pull` or branch switch, the running shell can stay on the old code; if it doesn't reload, run the restart command above.</Callout>
+<Callout type="warn">Do **not** link `~/.config/hypr`. It holds your own values (monitor layout, etc.) and stays a copy. After a `git pull` or branch switch, the running shell can stay on the old code; if it doesn't reload, run the restart command above.</Callout>
 
 ## 2. Discord theme (Vesktop + Vencord)
 
-The theme file lives in the repo at `configs/vesktop/themes/ummitos-style.css`. Its title bar reads **UmmItOS**. It is built on [CapnKitten's Material Discord](https://github.com/CapnKitten/BetterDiscord), which it loads from `capnkitten.github.io` at runtime — so Discord needs internet on start.
+The theme file lives in the repo at `configs/vesktop/themes/ummitos-style.css`. Its title bar reads **UmmItOS**. It is built on [CapnKitten's Material Discord](https://github.com/CapnKitten/BetterDiscord), which it loads from `capnkitten.github.io` at runtime, so Discord needs internet on start.
 
 ### Flatpak Vesktop (`dev.vencord.Vesktop`)
 
