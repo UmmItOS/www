@@ -30,6 +30,7 @@ Link the shell config. This replaces the installed copy, so back it up (or remov
 # Only if it is a real folder, not already a link:
 mv ~/.config/quickshell/ummitos ~/.config/quickshell/ummitos.bak
 
+mkdir -p ~/.config/quickshell
 ln -sfn ~/UmmItOS/configs/quickshell ~/.config/quickshell/ummitos
 ```
 
@@ -56,6 +57,7 @@ The theme file lives in the repo at `configs/vesktop/themes/ummitos-style.css`. 
 ### Flatpak Vesktop (`dev.vencord.Vesktop`)
 
 ```shell
+mkdir -p ~/.var/app/dev.vencord.Vesktop/config/vesktop/themes
 ln -sfn ~/UmmItOS/configs/vesktop/themes/ummitos-style.css \
   ~/.var/app/dev.vencord.Vesktop/config/vesktop/themes/ummitos-style.css
 
@@ -70,6 +72,7 @@ flatpak override --user dev.vencord.Vesktop \
 The themes folder is `~/.config/vesktop/themes/` and no override is needed:
 
 ```shell
+mkdir -p ~/.config/vesktop/themes
 ln -sfn ~/UmmItOS/configs/vesktop/themes/ummitos-style.css \
   ~/.config/vesktop/themes/ummitos-style.css
 ```
