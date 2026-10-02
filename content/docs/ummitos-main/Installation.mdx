@@ -17,8 +17,10 @@ UmmItOS provides two ways to install: the quick setup script and manual installa
 The setup script installs `git` and `paru` if they are missing, clones the repository with submodules, then runs the installer:
 
 ```shell
-bash <(curl -s https://raw.githubusercontent.com/UmmItOS/UmmItOS/main/setup.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/UmmItOS/UmmItOS/HEAD/setup.sh)
 ```
+
+<Callout type="info">The default branch was renamed `main` → `master`. `HEAD` always follows the current default branch, so the command above keeps working.</Callout>
 
 ### Installation Process
 

@@ -242,8 +242,8 @@ export default function HomePage() {
                   <span className="text-[#a78bfa]">❯</span>{' '}
                   <span className="text-fd-foreground">bash</span>{' '}
                   <span className="text-fd-muted-foreground">&lt;(</span>curl
-                  <span className="text-fd-muted-foreground"> -s </span>
-                  https://raw.githubusercontent.com/UmmItOS/UmmItOS/main/setup.sh
+                  <span className="text-fd-muted-foreground"> -fsSL </span>
+                  https://raw.githubusercontent.com/UmmItOS/UmmItOS/HEAD/setup.sh
                   <span className="text-fd-muted-foreground">)</span>
                 </code>
               </div>

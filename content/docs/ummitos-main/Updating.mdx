@@ -1,0 +1,81 @@
+---
+title: Staying Updated
+description: Link the desktop shell and Discord theme to a UmmItOS clone so git pull keeps them current
+---
+
+## Why link?
+
+The installer **copies** configs into place, so an installed copy never changes after install. If you instead point your config at a **clone** of the UmmItOS repository with a symbolic link, a single `git pull` keeps things current:
+
+- The **Quickshell** shell updates (and reloads itself).
+- The **Discord theme** updates (after a Vesktop reload).
+
+In the shell, **Settings → Update** shows whether the shell is linked and offers a **Pull** button. If the shell is still a copy, it shows a warning with a **Copy command** button that copies the `ln` command below.
+
+## Clone the repository
+
+Clone with submodules — the wallpapers are a submodule:
+
+```shell
+git clone --recursive https://github.com/UmmItOS/UmmItOS ~/UmmItOS
+```
+
+<Callout type="info">Any folder works; `~/UmmItOS` is just an example used throughout this page.</Callout>
+
+## 1. Quickshell (the desktop shell)
+
+Link the shell config. This replaces the installed copy, so back it up (or remove it) first:
+
+```shell
+# Only if it is a real folder, not already a link:
+mv ~/.config/quickshell/ummitos ~/.config/quickshell/ummitos.bak
+
+ln -sfn ~/UmmItOS/configs/quickshell ~/.config/quickshell/ummitos
+```
+
+Restart the shell once (it starts automatically at login afterwards):
+
+```shell
+qs kill -c ummitos && qs -c ummitos -d
+```
+
+Update later:
+
+```shell
+cd ~/UmmItOS && git pull
+```
+
+…or use **Settings → Update → Pull**.
+
+<Callout type="warn">Do **not** link `~/.config/hypr` — it holds your own values (monitor layout, etc.) and stays a copy. After a `git pull` or branch switch, the running shell can stay on the old code; if it doesn't reload, run the restart command above.</Callout>
+
+## 2. Discord theme (Vesktop + Vencord)
+
+The theme file lives in the repo at `configs/vesktop/themes/ummitos-style.css`. Its title bar reads **UmmItOS**. It is built on [CapnKitten's Material Discord](https://github.com/CapnKitten/BetterDiscord), which it loads from `capnkitten.github.io` at runtime — so Discord needs internet on start.
+
+### Flatpak Vesktop (`dev.vencord.Vesktop`)
+
+```shell
+ln -sfn ~/UmmItOS/configs/vesktop/themes/ummitos-style.css \
+  ~/.var/app/dev.vencord.Vesktop/config/vesktop/themes/ummitos-style.css
+
+flatpak override --user dev.vencord.Vesktop \
+  --filesystem=$HOME/UmmItOS/configs/vesktop/themes:ro
+```
+
+<Callout type="info">Flatpak can't follow a link out of its sandbox without that read-only permission. Grant only the themes folder, not the whole repo.</Callout>
+
+### Native (non-Flatpak) Vesktop
+
+The themes folder is `~/.config/vesktop/themes/` and no override is needed:
+
+```shell
+ln -sfn ~/UmmItOS/configs/vesktop/themes/ummitos-style.css \
+  ~/.config/vesktop/themes/ummitos-style.css
+```
+
+### Enable it
+
+In Vesktop → **Settings → Themes**, tick **UmmItOS Theme**. Turn window transparency **off** (Vencord settings) so it stays solid.
+
+<Callout type="warn">Fully quit and reopen Vesktop the first time so the Flatpak override applies. After later `git pull`s, press `Ctrl+R` to reload the theme.</Callout>

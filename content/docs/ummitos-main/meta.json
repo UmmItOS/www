@@ -3,9 +3,10 @@
   "defaultOpen": false,
   "pages": [
     "index",
-    "Prerequisites", 
+    "Prerequisites",
     "Installation",
     "Post-install",
+    "Updating",
     "Packages",
     "configuration"
   ]
