@@ -17,3 +17,25 @@
   font-style: normal;
   font-display: swap;
 }
+
+/* Sidebar: make the section separators read as clear headers */
+#nd-sidebar p {
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-fd-foreground);
+  opacity: 0.85;
+}
+
+/* Sidebar: lift the link contrast a little for readability */
+#nd-sidebar a {
+  color: var(--color-fd-muted-foreground);
+}
+#nd-sidebar a:hover {
+  color: var(--color-fd-foreground);
+}
+#nd-sidebar a[data-active='true'] {
+  color: var(--color-fd-foreground);
+  font-weight: 600;
+}
