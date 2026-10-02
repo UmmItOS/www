@@ -48,25 +48,25 @@ const features = [
 
 const quickLinks = [
   {
-    href: '/docs/ummitos-main/Installation',
+    href: '/docs/Installation',
     icon: 'mdi:download-outline',
     title: 'Installation',
     description: 'Get UmmItOS up and running',
   },
   {
-    href: '/docs/ummitos-main/configuration',
+    href: '/docs/configuration',
     icon: 'mdi:tune-vertical',
     title: 'Configuration',
     description: 'Customize your environment',
   },
   {
-    href: '/docs/ummitos-main/configuration/keybindings',
+    href: '/docs/configuration/keybindings',
     icon: 'mdi:keyboard-outline',
     title: 'Keybindings',
     description: 'Master the shortcuts',
   },
   {
-    href: '/docs/ummitos-main/Packages',
+    href: '/docs/Packages',
     icon: 'mdi:package-variant-closed',
     title: 'Packages',
     description: 'Included software overview',
@@ -256,7 +256,7 @@ export default function HomePage() {
           </div>
           <div className="mt-6 text-center">
             <Link
-              href="/docs/ummitos-main/Installation"
+              href="/docs/Installation"
               className="inline-flex items-center gap-2 text-sm text-fd-muted-foreground hover:text-fd-foreground transition-colors"
             >
               <Icon icon="mdi:information-outline" width={16} height={16} />
@@ -350,7 +350,7 @@ export default function HomePage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
-              href="/docs/ummitos-main/Installation"
+              href="/docs/Installation"
               className="inline-flex items-center justify-center px-10 py-3.5 bg-fd-foreground text-fd-background font-semibold rounded-full hover:opacity-90 transition-all hover:scale-105 shadow-lg"
             >
               <Icon icon="mdi:download-outline" width={20} height={20} className="mr-2" />

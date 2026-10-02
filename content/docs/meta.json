@@ -1,11 +1,18 @@
 {
   "title": "UmmItOS Documentation",
   "description": "Complete guide to UmmItOS setup and configuration",
-  "icon": "Building",
   "root": true,
-  "defaultOpen": false,
   "pages": [
     "index",
-    "ummitos-main"
+    "Overview",
+    "---Install---",
+    "Prerequisites",
+    "Installation",
+    "Post-install",
+    "Updating",
+    "Packages",
+    "Security",
+    "---Configure---",
+    "configuration"
   ]
 }
