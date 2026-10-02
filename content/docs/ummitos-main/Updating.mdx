@@ -12,6 +12,15 @@ The installer **copies** configs into place, so an installed copy never changes 
 
 In the shell, **Settings → Update** shows whether the shell is linked and offers a **Pull** button. If the shell is still a copy, it shows a warning with a **Copy command** button that copies the `ln` command below.
 
+## From Settings
+
+Two Settings pages handle updates without the terminal:
+
+- **Update** — lists pending system updates (checking is manual, via **Check**), runs a full upgrade, and pulls the latest UmmItOS from the linked folder. Pull is disabled while an upgrade is running and times out after 60 seconds.
+- **Packages** — lists the installer packages that are missing on your system and installs them in one click.
+
+After `update.sh` finishes an upgrade in the terminal, it asks whether to return to the shell instead of closing.
+
 ## Clone the repository
 
 Clone with submodules — the wallpapers are a submodule:

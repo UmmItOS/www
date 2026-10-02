@@ -1,0 +1,26 @@
+---
+title: Security
+description: How the UmmItOS shell handles untrusted text and other user-facing hardening
+---
+
+# Security
+
+The shell went through a full review and security audit for **v1.0.0-rc2**. The user-facing changes:
+
+## Untrusted text
+
+Text that comes from outside — Wi-Fi names, Bluetooth names, page titles, track names, notifications — is shown as plain text. It can't load remote images, so it can't reveal your IP address.
+
+## Notifications
+
+- Notification bodies keep only bold, italic, underline, line breaks, and real links; anything else is stripped.
+- Bodies are cut at 4000 characters, and at most 6 toasts show at once.
+
+## Login screen
+
+The login screen (`greetd`) keeps its cache in `/var/cache/ummitos-greeter`, owned by the greeter user, rather than in `/tmp`.
+
+## IPC
+
+- Setting a wallpaper over IPC only accepts your own wallpapers.
+- QR `mailto:`, `tel:`, and `geo:` links are validated before they open.
