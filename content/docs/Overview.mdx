@@ -3,8 +3,7 @@ title: Overview
 description: UmmItOS is a beautiful Arch Linux distribution with Hyprland
 ---
 
-import { Card, Cards } from 'fumadocs-ui/components/card';
-import { Icon } from '@iconify/react';
+import { RepoCard } from '@/components/repo-card';
 import { YouTubePlayer } from '@/components/youtube-player';
 
 UmmItOS is a GNU/Linux distribution based on Arch Linux and Hyprland, with a custom [Quickshell](https://quickshell.org/) desktop shell plus its config and dotfiles.
@@ -17,15 +16,11 @@ UmmItOS is a GNU/Linux distribution based on Arch Linux and Hyprland, with a cus
 
 ### Repository
 
-<Cards>
-  <Card
-    icon={<Icon icon="mdi:github" />}
-    href="https://github.com/UmmItOS/UmmItOS"
-    title="UmmItOS/UmmItOS"
-  >
-    Source code, installer, and dotfiles on GitHub.
-  </Card>
-</Cards>
+<RepoCard
+  owner="UmmItOS"
+  repo="UmmItOS"
+  description="Source code, installer, and dotfiles on GitHub."
+/>
 
 ## Screenshots / Videos
 
