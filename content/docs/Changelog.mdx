@@ -1,0 +1,43 @@
+---
+title: Changelog
+description: What changed in each UmmItOS release
+---
+
+import { Changelog, Release } from '@/components/changelog';
+
+<Changelog>
+
+<Release version="Upcoming" date="On the development branch" badge="Unreleased">
+Not yet in a tagged release.
+
+- **Activity log** of file changes behind a bar button (see [Security](/docs/Security)).
+- **Privacy** page: clipboard history controls and auto-clear (see [Privacy](/docs/Privacy)).
+- Colourful TUI upgrade script; Settings gains **Bar** and **Privacy** pages.
+- SAO menu (`Super + M`), swappable sound links, an fcitx5 popup theme.
+</Release>
+
+<Release version="v1.0.0-rc2" date="October 1, 2026" badge="Latest">
+The shell now speaks Cantonese and Taiwanese Mandarin, and Settings can update the system.
+
+- **Languages**: English, 廣東話, 台灣華語 — everything the shell draws is translated.
+- **Settings**: Update and Packages pages, with animated page switches.
+- **Wallpaper**: pick the folder random wallpapers come from.
+- **Notifications**: off-workspace "Go there"; missing-program "Open Packages".
+- **Screenshots**: `Print` grabs the full screen instantly.
+- Full code review and security audit.
+</Release>
+
+<Release version="v1.0.0-rc1" date="September 29, 2026" badge="Pre-release">
+The first release candidate — the first Hong Kong Linux distribution.
+
+- Custom **Quickshell** desktop shell replaces Waybar, Rofi, Swww, Hyprlock and more.
+- Hyprland configured in **Lua**.
+- greetd + cage login screen.
+- One-command install via `setup.sh`.
+</Release>
+
+<Release version="v0.7.x" date="Earlier" badge="Legacy">
+Pre-1.0 dotfiles and installer, built around Waybar and Rofi.
+</Release>
+
+</Changelog>
