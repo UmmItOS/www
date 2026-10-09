@@ -62,7 +62,7 @@ export function RepoCard({
       href={`https://github.com/${owner}/${repo}`}
       target="_blank"
       rel="noreferrer noopener"
-      className="group relative my-4 block overflow-hidden rounded-2xl border border-fd-border bg-fd-card p-5 no-underline shadow-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-[#a78bfa]/40 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a78bfa]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-fd-background active:translate-y-0 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+      className="group relative my-4 block overflow-hidden rounded-2xl bg-fd-muted/30 p-5 no-underline transition-colors duration-300 ease-out hover:bg-fd-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a78bfa]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-fd-background"
     >
       {/* atmospheric purple glow, top-right */}
       <span
@@ -71,7 +71,7 @@ export function RepoCard({
       />
 
       <div className="relative flex items-start gap-4">
-        <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-[#a78bfa]/12 text-[#a78bfa] ring-1 ring-inset ring-[#a78bfa]/20">
+        <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-[#a78bfa]/12 text-[#a78bfa]">
           <Icon icon="mdi:github" className="size-6" />
         </span>
 
@@ -86,7 +86,7 @@ export function RepoCard({
         <Icon
           icon="lucide:arrow-up-right"
           aria-hidden
-          className="size-5 shrink-0 text-fd-muted-foreground/60 transition-all duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#a78bfa] motion-reduce:transition-none"
+          className="size-5 shrink-0 text-fd-muted-foreground/60 transition-colors duration-300 ease-out group-hover:text-[#a78bfa]"
         />
       </div>
 
@@ -106,7 +106,7 @@ export function RepoCard({
         )}
 
         {/* always-true fact, no network needed */}
-        <span className="inline-flex items-center gap-1.5 rounded-full border border-fd-border bg-fd-muted/30 px-2.5 py-1 font-medium text-fd-muted-foreground">
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-fd-muted/50 px-2.5 py-1 font-medium text-fd-muted-foreground">
           <Icon icon="lucide:scale" className="size-3.5" aria-hidden />
           GPL-3.0
         </span>
@@ -117,7 +117,7 @@ export function RepoCard({
 
 function Stat({ icon, label }: { icon: string; label: string }) {
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full border border-fd-border bg-fd-muted/30 px-2.5 py-1 font-medium text-fd-foreground">
+    <span className="inline-flex items-center gap-1.5 rounded-full bg-fd-muted/50 px-2.5 py-1 font-medium text-fd-foreground">
       <Icon icon={icon} className="size-3.5 text-[#a78bfa]" aria-hidden />
       {label}
     </span>
