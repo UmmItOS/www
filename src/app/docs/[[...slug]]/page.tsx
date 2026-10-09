@@ -32,38 +32,32 @@ export default async function Page(props: {
           })}
         />
       </DocsBody>
-      <DocsBody>
-        <footer className="mt-16 pt-8 border-t border-fd-border/60">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div className="flex flex-col gap-1.5">
-              <p className="text-sm text-fd-muted-foreground">
-                Found an issue? Help improve this page.
-              </p>
-              <a
-                href={`https://github.com/UmmItOS/www/blob/master/content/docs/${page.path}`}
-                rel="noreferrer noopener"
-                target="_blank"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-fd-muted-foreground hover:text-fd-foreground transition-colors"
-              >
-                <Icon icon="mdi:github" className="w-4 h-4" />
-                Edit on GitHub
-                <Icon icon="lucide:external-link" className="w-3 h-3 opacity-60" />
-              </a>
-            </div>
-            <div className="flex items-center gap-4 text-xs text-fd-muted-foreground">
-              <a href="https://github.com/UmmItOS" target="_blank" rel="noopener noreferrer" className="hover:text-fd-foreground transition-colors">
-                GitHub
-              </a>
-              <span className="w-1 h-1 rounded-full bg-fd-muted-foreground/30" />
-              <a href="https://github.com/UmmItOS/UmmItOS/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" className="hover:text-fd-foreground transition-colors">
-                GPL-3.0
-              </a>
-              <span className="w-1 h-1 rounded-full bg-fd-muted-foreground/30" />
-              <span>© {new Date().getFullYear()} UmmIt Kin</span>
-            </div>
-          </div>
-        </footer>
-      </DocsBody>
+      <footer className="mt-14 border-t border-fd-border/60 pt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <a
+          href={`https://github.com/UmmItOS/www/blob/master/content/docs/${page.path}`}
+          rel="noreferrer noopener"
+          target="_blank"
+          className="group inline-flex items-center gap-2 text-sm font-medium text-fd-muted-foreground hover:text-fd-foreground transition-colors"
+        >
+          <Icon icon="mdi:github" className="w-4 h-4" />
+          Found an issue? Edit this page
+          <Icon
+            icon="lucide:external-link"
+            className="w-3.5 h-3.5 opacity-50 transition-transform group-hover:translate-x-0.5 group-hover:opacity-80"
+          />
+        </a>
+        <div className="flex items-center gap-2.5 text-xs text-fd-muted-foreground">
+          <a href="https://github.com/UmmItOS" target="_blank" rel="noopener noreferrer" className="hover:text-fd-foreground transition-colors">
+            GitHub
+          </a>
+          <span className="h-1 w-1 rounded-full bg-fd-muted-foreground/40" />
+          <a href="https://github.com/UmmItOS/UmmItOS/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" className="hover:text-fd-foreground transition-colors">
+            GPL-3.0
+          </a>
+          <span className="h-1 w-1 rounded-full bg-fd-muted-foreground/40" />
+          <span>© {new Date().getFullYear()} UmmIt Kin</span>
+        </div>
+      </footer>
     </DocsPage>
   );
 }
