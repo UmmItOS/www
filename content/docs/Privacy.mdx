@@ -1,0 +1,30 @@
+---
+title: Privacy
+description: Clipboard history controls and reducing what the desktop leaves behind
+---
+
+# Privacy
+
+<Callout type="info">This page describes features on the development branch, shipping in the next release, not in v1.0.0-rc2.</Callout>
+
+**Settings → Privacy** is about anti-forensics: reducing what the desktop leaves behind. It focuses on the clipboard.
+
+## Clipboard history
+
+- **Save clipboard history** — turn it off and nothing is stored. Turning it off also wipes the saved history and empties the current clipboard.
+- **Clear automatically** — Never, 5 min, 15 min, or 1 hour. A `systemd --user` timer (`ummitos-clipboard-expiry`) is re-armed on every copy and restored after a shell restart.
+- Items the source app marks sensitive (password managers set the clipboard state) are never written to history.
+
+## Clearing
+
+Clearing wipes the history and empties the live clipboard, so nothing stays pasteable. There are three ways to do it:
+
+1. **Settings → Privacy → Clear clipboard now**.
+2. The two-step red button in the `Alt + V` clipboard window — the first click arms it and shows "Clear all?", the second confirms and closes the window.
+3. The automatic timer above.
+
+Each confirms with a shell notice ("Clipboard cleared") and a sound. Settings are stored in `~/.config/ummitos/privacy.conf`.
+
+## What it does and doesn't
+
+This reduces what is left behind; it is not a guarantee against a forensic examiner. Wayland does not tell the shell which app copied, so there are no per-app exclusions beyond the sensitive-state check. `cliphist` keeps a plain database, and deleting entries is not a secure overwrite: SSDs, copy-on-write filesystems, and backups can retain data.
