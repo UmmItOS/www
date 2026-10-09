@@ -3,6 +3,10 @@ title: Overview
 description: UmmItOS is a beautiful Arch Linux distribution with Hyprland
 ---
 
+import { Card, Cards } from 'fumadocs-ui/components/card';
+import { Icon } from '@iconify/react';
+import { YouTubePlayer } from '@/components/youtube-player';
+
 UmmItOS is a GNU/Linux distribution based on Arch Linux and Hyprland, with a custom [Quickshell](https://quickshell.org/) desktop shell plus its config and dotfiles.
 
 ### Current Status
@@ -13,10 +17,20 @@ UmmItOS is a GNU/Linux distribution based on Arch Linux and Hyprland, with a cus
 
 ### Repository
 
-You can view the source code at: [GitHub repository](https://github.com/UmmItOS/UmmItOS)
+<Cards>
+  <Card
+    icon={<Icon icon="mdi:github" />}
+    href="https://github.com/UmmItOS/UmmItOS"
+    title="UmmItOS/UmmItOS"
+  >
+    Source code, installer, and dotfiles on GitHub.
+  </Card>
+</Cards>
 
-## Screenshots/Videos
+## Screenshots / Videos
 
-Take screenshots every few days is really a pain and not impossible. For the most recent video. Please refer to my YouTube video!
+Taking screenshots every few days is a pain, so for the most recent look, here's a video.
 
-[A little Linux ricing video.](https://www.youtube.com/watch?v=kd0elrqV0O0)
+<div className="my-4 overflow-hidden rounded-xl border border-fd-border shadow-lg">
+  <YouTubePlayer videoId="kd0elrqV0O0" title="A little Linux ricing video" />
+</div>
