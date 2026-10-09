@@ -62,16 +62,26 @@ export function RepoCard({
       href={`https://github.com/${owner}/${repo}`}
       target="_blank"
       rel="noreferrer noopener"
-      className="group relative my-4 block overflow-hidden rounded-2xl bg-fd-muted/30 p-5 no-underline transition-colors duration-300 ease-out hover:bg-fd-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a78bfa]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-fd-background"
+      className="group relative my-4 block overflow-hidden rounded-2xl bg-fd-muted/30 p-5 no-underline transition-colors duration-500 ease-out hover:bg-fd-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a78bfa]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-fd-background"
     >
-      {/* atmospheric purple glow, top-right */}
+      {/* persistent gradient sheen for depth */}
       <span
         aria-hidden
-        className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-[#a78bfa]/10 blur-3xl opacity-70 transition-opacity duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#a78bfa]/[0.06] via-transparent to-transparent"
+      />
+      {/* atmospheric purple glow, top-right — grows and brightens on hover */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute -right-20 -top-20 h-48 w-48 rounded-full bg-[#a78bfa]/10 blur-3xl opacity-60 transition-all duration-700 ease-out group-hover:scale-125 group-hover:bg-[#a78bfa]/20 group-hover:opacity-100 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+      />
+      {/* second glow, bottom-left — fades in on hover */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute -bottom-24 -left-16 h-48 w-48 rounded-full bg-[#7aa2f7]/10 blur-3xl opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-70"
       />
 
       <div className="relative flex items-start gap-4">
-        <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-[#a78bfa]/12 text-[#a78bfa]">
+        <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-[#a78bfa]/12 text-[#a78bfa] shadow-[0_0_0_0_rgba(167,139,250,0)] transition-all duration-500 ease-out group-hover:bg-[#a78bfa]/20 group-hover:shadow-[0_0_20px_0_rgba(167,139,250,0.35)]">
           <Icon icon="mdi:github" className="size-6" />
         </span>
 
@@ -86,7 +96,7 @@ export function RepoCard({
         <Icon
           icon="lucide:arrow-up-right"
           aria-hidden
-          className="size-5 shrink-0 text-fd-muted-foreground/60 transition-colors duration-300 ease-out group-hover:text-[#a78bfa]"
+          className="size-5 shrink-0 text-fd-muted-foreground/60 transition-colors duration-500 ease-out group-hover:text-[#a78bfa]"
         />
       </div>
 
