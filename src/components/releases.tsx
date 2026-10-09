@@ -12,15 +12,16 @@ function fmtDate(iso: string): string {
   });
 }
 
-// Everything before the first markdown heading = the release summary line.
-function splitBody(body: string): { summary: string; rest: string } {
-  const lines = body.replace(/\r\n/g, '\n').split('\n');
-  const headingAt = lines.findIndex((l) => /^#{1,6}\s/.test(l.trim()));
-  if (headingAt === -1) return { summary: body.trim(), rest: '' };
-  return {
-    summary: lines.slice(0, headingAt).join('\n').trim(),
-    rest: lines.slice(headingAt).join('\n').trim(),
-  };
+// A one-line teaser: the first plain-prose paragraph (not a heading, list or table).
+function teaser(body: string): string {
+  const paras = body.replace(/\r\n/g, '\n').split(/\n\s*\n/);
+  for (const p of paras) {
+    const t = p.trim();
+    if (t && !/^#{1,6}\s/.test(t) && !/^[-*>|]/.test(t) && !/^\d+\.\s/.test(t)) {
+      return t.replace(/\s+/g, ' ');
+    }
+  }
+  return '';
 }
 
 export async function Releases() {
@@ -50,7 +51,8 @@ export async function Releases() {
       {releases.map((r) => {
         const isLatest = r.tag === latestTag;
         const badge = isLatest ? 'Latest' : r.prerelease ? 'Pre-release' : null;
-        const { summary, rest } = splitBody(r.body);
+        const summary = teaser(r.body);
+        const hasNotes = r.body.trim().length > 0;
 
         return (
           <section key={r.tag} className="relative pb-10 last:pb-0">
@@ -94,7 +96,7 @@ export async function Releases() {
               </div>
             )}
 
-            {rest && (
+            {hasNotes && (
               <details className="group mt-2">
                 <summary className="inline-flex cursor-pointer select-none items-center gap-1 text-xs font-medium text-fd-muted-foreground transition-colors hover:text-fd-foreground">
                   <span className="transition-transform group-open:rotate-90">▸</span>
@@ -102,7 +104,7 @@ export async function Releases() {
                   <span className="hidden group-open:inline">Hide full notes</span>
                 </summary>
                 <div className="mt-3 rounded-xl bg-fd-muted/30 p-4 text-sm [&_a]:text-[color:var(--accent)] [&_a]:underline [&_h2]:mt-4 [&_h2]:text-base [&_h3]:mt-3 [&_h3]:text-sm [&_h3]:font-semibold [&_li]:my-0.5 [&_ul]:my-2 [&_ul]:list-disc [&_ul]:pl-5" style={{ ['--accent' as string]: ACCENT }}>
-                  <Markdown remarkPlugins={[remarkGfm]}>{rest}</Markdown>
+                  <Markdown remarkPlugins={[remarkGfm]}>{r.body}</Markdown>
                 </div>
               </details>
             )}
