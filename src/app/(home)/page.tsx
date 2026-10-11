@@ -368,27 +368,87 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-10 px-4 border-t border-fd-border">
-        <div className="mx-auto max-w-[var(--fd-layout-width)] flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-fd-muted-foreground">
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
-            <span className="font-semibold text-fd-foreground">UmmItOS</span>
-            <span className="w-1 h-1 rounded-full bg-fd-muted-foreground/30" />
-            <span>Since 2023</span>
-            <span className="w-1 h-1 rounded-full bg-fd-muted-foreground/30" />
-            <span>© 2023–{new Date().getFullYear()} UmmIt Kin</span>
-            <span className="w-1 h-1 rounded-full bg-fd-muted-foreground/30" />
-            <a href="https://github.com/UmmItOS/UmmItOS/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" className="hover:text-fd-foreground transition-colors">
-              GPL-3.0
-            </a>
+      <footer className="relative overflow-hidden border-t border-fd-border/60 px-4 pt-16 pb-10">
+        {/* faint brand wordmark + glow for presence */}
+        <span
+          aria-hidden
+          className="pointer-events-none absolute -bottom-20 right-4 select-none text-[9rem] font-semibold leading-none text-fd-foreground/[0.03] sm:text-[13rem]"
+          style={{ fontFamily: 'var(--font-eb-garamond)' }}
+        >
+          UmmItOS
+        </span>
+        <span
+          aria-hidden
+          className="pointer-events-none absolute -top-24 left-1/4 h-72 w-72 rounded-full bg-[#a78bfa]/10 blur-3xl"
+        />
+
+        <div className="relative mx-auto max-w-[var(--fd-layout-width)]">
+          <div className="flex flex-col gap-12 md:flex-row md:justify-between">
+            {/* brand */}
+            <div className="max-w-sm">
+              <div className="flex items-center gap-2.5">
+                <Icon icon="mdi:arch" width={28} height={28} className="text-[#a78bfa]" />
+                <span className="text-2xl" style={{ fontFamily: 'var(--font-eb-garamond)' }}>
+                  UmmItOS
+                </span>
+              </div>
+              <p className="mt-4 text-sm leading-relaxed text-fd-muted-foreground">
+                Hong Kong&apos;s first Linux distribution. A fully optimized Arch Linux and Hyprland
+                setup, crafted since 2023.
+              </p>
+            </div>
+
+            {/* link columns */}
+            <div className="grid grid-cols-2 gap-10 text-sm sm:gap-20">
+              <div>
+                <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-fd-muted-foreground/70">
+                  Project
+                </h3>
+                <ul className="space-y-2.5">
+                  {[
+                    ['GitHub', 'https://github.com/UmmItOS/UmmItOS'],
+                    ['Releases', 'https://github.com/UmmItOS/UmmItOS/releases'],
+                    ['Issues', 'https://github.com/UmmItOS/UmmItOS/issues'],
+                  ].map(([label, href]) => (
+                    <li key={label}>
+                      <a href={href} target="_blank" rel="noopener noreferrer" className="text-fd-muted-foreground transition-colors hover:text-fd-foreground">
+                        {label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-fd-muted-foreground/70">
+                  Docs
+                </h3>
+                <ul className="space-y-2.5">
+                  {[
+                    ['Installation', '/docs/Installation'],
+                    ['Configuration', '/docs/configuration'],
+                    ['Changelog', '/docs/Changelog'],
+                  ].map(([label, href]) => (
+                    <li key={label}>
+                      <Link href={href} className="text-fd-muted-foreground transition-colors hover:text-fd-foreground">
+                        {label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
-          <div className="flex items-center gap-4">
-            <a href="https://github.com/UmmItOS" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-fd-foreground transition-colors">
-              <Icon icon="mdi:github" width={16} height={16} />
-              GitHub
-            </a>
-            <a href="https://docs.ummit.dev" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-fd-foreground transition-colors">
-              <Icon icon="mdi:book-open-outline" width={16} height={16} />
-              Docs
+
+          {/* bottom bar */}
+          <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-fd-border/60 pt-6 text-xs text-fd-muted-foreground sm:flex-row">
+            <span>© 2023–{new Date().getFullYear()} UmmIt Kin · Since 2023</span>
+            <a
+              href="https://github.com/UmmItOS/UmmItOS/blob/main/LICENSE"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-fd-foreground"
+            >
+              GPL-3.0 licensed
             </a>
           </div>
         </div>
