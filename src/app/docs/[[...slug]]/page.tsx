@@ -55,7 +55,7 @@ export default async function Page(props: {
             GPL-3.0
           </a>
           <span className="h-1 w-1 rounded-full bg-fd-muted-foreground/40" />
-          <span>© {new Date().getFullYear()} UmmIt Kin</span>
+          <span>© 2023–{new Date().getFullYear()} UmmIt Kin</span>
         </div>
       </footer>
     </DocsPage>

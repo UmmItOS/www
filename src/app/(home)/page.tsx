@@ -370,8 +370,12 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="py-10 px-4 border-t border-fd-border">
         <div className="mx-auto max-w-[var(--fd-layout-width)] flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-fd-muted-foreground">
-          <div className="flex items-center gap-3">
-            <span>© {new Date().getFullYear()} UmmIt Kin</span>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+            <span className="font-semibold text-fd-foreground">UmmItOS</span>
+            <span className="w-1 h-1 rounded-full bg-fd-muted-foreground/30" />
+            <span>Since 2023</span>
+            <span className="w-1 h-1 rounded-full bg-fd-muted-foreground/30" />
+            <span>© 2023–{new Date().getFullYear()} UmmIt Kin</span>
             <span className="w-1 h-1 rounded-full bg-fd-muted-foreground/30" />
             <a href="https://github.com/UmmItOS/UmmItOS/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" className="hover:text-fd-foreground transition-colors">
               GPL-3.0
