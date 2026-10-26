@@ -336,7 +336,7 @@ export default function HomePage() {
         </div>
         <div className="max-w-5xl mx-auto">
           <div className="rounded-2xl overflow-hidden shadow-2xl border border-fd-border">
-            <YouTubePlayer videoId="kd0elrqV0O0" title="UmmItOS Demo" />
+            <YouTubePlayer videoId="ITKYDWOhhhE" title="UmmItOS Demo" />
           </div>
         </div>
       </section>
