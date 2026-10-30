@@ -19,7 +19,30 @@ Two Settings pages handle updates without the terminal:
 - **Update**: lists pending system updates (checking is manual, via **Check**), runs a full upgrade, and pulls the latest UmmItOS from the linked folder. Pull is disabled while an upgrade is running and times out after 60 seconds.
 - **Packages**: lists the installer packages that are missing on your system and installs them in one click.
 
-After `update.sh` finishes an upgrade in the terminal, it asks whether to return to the shell instead of closing.
+## The upgrade TUI
+
+Run it with `Super + Shift + Return`, the bar's update button, or `update.sh` directly. The bar button wears a dot while updates are waiting. It is a colour terminal interface:
+
+- An **Arch news box** at the top shows the five newest items from the [Arch Linux news feed](https://archlinux.org/feeds/news/). Each row is a clickable link, and the box caches the feed for 30 minutes.
+- **Pacman and AUR are separate steps.** Tick the steps to run, then press `y` on a row to give that step auto-yes. Pacman can still prompt you while the AUR step runs unattended.
+- When it finishes, a **Status box** reports this run and the one before it, how many packages were upgraded, added, and removed, what is still waiting, and whether a reboot is due for a new kernel.
+
+After an upgrade, it asks whether to return to the shell instead of closing.
+
+The shell also checks for Arch news a while after login and every few hours. A new item from the past week is sent once as a critical notice.
+
+## Health check
+
+Press `Super + H` to run a health check (`doctor.sh`). It reports, without changing anything, whether:
+
+- the repo and its submodules are present,
+- the shell is linked to the repo and loaded cleanly,
+- `~/script` and `shortcuts.lua` match the repo,
+- packages, the input method, dotfiles, autostart, and services are in order.
+
+The only repair it makes is `doctor.sh --fix scripts`, which copies the repo's scripts to `~/script`. It also runs once quietly at shell start and sends a notice only on a failure.
+
+<Callout type="info">Run the health check first after a `git pull` on another machine, to catch anything the pull left out of step.</Callout>
 
 ## Clone the repository
 
