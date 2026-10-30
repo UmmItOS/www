@@ -73,6 +73,9 @@ const quickLinks = [
   },
 ];
 
+// Frozen at build time for the statically prerendered page.
+const BUILD_TIME = new Date().toISOString().slice(0, 16).replace('T', ' ') + ' UTC';
+
 export default function HomePage() {
   return (
     <main className="flex flex-1 flex-col bg-fd-background text-fd-foreground overflow-x-clip">
@@ -378,6 +381,8 @@ export default function HomePage() {
             <a href="https://github.com/UmmItOS/UmmItOS/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" className="hover:text-fd-foreground transition-colors">
               GPL-3.0
             </a>
+            <span className="w-1 h-1 rounded-full bg-fd-muted-foreground/30" />
+            <span className="text-fd-muted-foreground/70">Built {BUILD_TIME}</span>
           </div>
           <div className="flex items-center gap-4">
             <a href="https://github.com/UmmItOS" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-fd-foreground transition-colors">
