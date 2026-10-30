@@ -31,6 +31,15 @@ The login screen (`greetd`) keeps its cache in `/var/cache/ummitos-greeter`, own
 
 A bar button keeps a lightweight, blue-team style log of file changes in a folder you choose. A live label on the bar shows the latest change (`+` new, `~` changed, `−` deleted, `→` moved) and fades after 6 seconds.
 
+import { Video } from '@/components/video';
+
+<Video
+  mp4="/ummitos-filewatch.mp4"
+  webm="/ummitos-filewatch.webm"
+  poster="/ummitos-filewatch-poster.jpg"
+  caption="The file-change flyout from the bar."
+/>
+
 The **File changes** flyout keeps the last 100 events, newest first: an icon per type (deletes in red), the file name, its folder, and a relative time (just now, N min / h / d ago). Click a row to open its folder. Repeated changes to one path within 2 seconds merge into a single row. The log is written to the shell's state directory (`file-changes.json`), so it survives shell reloads and logins.
 
 Turn it on and pick the folder in **Settings → Bar** ("Folder to watch": a full path or `~`, Enter to save; empty watches the shell's own repo; a missing folder is refused). The setting is stored in `~/.config/ummitos/bar.conf`.
