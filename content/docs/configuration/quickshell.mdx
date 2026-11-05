@@ -35,8 +35,8 @@ Everything below is drawn by the Quickshell shell:
 - **Battery usage**: `Super + B`
 - **Health check**: `Super + H`
 - **Picture converter**: `Super + I`
-- **Displays**: single, duplicate, or extend (`Super + P`)
-- **Desktop menu**: right-click the empty desktop
+- **Displays**: this screen only, duplicate, extend, or second screen only (`Super + P`, or **Displays…** in the desktop menu). The change is live only and reverts after 15 seconds unless you keep it
+- **Desktop menu**: right-click the empty desktop for Displays…, Wallpaper…, Settings, and switches for the weather card, now playing, the "Activate Linux" joke, and the FPS counter
 - **Screenshot tool**: region, window, or full screen
 - **Screen recording dialog**: `Super + Shift + R`
 - **Lecture pen**: draw and zoom over a frozen screen (`Super + D`)
@@ -46,6 +46,12 @@ Everything below is drawn by the Quickshell shell:
 - **Desktop cards**: weather and now-playing
 - **FPS counter**, off by default
 - Copy notices and a charging ripple
+
+## Keyboard
+
+Flyouts, the desktop menu and the Displays chooser work from the keyboard: Up, Down and Tab move a visible focus bar, Return or Space activates. Escape closes a flyout or the desktop menu.
+
+<Callout type="info">Newer than **v1.4.2** and not yet in a release (on the `master` branch): the desktop right-click menu, the Displays chooser (`Super + P`), the Wallpaper… drawer, the lock-screen music spectrum, and keyboard control of flyouts.</Callout>
 
 ## Accent colour
 
@@ -57,7 +63,12 @@ You can pick the shell's accent colour from its flyout.
 
 ## Wallpaper
 
-Pick the folder that random wallpapers are drawn from: right-click the bar's wallpaper button, or use **Shuffle from here** inside a folder in the picker (`Alt + W`). A small dot on the button means the shuffle is limited to one folder.
+There are two pickers:
+
+- **Alt + W** opens the keyboard carousel.
+- **Wallpaper…** in the desktop right-click menu opens a mouse-first drawer on the right edge, with folder chips, named thumbnails, a check badge on the current picture, and a Shuffle button per folder. The desktop stays in view so you can preview a picture by hovering it.
+
+Pick the folder that random wallpapers are drawn from: right-click the bar's wallpaper button, or use **Shuffle from here** inside a folder in the carousel. A small dot on the button means the shuffle is limited to one folder.
 
 ## Notifications
 
@@ -75,7 +86,7 @@ The dashboard, from the clock: calendar, now-playing, system gauges, and workspa
   caption="The dashboard."
 />
 
-The lock screen, with the weather and now-playing cards. A wrong password twice raises an intruder warning.
+The lock screen shows the weather card at the top left. While something plays, the now-playing card sits at the foot of the screen with its controls, and a music spectrum, coloured from the accent, plays behind the clock (hidden when reduce motion is on). A wrong password twice raises an intruder warning.
 
 <Video
   mp4="/ummitos-lock.mp4"
