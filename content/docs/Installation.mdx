@@ -1,58 +1,32 @@
 ---
 title: Installation
-description: Complete installation guide for UmmItOS
+description: Install UmmItOS with the install-menu.sh checklist
 ---
 
-## Overview
+## Before you start
 
-UmmItOS provides two ways to install: the quick setup script and manual installation.
+Check the [Prerequisites](/docs/Prerequisites): Arch Linux, a normal user (not root), and an AMD GPU.
 
-- **Quick Installation**: Use the automated setup script (Recommended)
-- **Manual Installation**: Clone the repository and run the installer yourself (for advanced users who want to install only certain parts)
+## Install
 
-<Callout type="warn">Do not run `install.sh` directly via `curl`. It sources files from `./install/` using relative paths, so it only works from a cloned repository. Use `setup.sh` (below) or clone the repo first.</Callout>
-
-## Quick Installation
-
-The setup script installs `git` and `paru` if they are missing, clones the repository with submodules, then runs the installer:
-
-```shell
-bash <(curl -fsSL https://raw.githubusercontent.com/UmmItOS/UmmItOS/HEAD/setup.sh)
-```
-
-<Callout type="info">The default branch was renamed `main` → `master`. `HEAD` always follows the current default branch, so the command above keeps working.</Callout>
-
-### Installation Process
-
-The installer performs the following steps. **Each step is optional and can be skipped individually for a modular installation.**
-
-1. **Packages**: Installs the required packages via `paru`.
-2. **GPU Detection**: Detects and installs AMD GPU packages (`vulkan-radeon`, `mesa`, `xf86-video-amdgpu`, lib32 drivers) when an AMD card is present.
-3. **Laptop Detection**: Installs `brightnessctl` when a battery is detected.
-4. **oh-my-zsh**: Sets up the Zsh framework.
-5. **Configuration Copy**: Copies configurations to `~/.config` (prompts before overwriting existing files).
-6. **Display Manager**: Replaces GDM with `greetd` running the UmmItOS Quickshell login screen. GDM stays installed but disabled.
-7. **Reboot**: Reboot into your new setup.
-
-<Callout type="info">UmmItOS supports **AMD GPUs only**; NVIDIA is not supported. Install on Arch Linux and do **not** run the installer as root.</Callout>
-
-## Manual Installation
-
-Clone the repository with submodules (the submodules include the default wallpapers):
+Clone the repository with its submodules (the submodules include the default wallpapers), then run the installer:
 
 ```shell
 git clone --recursive https://github.com/UmmItOS/UmmItOS.git
 cd UmmItOS
+./install-menu.sh
 ```
 
-Then run one of the installers:
+`install-menu.sh` is the only installer. It opens a checklist in the terminal: tick the steps you want and they run one after another.
 
-```shell
-./install-menu.sh   # Interactive TUI installer
-./install.sh        # CLI installer
-```
+1. **Packages**: installs the UmmItOS packages with `paru`.
+2. **GPU drivers**: installs the AMD GPU packages when an AMD card is present.
+3. **Laptop extras**: installs laptop tools when a battery is detected.
+4. **oh-my-zsh**: sets up the Zsh framework.
+5. **Dotfiles**: copies the configs into `~/.config`.
+6. **Login screen**: replaces GDM with `greetd` running the UmmItOS login screen.
 
-The installer prompts before overwriting existing configs, so you can pick which parts to apply.
+When the last step finishes, a results screen shows how each one went. **Reboot** to start the new desktop.
 
 import { Shot } from '@/components/shot';
 
@@ -62,6 +36,6 @@ import { Shot } from '@/components/shot';
   caption="The install-menu.sh checklist. Every step is optional."
 />
 
-## First Login
+## After the reboot
 
-On first login the shell offers optional tuning via the post-install script. See [Post-install](/docs/Post-install).
+Optional tuning (monitor mode and similar) runs inside the desktop. See [Post-install](/docs/Post-install).

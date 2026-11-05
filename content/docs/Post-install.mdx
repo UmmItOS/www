@@ -5,27 +5,20 @@ description: Post-installation setup and configuration guide
 
 ## Post-install
 
-After you finish the installation, you can run our post-install script to help you configure your system. Navigate back to the directory where you installed the dotfiles and run the following command:
+After the installer finishes and you reboot, `post-install.sh` is an optional tuning pass for your user (monitor mode and similar). Run it from a terminal **inside the desktop**, in the folder you cloned UmmItOS into.
 
-```shell
-./post-install.sh
-```
-
-For the --help option, you can see the following:
+The `--help` option shows:
 
 ```shell
 ❯ ./post-install.sh --help
-Usage: post-install.sh [command]
+Usage: ./post-install.sh [command]
 
-A script to guide through post-installation configuration for UmmIt OS and Dotfiles,
-and to display current setting :)
+Tunes UmmItOS after the first login and shows what is set.
 
 Commands:
-  --start-config   Run the interactive post-installation configuration setup.
-  --settings       Show current detected settings without making changes.
-  --help           Show this help message.
-
-If no command is provided, this help message will be shown.
+  --start-config   Pick what to tune, step by step.
+  --settings       Show the current settings, change nothing.
+  --help           Show this help.
 ```
 
 for the --start-config option you can see the following:
