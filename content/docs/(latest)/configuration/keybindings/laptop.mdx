@@ -66,14 +66,17 @@ To modify laptop-specific keybindings:
 
 ### Example Custom Configuration
 
-```shell
-# Custom brightness control (5% increments)
-bind = , XF86MonBrightnessUp, exec, brightnessctl set +5%
-bind = , XF86MonBrightnessDown, exec, brightnessctl set 5%-
+```lua
+-- In ~/.config/hypr/hyprland/media-keys.lua, change the existing lines.
+-- bind() is defined at the top of that file and adds the cheat sheet entry.
 
-# Custom volume control (2% increments)
-bindel = , XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+
-bindel = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-
+-- Brightness in 5% steps
+bind("XF86MonBrightnessUp", "brightnessctl set +5% && qs -c ummitos ipc call osd brightness", "Increase screen brightness")
+bind("XF86MonBrightnessDown", "brightnessctl set 5%- && qs -c ummitos ipc call osd brightness", "Decrease screen brightness")
+
+-- Volume in 2% steps
+bind("XF86AudioRaiseVolume", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+", "Increase volume", { repeating = true, locked = true })
+bind("XF86AudioLowerVolume", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-", "Decrease volume", { repeating = true, locked = true })
 ```
 
 <Callout type="success">

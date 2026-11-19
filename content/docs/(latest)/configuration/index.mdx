@@ -30,7 +30,7 @@ import { Terminal, Camera, LayoutDashboard, Keyboard } from 'lucide-react';
     href="/docs/configuration/screenshots"
     title="Screenshots"
   >
-    Set up the screenshot directory
+    Set where screenshots are saved
   </Card>
   <Card
     icon={<Keyboard />}
@@ -47,7 +47,7 @@ All UmmItOS configuration files live in:
 
 - **Main config**: `~/.config/` (all application configs)
 - **Hyprland**: `~/.config/hypr/hyprland.lua` plus the `~/.config/hypr/hyprland/*.lua` modules
-- **Shell settings**: `~/.config/ummitos/` — `recording.conf`, and (on the development branch) `privacy.conf`, `bar.conf`, plus a `sounds/` folder of swappable sound links
+- **Shell settings**: `~/.config/ummitos/` holds `recording.conf`, `screenshot.conf`, `desktop.conf`, `bar.conf`, `privacy.conf`, plus a `sounds/` folder of swappable sound links. The Settings panel writes them
 
 <Callout type="info">**As of v1.0.0-rc1**, Hyprland is configured in **Lua** (`hyprland.lua` and `hyprland/*.lua` modules), not the old `hyprland.conf`.</Callout>
 

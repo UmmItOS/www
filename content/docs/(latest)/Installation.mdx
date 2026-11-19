@@ -19,12 +19,12 @@ cd UmmItOS
 
 `install-menu.sh` is the only installer. It opens a checklist in the terminal: tick the steps you want and they run one after another.
 
-1. **Packages**: installs the UmmItOS packages with `paru`.
-2. **GPU drivers**: installs the AMD GPU packages when an AMD card is present.
-3. **Laptop extras**: installs laptop tools when a battery is detected.
+1. **Main packages**: installs the UmmItOS packages with `paru`, then enables Bluetooth and NetworkManager.
+2. **GPU packages**: installs the AMD GPU packages when an AMD card is present.
+3. **Laptop packages**: installs laptop tools when a battery is detected.
 4. **oh-my-zsh**: sets up the Zsh framework.
 5. **Dotfiles**: copies the configs into `~/.config`.
-6. **Login screen**: replaces GDM with `greetd` running the UmmItOS login screen.
+6. **Login screen**: installs `greetd` with the UmmItOS login screen and, if you agree, makes it the login manager in place of GDM. GDM stays installed, so you can go back.
 
 <Callout type="info">The repository also has `setup.sh`. It offers to install `git` and `paru` if they are missing, clones the repository with its submodules, then offers to run `install-menu.sh`.</Callout>
 

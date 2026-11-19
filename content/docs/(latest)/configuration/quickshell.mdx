@@ -20,7 +20,7 @@ import { Video } from '@/components/video';
 
 Everything below is drawn by the Quickshell shell:
 
-- **Bar**: top panel with workspaces, status, and system info
+- **Bar**: top panel with workspaces, status, and system info. When one process keeps the CPU or GPU busy, a warning such as "⚠ ffmpeg CPU 75%" shows on the bar
 - **Notifications**, with a history panel grouped by app
 - **App launcher**: `Super + Return`
 - **Clipboard manager**: `Alt + V`
@@ -38,11 +38,11 @@ Everything below is drawn by the Quickshell shell:
 - **Displays**: this screen only, duplicate, extend, or second screen only (`Super + P`, or **Displays…** in the desktop menu). The change is live only and reverts after 15 seconds unless you keep it
 - **Desktop menu**: right-click the empty desktop for Displays…, Wallpaper…, Settings, and switches for the weather card, now playing, the "Activate Linux" joke, and the FPS counter
 - **Screenshot tool**: region, window, or full screen
-- **Screen recording dialog**: `Super + Shift + R`
+- **Screen recording**: `Super + Shift + R` opens a dialog, press it again to stop (see below)
 - **Lecture pen**: draw and zoom over a frozen screen (`Super + D`)
 - **QR scanner**: opens links, joins Wi-Fi codes, copies text (`Super + Shift + Q`)
 - **Lock screen**: `Super + L`
-- **Settings panel**: the gear beside the power button. **Settings → Update** checks for updates and pulls the repo (see [Staying Updated](/docs/Updating)); **Settings → Language** picks English, 廣東話, or 台灣華語
+- **Settings panel**: the gear beside the power button, with pages for Wi-Fi, Bar, Screenshots, Record, Privacy, Anti-forensics, Packages, Update, Language, Misc, and About. **Settings → Update** checks for updates and pulls the repo (see [Staying Updated](/docs/Updating)); **Settings → Language** picks English, 廣東話, or 台灣華語
 - **Desktop cards**: weather and now-playing
 - **FPS counter**, off by default
 - Copy notices and a charging ripple
@@ -50,8 +50,6 @@ Everything below is drawn by the Quickshell shell:
 ## Keyboard
 
 Flyouts, the desktop menu and the Displays chooser work from the keyboard: Up, Down and Tab move a visible focus bar, Return or Space activates. Escape closes a flyout or the desktop menu.
-
-<Callout type="info">Newer than **v1.4.2** and not yet in a release (on the `master` branch): the desktop right-click menu, the Displays chooser (`Super + P`), the Wallpaper… drawer, the lock-screen music spectrum, and keyboard control of flyouts.</Callout>
 
 ## Accent colour
 
@@ -74,6 +72,19 @@ Pick the folder that random wallpapers are drawn from: right-click the bar's wal
 
 - If a window on a workspace you can't see asks for attention, you get a notice with a **Go there** button. This covers every link that opens your browser on another workspace.
 - If a shortcut's program is missing, a notice names it and offers **Open Packages**.
+
+## Heavy process warning
+
+When one process keeps more than half the CPU, or 80% of the GPU, for about 12 seconds, the bar shows a warning with its name, for example "⚠ ffmpeg CPU 75%", beside the file-change label. It only warns and never kills anything. Only your own processes show GPU use. Turn it off in **Settings → Misc → Warn about heavy processes**.
+
+## Screen recording
+
+Press `Super + Shift + R`, choose which sound to record (system, microphone), and a 3 second countdown starts. Press `Super + Shift + R` again to stop and save. Recording uses `gpu-screen-recorder` through the desktop portal.
+
+- The first recording asks which screen to share. Tick **Remember** to skip the question next time.
+- The bar shows a timer once recording has really started. If you cancel the picker, you get "Recording did not start".
+- Files are saved as MP4 in `~/Videos/Recordings` by default.
+- **Settings → Record** sets the folder, the quality (Small, Balanced or Sharp, which are the high, very high and ultra presets), the frame rate (30, 60, 120, or the screen's own rate, which is the default), the codec (Auto, H.264, HEVC, AV1; HEVC by default), and whether the cursor shows. It also lists your recordings.
 
 ## In action
 

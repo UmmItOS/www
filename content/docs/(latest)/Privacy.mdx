@@ -7,7 +7,7 @@ description: Clipboard history controls and reducing what the desktop leaves beh
 
 <Callout type="info">These clipboard controls shipped in **v1.0.0**.</Callout>
 
-**Settings → Privacy** is about anti-forensics: reducing what the desktop leaves behind. It focuses on the clipboard.
+**Settings → Privacy** controls the clipboard history. **Settings → Anti-forensics** wipes what the desktop remembers. Both reduce what the desktop leaves behind.
 
 import { Video } from '@/components/video';
 
@@ -34,6 +34,10 @@ Clearing wipes the history and empties the live clipboard, so nothing stays past
 
 Each confirms with a shell notice ("Clipboard cleared") and a sound. Settings are stored in `~/.config/ummitos/privacy.conf`.
 
+## Anti-forensics
+
+**Settings → Anti-forensics** lists what the desktop has stored, with the file paths and sizes found live, and overwrites then deletes the kinds you tick. You choose the number of overwrite passes (3 by default). The kinds are: screenshot text, battery history, intruder photos, clipboard, file change history, app launch counts, the weather place, Wi-Fi history and temporary pictures. The shell forgets its in-memory copies first, so it does not write them back. A "Search text in screenshots" switch on the same page turns off reading the text inside new screenshots.
+
 ## What it does and doesn't
 
-This reduces what is left behind; it is not a guarantee against a forensic examiner. Wayland does not tell the shell which app copied, so there are no per-app exclusions beyond the sensitive-state check. `cliphist` keeps a plain database, and deleting entries is not a secure overwrite: SSDs, copy-on-write filesystems, and backups can retain data.
+This reduces what is left behind; it is not a guarantee against a forensic examiner. Wayland does not tell the shell which app copied, so there are no per-app exclusions beyond the sensitive-state check. `cliphist` keeps a plain database, and deleting entries is not a secure overwrite: SSDs, copy-on-write filesystems, and backups can retain data. The Anti-forensics page warns about this on such filesystems and suggests encrypting the disk.

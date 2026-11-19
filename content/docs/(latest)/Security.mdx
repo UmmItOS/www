@@ -5,7 +5,7 @@ description: How the UmmItOS shell handles untrusted text and other user-facing 
 
 # Security
 
-The shell went through a full review and security audit for **v1.0.0-rc2**. The user-facing changes:
+The shell went through a full review and security audit for **v1.0.0-rc2**, and another for **v1.6.0**. The user-facing changes:
 
 ## Untrusted text
 
@@ -20,10 +20,25 @@ Text that comes from outside (Wi-Fi names, Bluetooth names, page titles, track n
 
 The login screen (`greetd`) keeps its cache in `/var/cache/ummitos-greeter`, owned by the greeter user, rather than in `/tmp`.
 
+## Screen capture permission
+
+`gpu-screen-recorder` ships a helper, `gsr-kms-server`, with a capability that reads the screen past Hyprland's permission checks. The installer adds the pacman hook `/etc/pacman.d/hooks/ummitos-gsr-nocap.hook`, which removes that capability after every install or upgrade of the package. Recording goes through the desktop portal, which asks first.
+
+## Lock screen
+
+- A correct password typed just before a lock (during the 500 ms unlock animation, or in the lock preview) can no longer open the next lock, and a lock request during a preview capture is no longer dropped.
+- Idle and sleep lock through `lock.sh`, which starts the shell if it is not running, so the desktop is not left open when the shell is down.
+- On the second wrong password the lock plays a siren. It unmutes and keeps the volume at 60% or more while it plays.
+
+## Bluetooth pairing
+
+Only a real pairing question from BlueZ opens the pairing dialog, so a nearby device cannot raise a fake one through its name. The dialog names the device only when you started the pairing. Otherwise it says "Unknown device".
+
 ## IPC
 
 - Setting a wallpaper over IPC only accepts your own wallpapers.
 - QR `mailto:`, `tel:`, and `geo:` links are validated before they open.
+- A QR code with odd bytes can no longer shift its content onto the next code on screen.
 
 ## Activity log (file changes)
 
