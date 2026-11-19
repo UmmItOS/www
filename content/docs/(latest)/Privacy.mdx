@@ -38,6 +38,13 @@ Each confirms with a shell notice ("Clipboard cleared") and a sound. Settings ar
 
 **Settings → Anti-forensics** lists what the desktop has stored, with the file paths and sizes found live, and overwrites then deletes the kinds you tick. You choose the number of overwrite passes (3 by default). The kinds are: screenshot text, battery history, intruder photos, clipboard, file change history, app launch counts, the weather place, Wi-Fi history and temporary pictures. The shell forgets its in-memory copies first, so it does not write them back. A "Search text in screenshots" switch on the same page turns off reading the text inside new screenshots.
 
+<Video
+  mp4="/ummitos-antiforensics.mp4"
+  webm="/ummitos-antiforensics.webm"
+  poster="/ummitos-antiforensics-poster.jpg"
+  caption="Anti-forensics lists every trace the desktop keeps, with its files. Tick some, pick the overwrite passes, and confirm twice to shred them."
+/>
+
 ## What it does and doesn't
 
 This reduces what is left behind; it is not a guarantee against a forensic examiner. Wayland does not tell the shell which app copied, so there are no per-app exclusions beyond the sensitive-state check. `cliphist` keeps a plain database, and deleting entries is not a secure overwrite: SSDs, copy-on-write filesystems, and backups can retain data. The Anti-forensics page warns about this on such filesystems and suggests encrypting the disk.

@@ -29,5 +29,6 @@ The journeys, as they were run (labels `media-desktop-shell`, `media-still`): th
 
 - Clips autoplay, so a screenshot shows a mid-clip frame. Prove clips by markup, served assets and `readyState`, not by a visual match.
 - The clip count changes when clips are added. Use `>=` when a page gains clips; `==5` is today's Desktop Shell page.
+- Chromium pauses muted autoplay video that is off screen, so `currentTime` stays at 0 for a clip below the fold. To prove a clip plays, scroll it in first: `assert-js|(document.querySelector('video[poster="/<name>-poster.jpg"]').scrollIntoView({block:'center'}),true)`, `sleep|3000`, then `assert-js|` on `currentTime>1 && !paused`.
 - A just-loaded video may still be at `readyState` 1. If the decode check fails, `sleep|1500` and retry before calling it a defect.
 - `media-check.sh` only sees assets in server-rendered HTML, not ones added by client scripts.
