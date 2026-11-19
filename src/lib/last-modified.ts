@@ -1,15 +1,24 @@
 import { execFileSync } from 'node:child_process';
 
-// The last git commit time for a docs file, read at build. Returns undefined
-// when git history is unavailable (e.g. a shallow clone) so the page still renders.
+// The last git commit that changed a docs file's contents, read at build. Follows renames and
+// skips commits that only moved the file (old and new blob are the same).
+// Returns undefined when git history is unavailable (e.g. a shallow clone) so the page still renders.
 export function getLastModified(docPath: string): Date | undefined {
   try {
     const out = execFileSync(
       'git',
-      ['log', '-1', '--follow', '--format=%cI', '--', `content/docs/${docPath}`],
+      ['log', '--follow', '--raw', '--no-abbrev', '--format=@%cI', '--', `content/docs/${docPath}`],
       { encoding: 'utf8' },
-    ).trim();
-    return out ? new Date(out) : undefined;
+    );
+    let date: string | undefined;
+    for (const line of out.split('\n')) {
+      if (line.startsWith('@')) date = line.slice(1);
+      else if (line.startsWith(':') && date) {
+        const [, , oldBlob, newBlob] = line.split(' ');
+        if (oldBlob !== newBlob) return new Date(date);
+      }
+    }
+    return undefined;
   } catch {
     return undefined;
   }
