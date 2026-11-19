@@ -30,3 +30,5 @@ yarn-error.log*
 .env*.local
 .vercel
 next-env.d.ts
+# verification runs (isolated build, run state, proof)
+.verify/
