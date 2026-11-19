@@ -1,0 +1,118 @@
+---
+title: Desktop Shell
+description: The Quickshell desktop shell that powers the UmmItOS interface
+---
+
+# Desktop Shell (Quickshell)
+
+As of **v1.0.0-rc1**, UmmItOS ships a custom [Quickshell](https://quickshell.org/) desktop shell written in QML. It replaces the old Waybar, Rofi, Swaync, Wlogout, Swww, Hyprlock and Hyprshot stack with a single integrated shell.
+
+import { Video } from '@/components/video';
+
+<Video
+  mp4="/ummitos-bar.mp4"
+  webm="/ummitos-bar.webm"
+  poster="/ummitos-bar-poster.jpg"
+  caption="Recolouring the shell from the accent picker, then adding a weather card."
+/>
+
+## Features
+
+Everything below is drawn by the Quickshell shell:
+
+- **Bar**: top panel with workspaces, status, and system info
+- **Notifications**, with a history panel grouped by app
+- **App launcher**: `Super + Return`
+- **Clipboard manager**: `Alt + V`
+- **Wallpaper picker**: `Alt + W`
+- **Dashboard** and **session menu** (`Super + X`)
+- **Volume / brightness OSD**
+- **Flyouts** for Wi-Fi, Bluetooth, audio, and a user-selectable **accent colour**
+- **Alt+Tab switcher** and a hot-corner **overview**
+- **SAO menu**: `Super + M`
+- **Keybind cheat sheet**: `Super + /`
+- **Screenshot gallery**: `Super + F`
+- **Battery usage**: `Super + B`
+- **Health check**: `Super + H`
+- **Picture converter**: `Super + I`
+- **Displays**: this screen only, duplicate, extend, or second screen only (`Super + P`, or **Displays…** in the desktop menu). The change is live only and reverts after 15 seconds unless you keep it
+- **Desktop menu**: right-click the empty desktop for Displays…, Wallpaper…, Settings, and switches for the weather card, now playing, the "Activate Linux" joke, and the FPS counter
+- **Screenshot tool**: region, window, or full screen
+- **Screen recording dialog**: `Super + Shift + R`
+- **Lecture pen**: draw and zoom over a frozen screen (`Super + D`)
+- **QR scanner**: opens links, joins Wi-Fi codes, copies text (`Super + Shift + Q`)
+- **Lock screen**: `Super + L`
+- **Settings panel**: the gear beside the power button. **Settings → Update** checks for updates and pulls the repo (see [Staying Updated](/docs/v1.5.0/Updating)); **Settings → Language** picks English, 廣東話, or 台灣華語
+- **Desktop cards**: weather and now-playing
+- **FPS counter**, off by default
+- Copy notices and a charging ripple
+
+## Keyboard
+
+Flyouts, the desktop menu and the Displays chooser work from the keyboard: Up, Down and Tab move a visible focus bar, Return or Space activates. Escape closes a flyout or the desktop menu.
+
+<Callout type="info">Newer than **v1.4.2** and not yet in a release (on the `master` branch): the desktop right-click menu, the Displays chooser (`Super + P`), the Wallpaper… drawer, the lock-screen music spectrum, and keyboard control of flyouts.</Callout>
+
+## Accent colour
+
+You can pick the shell's accent colour from its flyout.
+
+## Languages
+
+**Settings → Language** offers English, 廣東話 (written Cantonese), and 台灣華語 (Taiwanese Mandarin). Everything the shell draws is translated: the bar, notifications, lock screen, cheat sheet, QR scanner, weather, and dates. The choice switches live and is saved. For Traditional Chinese, `noto-fonts-cjk` is installed.
+
+## Wallpaper
+
+There are two pickers:
+
+- **Alt + W** opens the keyboard carousel.
+- **Wallpaper…** in the desktop right-click menu opens a mouse-first drawer on the right edge, with folder chips, named thumbnails, a check badge on the current picture, and a Shuffle button per folder. The desktop stays in view so you can preview a picture by hovering it.
+
+Pick the folder that random wallpapers are drawn from: right-click the bar's wallpaper button, or use **Shuffle from here** inside a folder in the carousel. A small dot on the button means the shuffle is limited to one folder.
+
+## Notifications
+
+- If a window on a workspace you can't see asks for attention, you get a notice with a **Go there** button. This covers every link that opens your browser on another workspace.
+- If a shortcut's program is missing, a notice names it and offers **Open Packages**.
+
+## In action
+
+The dashboard, from the clock: calendar, now-playing, system gauges, and workspaces.
+
+<Video
+  mp4="/ummitos-dashboard.mp4"
+  webm="/ummitos-dashboard.webm"
+  poster="/ummitos-dashboard-poster.jpg"
+  caption="The dashboard."
+/>
+
+The lock screen shows the weather card at the top left. While something plays, the now-playing card sits at the foot of the screen with its controls, and a music spectrum, coloured from the accent, plays behind the clock (hidden when reduce motion is on). A wrong password twice raises an intruder warning.
+
+<Video
+  mp4="/ummitos-lock.mp4"
+  webm="/ummitos-lock.webm"
+  poster="/ummitos-lock-poster.jpg"
+  caption="The lock screen."
+/>
+
+The lecture pen (`Super + D`): draw and highlight over a frozen screen.
+
+<Video
+  mp4="/ummitos-pen.mp4"
+  webm="/ummitos-pen.webm"
+  poster="/ummitos-pen-poster.jpg"
+  caption="The lecture pen."
+/>
+
+The QR scanner (`Super + Shift + Q`): it freezes the screen, finds a code, and explains it.
+
+<Video
+  mp4="/ummitos-qr.mp4"
+  webm="/ummitos-qr.webm"
+  poster="/ummitos-qr-poster.jpg"
+  caption="The QR scanner."
+/>
+
+## Keybindings
+
+See [Keybindings](/docs/v1.5.0/configuration/keybindings) for the full shortcut reference.

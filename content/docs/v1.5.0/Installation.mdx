@@ -1,0 +1,43 @@
+---
+title: Installation
+description: Install UmmItOS with the install-menu.sh checklist
+---
+
+## Before you start
+
+Check the [Prerequisites](/docs/v1.5.0/Prerequisites): Arch Linux, a normal user (not root), and an AMD GPU.
+
+## Install
+
+Clone the repository with its submodules (the submodules include the default wallpapers), then run the installer:
+
+```shell
+git clone --recursive https://github.com/UmmItOS/UmmItOS.git
+cd UmmItOS
+./install-menu.sh
+```
+
+`install-menu.sh` is the only installer. It opens a checklist in the terminal: tick the steps you want and they run one after another.
+
+1. **Packages**: installs the UmmItOS packages with `paru`.
+2. **GPU drivers**: installs the AMD GPU packages when an AMD card is present.
+3. **Laptop extras**: installs laptop tools when a battery is detected.
+4. **oh-my-zsh**: sets up the Zsh framework.
+5. **Dotfiles**: copies the configs into `~/.config`.
+6. **Login screen**: replaces GDM with `greetd` running the UmmItOS login screen.
+
+<Callout type="info">The repository also has `setup.sh`. It offers to install `git` and `paru` if they are missing, clones the repository with its submodules, then offers to run `install-menu.sh`.</Callout>
+
+When the last step finishes, a results screen shows how each one went. **Reboot** to start the new desktop.
+
+import { Shot } from '@/components/shot';
+
+<Shot
+  src="/docs-install-menu.png"
+  alt="The install-menu.sh checklist"
+  caption="The install-menu.sh checklist. Every step is optional."
+/>
+
+## After the reboot
+
+Optional tuning (monitor mode and similar) runs inside the desktop. See [Post-install](/docs/v1.5.0/Post-install).

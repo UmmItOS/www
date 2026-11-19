@@ -1,0 +1,54 @@
+---
+title: Configuration Overview
+description: Configure the desktop shell, terminal, keybindings and basic settings
+---
+
+# Configuration Overview
+
+UmmItOS ships with its apps pre-configured. You can change any of them; the main areas are below.
+
+import { Cards, Card } from 'fumadocs-ui/components/card';
+import { Terminal, Camera, LayoutDashboard, Keyboard } from 'lucide-react';
+
+<Cards>
+  <Card
+    icon={<LayoutDashboard />}
+    href="/docs/v1.5.0/configuration/quickshell"
+    title="Desktop Shell"
+  >
+    The Quickshell shell: bar, launcher, notifications, lock screen and more
+  </Card>
+  <Card
+    icon={<Terminal />}
+    href="/docs/v1.5.0/configuration/fastfetch"
+    title="Fastfetch"
+  >
+    Configure system information display in terminal
+  </Card>
+  <Card
+    icon={<Camera />}
+    href="/docs/v1.5.0/configuration/screenshots"
+    title="Screenshots"
+  >
+    Set up the screenshot directory
+  </Card>
+  <Card
+    icon={<Keyboard />}
+    href="/docs/v1.5.0/configuration/keybindings"
+    title="Keybindings"
+  >
+    Modify window manager keybindings
+  </Card>
+</Cards>
+
+## Configuration files location
+
+All UmmItOS configuration files live in:
+
+- **Main config**: `~/.config/` (all application configs)
+- **Hyprland**: `~/.config/hypr/hyprland.lua` plus the `~/.config/hypr/hyprland/*.lua` modules
+- **Shell settings**: `~/.config/ummitos/` — `recording.conf`, and (on the development branch) `privacy.conf`, `bar.conf`, plus a `sounds/` folder of swappable sound links
+
+<Callout type="info">**As of v1.0.0-rc1**, Hyprland is configured in **Lua** (`hyprland.lua` and `hyprland/*.lua` modules), not the old `hyprland.conf`.</Callout>
+
+Monitors default to their highest refresh rate (the `highrr` mode).

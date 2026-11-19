@@ -14,6 +14,7 @@ Pushing `master` deploys production through Vercel. Get the user's go-ahead befo
    - Unpushed commits are fine; step 4 pushes them. Read `git log --oneline origin/master..HEAD` and make sure each one is meant to ship.
    - `bun run build` passes. The pre-commit hook runs it too.
    - The docs match the latest UmmItOS release: `gh release view -R UmmItOS/UmmItOS --json tagName -q .tagName`, then read its notes (`gh release view <tag> -R UmmItOS/UmmItOS`) and grep `content/docs` for each new feature, keybind and package. Anything missing is either documented first or listed in the note as not yet covered.
+   - **Docs versions.** If the latest UmmItOS release is newer than the `title` in `content/docs/(latest)/meta.json`, first run `.claude/skills/release/freeze-docs-version.sh <that title>`, which copies `(latest)` to a frozen `content/docs/<title>/` with its links rewritten and adds it to the sidebar version dropdown. Then set the `(latest)` title to the new UmmItOS version and update the `(latest)` pages. Only freeze a version whose docs readers still need; skip patch releases that change nothing documented.
    - Known site defects (see `verify-ummitos-docs/features/README.md`) are fixed first or listed in the note.
    - Optional proof in the running site: the `verify-ummitos-docs` and `verify-docs-links` skills.
 

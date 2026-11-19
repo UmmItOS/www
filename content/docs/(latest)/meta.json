@@ -1,0 +1,22 @@
+{
+  "title": "v1.6.0",
+  "description": "Latest",
+  "root": true,
+  "pages": [
+    "index",
+    "Overview",
+    "Changelog",
+    "---Install---",
+    "Prerequisites",
+    "Installation",
+    "Post-install",
+    "Updating",
+    "Packages",
+    "Security",
+    "Privacy",
+    "---Configure---",
+    "configuration",
+    "---Develop---",
+    "Development"
+  ]
+}

@@ -1,0 +1,46 @@
+---
+title: Post-install
+description: Post-installation setup and configuration guide
+---
+
+## Post-install
+
+After the installer finishes and you reboot, `post-install.sh` is an optional tuning pass for your user (monitor mode and similar). Run it from a terminal **inside the desktop**, in the folder you cloned UmmItOS into.
+
+The `--help` option shows:
+
+```shell
+❯ ./post-install.sh --help
+Usage: ./post-install.sh [command]
+
+Tunes UmmItOS after the first login and shows what is set.
+
+Commands:
+  --start-config   Pick what to tune, step by step.
+  --settings       Show the current settings, change nothing.
+  --help           Show this help.
+```
+
+for the --start-config option you can see the following:
+
+```shell
+./post-install.sh --start-config
+```
+
+Using the --start-config option will start the interactive post-installation configuration setup. Just follow the instructions and you will be good to go.
+
+import { Shot } from '@/components/shot';
+
+<Shot
+  src="/docs-post-install.png"
+  alt="The post-install.sh --start-config screen"
+  caption="post-install.sh --start-config: choose what to tune."
+/>
+
+for the `--settings` option you can see the following:
+
+```shell
+./post-install.sh --settings
+```
+
+Using the --settings option will show the current detected settings without making changes. this will help you to know what is the current setting and what is the expected setting.

@@ -1,0 +1,10 @@
+{
+  "title": "Keybindings",
+  "defaultOpen": true,
+  "pages": [
+    "index",
+    "hyprland-builtin",
+    "laptop",
+    "common-software"
+  ]
+}

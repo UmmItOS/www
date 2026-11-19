@@ -1,0 +1,58 @@
+---
+title: Keybindings Setup
+description: Complete guide to UmmItOS keybindings and shortcuts
+---
+
+# Keybindings Setup
+
+UmmItOS ships a set of keybindings, grouped into the categories below.
+
+<Callout type="info">You can bring up the in-shell cheat sheet any time with `Super + /`.</Callout>
+
+## Keybinding Categories
+
+import { Cards, Card } from 'fumadocs-ui/components/card';
+import { Keyboard, Laptop, Package, Settings } from 'lucide-react';
+
+<Cards>
+  <Card
+    icon={<Settings />}
+    href="/docs/v1.5.0/configuration/keybindings/hyprland-builtin"
+    title="Hyprland Built-in"
+  >
+    Window and workspace management keybindings
+  </Card>
+  <Card
+    icon={<Laptop />}
+    href="/docs/v1.5.0/configuration/keybindings/laptop"
+    title="Laptop Controls"
+  >
+    Mainly for laptop users, but you also can check it out :)
+  </Card>
+  <Card
+    icon={<Package />}
+    href="/docs/v1.5.0/configuration/keybindings/common-software"
+    title="Common Software"
+  >
+    App launchers, shell and utility keybindings
+  </Card>
+</Cards>
+
+## Quick reference
+
+### Main modifier key
+
+- **$mainMod = SUPER** (Windows key)
+
+## Configuration files
+
+Keybindings are defined in the Lua Hyprland modules:
+
+- **Location**: `~/.config/hypr/hyprland/` (after installation)
+- **Keybinds**: `~/.config/hypr/hyprland/*.lua`
+
+<Callout type="info">**As of v1.0.0-rc1**, Hyprland is configured in **Lua** (`.lua`), not the old `.conf` files.</Callout>
+
+## Applying the changes
+
+Hyprland auto-reloads its configuration, so changes take effect immediately without a manual reload.

@@ -1,0 +1,95 @@
+---
+title: Hyprland Built-in Keybindings
+description: Core window management and workspace navigation shortcuts
+---
+
+# Hyprland Built-in Keybindings
+
+The core Hyprland keybindings for managing windows and workspaces.
+
+import { Video } from '@/components/video';
+
+<Video
+  mp4="/ummitos-tiling.mp4"
+  webm="/ummitos-tiling.webm"
+  poster="/ummitos-tiling-poster.jpg"
+  caption="Opening terminals into the tiling layout, then the workspace overview."
+/>
+
+## Configuration
+
+These keybindings are defined in the Lua Hyprland modules at:
+
+- **Source**: `~/.config/hypr/hyprland/*.lua`
+
+## Window Management
+
+| Keybinding | Action | Description |
+|------------|---------|-------------|
+| `Super + C` | Close Window | Kill the active window |
+| `Super + V` | Toggle Floating | Toggle floating mode for active window |
+| `Super + J` | Swap Next | Swap with next window |
+
+## Focus Navigation
+
+| Keybinding | Action | Description |
+|------------|---------|-------------|
+| `Super + ←` | Focus Left | Move focus to left window |
+| `Super + →` | Focus Right | Move focus to right window |
+| `Super + ↑` | Focus Up | Move focus to upper window |
+| `Super + ↓` | Focus Down | Move focus to lower window |
+
+## Workspace Navigation
+
+| Keybinding | Action | Description |
+|------------|---------|-------------|
+| `Super + 1` | Workspace 1 | Switch to workspace 1 |
+| `Super + 2` | Workspace 2 | Switch to workspace 2 |
+| `Super + 3` | Workspace 3 | Switch to workspace 3 |
+| `Super + 4` | Workspace 4 | Switch to workspace 4 |
+| `Super + 5` | Workspace 5 | Switch to workspace 5 |
+| `Super + 6` | Workspace 6 | Switch to workspace 6 |
+| `Super + 7` | Workspace 7 | Switch to workspace 7 |
+| `Super + 8` | Workspace 8 | Switch to workspace 8 |
+| `Super + 9` | Workspace 9 | Switch to workspace 9 |
+| `Super + 0` | Workspace 10 | Switch to workspace 10 |
+
+## Move Windows to Workspaces
+
+| Keybinding | Action | Description |
+|------------|---------|-------------|
+| `Super + Shift + 1` | Move to Workspace 1 | Move active window to workspace 1 |
+| `Super + Shift + 2` | Move to Workspace 2 | Move active window to workspace 2 |
+| `Super + Shift + 3` | Move to Workspace 3 | Move active window to workspace 3 |
+| `Super + Shift + 4` | Move to Workspace 4 | Move active window to workspace 4 |
+| `Super + Shift + 5` | Move to Workspace 5 | Move active window to workspace 5 |
+| `Super + Shift + 6` | Move to Workspace 6 | Move active window to workspace 6 |
+| `Super + Shift + 7` | Move to Workspace 7 | Move active window to workspace 7 |
+| `Super + Shift + 8` | Move to Workspace 8 | Move active window to workspace 8 |
+| `Super + Shift + 9` | Move to Workspace 9 | Move active window to workspace 9 |
+| `Super + Shift + 0` | Move to Workspace 10 | Move active window to workspace 10 |
+
+## Special Workspaces (Scratchpad)
+
+| Keybinding | Action | Description |
+|------------|---------|-------------|
+| `Super + S` | Toggle Special Workspace | Show/hide magic scratchpad |
+| `Super + Shift + S` | Move to Special | Move window to magic scratchpad |
+
+## Mouse Controls
+
+| Keybinding | Action | Description |
+|------------|---------|-------------|
+| `Super + Mouse Wheel Down` | Next Workspace | Scroll to next workspace |
+| `Super + Mouse Wheel Up` | Previous Workspace | Scroll to previous workspace |
+| `Super + Left Click + Drag` | Move Window | Move window by dragging |
+| `Super + Right Click + Drag` | Resize Window | Resize window by dragging |
+
+## Window Resizing
+
+| Keybinding | Action | Description |
+|------------|---------|-------------|
+| `Alt + →` | Resize Right | Increase window width by 5px |
+| `Alt + ←` | Resize Left | Decrease window width by 5px |
+| `Alt + ↑` | Resize Up | Decrease window height by 5px |
+| `Alt + ↓` | Resize Down | Increase window height by 5px |

@@ -1,22 +1,6 @@
 {
-  "title": "UmmItOS Documentation",
-  "description": "Complete guide to UmmItOS setup and configuration",
-  "root": true,
   "pages": [
-    "index",
-    "Overview",
-    "Changelog",
-    "---Install---",
-    "Prerequisites",
-    "Installation",
-    "Post-install",
-    "Updating",
-    "Packages",
-    "Security",
-    "Privacy",
-    "---Configure---",
-    "configuration",
-    "---Develop---",
-    "Development"
+    "(latest)",
+    "v1.5.0"
   ]
 }

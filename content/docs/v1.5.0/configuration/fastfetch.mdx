@@ -1,0 +1,55 @@
+---
+title: Fastfetch Configuration
+description: Configure system information display in terminal
+---
+
+# Fastfetch Configuration
+
+Fastfetch displays beautiful system information. Nothing specific but you can tweaking it to your liking.
+
+import { Shot } from '@/components/shot';
+
+<Shot
+  src="/ummitos-fastfetch.jpg"
+  alt="Fastfetch output in a terminal"
+  caption="Fastfetch in Kitty: the logo, then System, Desktop, and Hardware."
+/>
+
+## Setup
+
+To display Fastfetch when starting the terminal, add the following line to your shell configuration file.
+
+### For Zsh users (`.zshrc`)
+
+```shell
+echo 'fastfetch --show-errors --pipe false' >> ~/.zshrc
+```
+
+### For Bash users (`.bashrc`)
+
+```shell
+echo 'fastfetch --show-errors --pipe false' >> ~/.bashrc
+```
+
+## Manual Configuration
+
+If you want to adding a fastfetch when starting the terminal, you can add the following line to your shell configuration file.
+
+<Callout type="info">Note that at that time i encountered some issues with the fastfetch. with the solution i found that is using `--show-errors --pipe false` to fix the issue. Refer to the [issue](https://github.com/fastfetch-cli/fastfetch/issues/945) for more details.</Callout>
+
+```shell
+fastfetch --show-errors --pipe false
+```
+
+## Customizing Fastfetch
+
+Fastfetch can be customized with a configuration file at `~/.config/fastfetch/config.jsonc`. Can't say more, you can tweak it to your liking.
+
+## Verification
+
+After configuration, restart your terminal or run:
+```shell
+source ~/.zshrc
+```
+
+You should see the system information display when opening new terminal sessions.

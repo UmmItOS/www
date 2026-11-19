@@ -1,0 +1,30 @@
+---
+title: Development
+description: Run, inspect, and check the UmmItOS desktop shell from a clone
+---
+
+The desktop shell lives in `configs/quickshell/` in the [UmmItOS repository](https://github.com/UmmItOS/UmmItOS). It is a QML application for [Quickshell](https://quickshell.org/), and its instance name is `ummitos`.
+
+## Talk to the running shell
+
+```shell
+qs -c ummitos ipc show              # list every IPC target and function
+qs -c ummitos ipc call <target> <fn>
+qs log -c ummitos                   # the running shell's log: reloads, warnings, errors
+```
+
+Every shell keybinding is an IPC call, so `ipc call` works for anything the shortcuts open. For example, `qs -c ummitos ipc call cheatsheet toggle` opens the cheat sheet.
+
+<Callout type="warn">Never start a second `qs -c ummitos` while one is running, not even as a quick syntax check. When it exits, it takes the running instance down with it.</Callout>
+
+## Check the scripts
+
+```shell
+shellcheck install-menu.sh post-install.sh setup.sh install/*.sh lib/*.sh script/**/*.sh
+```
+
+There is no test suite and no CI. A change is checked by running `shellcheck` and the shell, then reading the shell's log.
+
+## Contributing
+
+`CLAUDE.md` in the repository explains how the installer and the shell fit together. `DOCS/CHECKLIST.md` lists what every change must pass, and `DOCS/CONTRIBUTING.md` has the contributing guidelines.

@@ -6,7 +6,7 @@ export function getLastModified(docPath: string): Date | undefined {
   try {
     const out = execFileSync(
       'git',
-      ['log', '-1', '--format=%cI', '--', `content/docs/${docPath}`],
+      ['log', '-1', '--follow', '--format=%cI', '--', `content/docs/${docPath}`],
       { encoding: 'utf8' },
     ).trim();
     return out ? new Date(out) : undefined;

@@ -17,14 +17,10 @@ See [AGENTS.md](./AGENTS.md) for the full guide. Key points:
 
 Next.js 16 App Router + Fumadocs + Tailwind v4 docs site for the UmmItOS Linux distro.
 
-- **Content**: MDX lives in `content/docs/`. `meta.json` files control sidebar nav (keys match directory basenames or `.mdx` filenames without extension). Served through the catch-all route `src/app/docs/[[...slug]]/page.tsx`.
+- **Content**: MDX lives in `content/docs/`. Docs are versioned: `content/docs/(latest)/` holds the current docs at unversioned URLs (`/docs/Installation`; the `(latest)` folder name is not part of the URL), and each `content/docs/vX.Y.Z/` is a frozen older version at `/docs/vX.Y.Z/...`. Each has `"root": true` in its `meta.json`, which makes Fumadocs list it in the version dropdown at the top of the sidebar; the `(latest)` title is the current UmmItOS version. Edit `(latest)` for new content. Freeze a version with `.claude/skills/release/freeze-docs-version.sh vX.Y.Z` (see the `release` skill). `meta.json` files control sidebar nav (keys match directory basenames or `.mdx` filenames without extension). Served through the catch-all route `src/app/docs/[[...slug]]/page.tsx`.
 - **Source generation**: `fumadocs-mdx` scans `content/` → produces `.source/` (aliased as `@/.source`). `@/` → `src/`.
 - **Components**: Server components by default. Only `src/components/youtube-player.tsx` is a client component; the unused Fumadocs template scaffold was removed.
 - **CSS**: Tailwind v4 via `postcss.config.mjs`, no `tailwind.config.*`. Use Fumadocs CSS vars (`bg-fd-background`, `text-fd-foreground`, `border-fd-border`, …).
 - **Theme**: Dark-only, hardcoded `dark` class on `<html>`; toggle removed from navbar.
 - **Version badge**: fetched from GitHub `/releases/latest` via `src/lib/version.ts` (1h revalidate), falling back to `v0.7.0`. Rendered through a `<Suspense>` boundary on the home page — only streams a loading skeleton on non-static renders.
 - **Search**: Orama via Fumadocs `createFromSource`, `force-static` at `src/app/api/search/route.ts`.
-
-## Stale artifacts
-
-- `content/docs/ummitos-main/configuration/keybinds.mdx` — orphaned, not in any `meta.json`.

@@ -1,0 +1,49 @@
+---
+title: Security
+description: How the UmmItOS shell handles untrusted text and other user-facing hardening
+---
+
+# Security
+
+The shell went through a full review and security audit for **v1.0.0-rc2**. The user-facing changes:
+
+## Untrusted text
+
+Text that comes from outside (Wi-Fi names, Bluetooth names, page titles, track names, notifications) is shown as plain text. It can't load remote images, so it can't reveal your IP address.
+
+## Notifications
+
+- Notification bodies keep only bold, italic, underline, line breaks, and real links; anything else is stripped.
+- Bodies are cut at 4000 characters, and at most 6 toasts show at once.
+
+## Login screen
+
+The login screen (`greetd`) keeps its cache in `/var/cache/ummitos-greeter`, owned by the greeter user, rather than in `/tmp`.
+
+## IPC
+
+- Setting a wallpaper over IPC only accepts your own wallpapers.
+- QR `mailto:`, `tel:`, and `geo:` links are validated before they open.
+
+## Activity log (file changes)
+
+<Callout type="info">Shipped in **v1.0.0**.</Callout>
+
+A bar button keeps a lightweight, blue-team style log of file changes in a folder you choose. A live label on the bar shows the latest change (`+` new, `~` changed, `−` deleted, `→` moved) and fades after 6 seconds.
+
+import { Video } from '@/components/video';
+
+<Video
+  mp4="/ummitos-filewatch.mp4"
+  webm="/ummitos-filewatch.webm"
+  poster="/ummitos-filewatch-poster.jpg"
+  caption="The file-change flyout from the bar."
+/>
+
+The **File changes** flyout keeps the last 100 events, newest first: an icon per type (deletes in red), the file name, its folder, and a relative time (just now, N min / h / d ago). Click a row to open its folder. Repeated changes to one path within 2 seconds merge into a single row. The log is written to the shell's state directory (`file-changes.json`), so it survives shell reloads and logins.
+
+Turn it on and pick the folder in **Settings → Bar** ("Folder to watch": a full path or `~`, Enter to save; empty watches the shell's own repo; a missing folder is refused). The setting is stored in `~/.config/ummitos/bar.conf`.
+
+### What it does and doesn't
+
+It records **what** changed, **where**, and **when**. It does not record who or which process, and it keeps no hashes. It is not tamper-evident. Changes made while the shell is down are lost, except the last 6 seconds caught at startup. Very large trees can hit inotify watch limits. It is an activity feed, not a SIEM, and not file-integrity monitoring.

@@ -1,0 +1,11 @@
+{
+  "title": "Configuration",
+  "defaultOpen": true,
+  "pages": [
+    "index",
+    "quickshell",
+    "fastfetch",
+    "screenshots",
+    "keybindings"
+  ]
+}

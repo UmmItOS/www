@@ -28,8 +28,8 @@ Preconditions:
 - **Read the groups.** Run `assert-text|#nd-sidebar|Install` and `assert-text|#nd-sidebar|Configure`. Both group labels are present.
 - **Read the active page.** Run `assert-count|#nd-sidebar a[href="/docs/Installation"]|==|1` and `assert-text|#nd-sidebar a[data-active="true"]|Installation`. The current page is the one active link.
 - **Read previous and next.** Run `assert-count|a[href="/docs/Prerequisites"]|>=|2` and `assert-count|a[href="/docs/Post-install"]|>=|2`. Each neighbour is linked from the sidebar and from the bottom of the page.
-- **Read the edit link.** Run `assert-count|a[href="https://github.com/UmmItOS/www/blob/master/content/docs/Installation.mdx"]|==|1`. One link points at the page's source file.
-- **Read last updated.** Run `assert-text|#nd-page|Last updated on`, then run `shot|page`. The date is on the page. Second view: `git log -1 --format=%cI -- content/docs/Installation.mdx` gives the commit time it should reflect.
+- **Read the edit link.** Run `assert-count|a[href="https://github.com/UmmItOS/www/blob/master/content/docs/(latest)/Installation.mdx"]|==|1`. One link points at the page's source file.
+- **Read last updated.** Run `assert-text|#nd-page|Last updated on`, then run `shot|page`. The date is on the page. Second view: `git log -1 --format=%cI -- content/docs/(latest)/Installation.mdx` gives the commit time it should reflect.
 - **Follow a sidebar link.** Run `click|#nd-sidebar a[href="/docs/Packages"]`, `assert-url|/docs/Packages`, `assert-text|h1|Packages`, `assert-text|#nd-sidebar a[data-active="true"]|Packages`, then `shot|after-sidebar-click`. The URL, the title and the highlighted link all move to the new page.
 
 The whole journey, as it was run:
@@ -44,7 +44,7 @@ $S/drive.mjs nav-installation \
   'assert-text|#nd-sidebar a[data-active="true"]|Installation' \
   'assert-count|a[href="/docs/Prerequisites"]|>=|2' \
   'assert-count|a[href="/docs/Post-install"]|>=|2' \
-  'assert-count|a[href="https://github.com/UmmItOS/www/blob/master/content/docs/Installation.mdx"]|==|1' \
+  'assert-count|a[href="https://github.com/UmmItOS/www/blob/master/content/docs/(latest)/Installation.mdx"]|==|1' \
   'assert-text|#nd-page|Last updated on' \
   'shot|page' \
   'click|#nd-sidebar a[href="/docs/Packages"]' \

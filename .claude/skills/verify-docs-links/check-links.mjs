@@ -17,7 +17,7 @@ const walk = (d) => readdirSync(d).flatMap((n) => {
 // URL path -> mdx file. index.mdx maps to its folder.
 const pages = new Map();
 for (const f of walk(DOCS).filter((f) => f.endsWith('.mdx'))) {
-  let s = relative(DOCS, f).replace(/\.mdx$/, '');
+  let s = relative(DOCS, f).replace(/\.mdx$/, '').replace(/(^|\/)\([^/]+\)(?=\/|$)/g, '').replace(/^\//, '');
   s = s === 'index' ? '' : s.replace(/(^|\/)index$/, '');
   pages.set('/docs' + (s ? '/' + s : ''), f);
 }

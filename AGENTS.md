@@ -23,6 +23,7 @@ No `test`, `typecheck`, `lint`, or `preview` scripts. TS checks happen during `n
 
 - **MDX**: `content/docs/` — edit `.mdx` and `meta.json` alongside.
 - **`meta.json`** controls sidebar nav. Keys match directory basenames or `.mdx` filenames (no extension).
+- **Versions**: Docs are versioned: `content/docs/(latest)/` holds the current docs at unversioned URLs (`/docs/Installation`; the `(latest)` folder name is not part of the URL), and each `content/docs/vX.Y.Z/` is a frozen older version at `/docs/vX.Y.Z/...`. Each has `"root": true` in its `meta.json`, which makes Fumadocs list it in the version dropdown at the top of the sidebar; the `(latest)` title is the current UmmItOS version. Edit `(latest)` for new content. Freeze a version with `.claude/skills/release/freeze-docs-version.sh vX.Y.Z` (see the `release` skill).
 - **Regenerate**: `bun install` runs `postinstall` → `fumadocs-mdx` scans `content/` → produces `.source/` (gitignored). Run after add/rename/delete of MDX.
 - **Catch-all route**: `src/app/docs/[[...slug]]/page.tsx`.
 - **Frontmatter**: Fumadocs default schema (`title`, `description`).
@@ -36,7 +37,3 @@ No `test`, `typecheck`, `lint`, or `preview` scripts. TS checks happen during `n
 - **Theme**: Dark-only, hardcoded `dark` class on `<html>` (handled by Fumadocs `RootProvider`). Theme toggle removed from navbar.
 - **Version badge**: Fetched from `api.github.com/repos/UmmItOS/UmmItOS/releases/latest` via `src/lib/version.ts` (1h revalidate), through a `<Suspense>` boundary on the home page. Falls back to `v0.7.0`.
 - **Search**: Orama via Fumadocs `createFromSource`, `force-static` at `src/app/api/search/route.ts` (English language), vim-style `/` hotkey.
-
-## Stale artifacts
-
-- `content/docs/ummitos-main/configuration/keybinds.mdx` — orphaned, not in any `meta.json`.
