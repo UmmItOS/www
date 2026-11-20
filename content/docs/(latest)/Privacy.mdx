@@ -7,7 +7,7 @@ description: Clipboard history controls and reducing what the desktop leaves beh
 
 <Callout type="info">These clipboard controls shipped in **v1.0.0**.</Callout>
 
-**Settings → Privacy** controls the clipboard history. **Settings → Anti-forensics** wipes what the desktop remembers. Both reduce what the desktop leaves behind.
+Two pages in Settings cover privacy. **Privacy** controls the clipboard history, and **Anti-forensics** wipes what the desktop has stored.
 
 import { Video } from '@/components/video';
 
@@ -20,23 +20,23 @@ import { Video } from '@/components/video';
 
 ## Clipboard history
 
-- **Save clipboard history** — turn it off and nothing is stored. Turning it off also wipes the saved history and empties the current clipboard.
-- **Clear automatically** — Never, 5 min, 15 min, or 1 hour. A `systemd --user` timer (`ummitos-clipboard-expiry`) is re-armed on every copy and restored after a shell restart.
+- **Save clipboard history.** Turn it off and nothing is stored. Turning it off also wipes the saved history and empties the current clipboard.
+- **Clear automatically.** Choose Never, 5 min, 15 min, or 1 hour. A `systemd --user` timer (`ummitos-clipboard-expiry`) is re-armed on every copy and restored after a shell restart.
 - Items the source app marks sensitive (password managers set the clipboard state) are never written to history.
 
 ## Clearing
 
 Clearing wipes the history and empties the live clipboard, so nothing stays pasteable. There are three ways to do it:
 
-1. **Settings → Privacy → Clear clipboard now**.
-2. The two-step red button in the `Alt + V` clipboard window — the first click arms it and shows "Clear all?", the second confirms and closes the window.
+1. The **Clear clipboard now** button on the **Privacy** page in Settings.
+2. The two-step red button in the `Alt + V` clipboard window. The first click arms it and shows "Clear all?", the second confirms and closes the window.
 3. The automatic timer above.
 
 Each confirms with a shell notice ("Clipboard cleared") and a sound. Settings are stored in `~/.config/ummitos/privacy.conf`.
 
 ## Anti-forensics
 
-**Settings → Anti-forensics** lists what the desktop has stored, with the file paths and sizes found live, and overwrites then deletes the kinds you tick. You choose the number of overwrite passes (3 by default). The kinds are: screenshot text, battery history, intruder photos, clipboard, file change history, app launch counts, the weather place, Wi-Fi history and temporary pictures. The shell forgets its in-memory copies first, so it does not write them back. A "Search text in screenshots" switch on the same page turns off reading the text inside new screenshots.
+The **Anti-forensics** page lists what the desktop has stored, with the file paths and sizes found live, and overwrites then deletes the kinds you tick. You choose the number of overwrite passes (3 by default). The kinds are: screenshot text, battery history, intruder photos, clipboard, file change history, app launch counts, the weather place, Wi-Fi history and temporary pictures. The shell forgets its in-memory copies first, so it does not write them back. A "Search text in screenshots" switch on the same page turns off reading the text inside new screenshots.
 
 <Video
   mp4="/ummitos-antiforensics.mp4"
@@ -45,6 +45,6 @@ Each confirms with a shell notice ("Clipboard cleared") and a sound. Settings ar
   caption="Anti-forensics lists every trace the desktop keeps, with its files. Tick some, pick the overwrite passes, and confirm twice to shred them."
 />
 
-## What it does and doesn't
+## Limits
 
-This reduces what is left behind; it is not a guarantee against a forensic examiner. Wayland does not tell the shell which app copied, so there are no per-app exclusions beyond the sensitive-state check. `cliphist` keeps a plain database, and deleting entries is not a secure overwrite: SSDs, copy-on-write filesystems, and backups can retain data. The Anti-forensics page warns about this on such filesystems and suggests encrypting the disk.
+These tools leave less behind, but they cannot stop a forensic examiner. Wayland does not tell the shell which app copied, so there are no per-app exclusions beyond the sensitive-state check. `cliphist` keeps a plain database, and deleting entries is not a secure overwrite: SSDs, copy-on-write filesystems, and backups can retain data. The Anti-forensics page warns about this on such filesystems and suggests encrypting the disk.

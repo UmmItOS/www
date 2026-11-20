@@ -5,7 +5,7 @@ description: Capture the screen as a picture or a video
 
 # Screenshots and recording
 
-As of **v1.0.0-rc1**, screenshots are handled by the [Quickshell](/docs/configuration/quickshell) shell (the old Hyprshot is gone). Captures are copied to the clipboard and saved to disk.
+As of **v1.0.0-rc1**, screenshots are handled by the [Quickshell](/docs/configuration/quickshell) shell, which replaced Hyprshot. Captures are copied to the clipboard and saved to disk.
 
 import { Video } from '@/components/video';
 
@@ -28,7 +28,7 @@ import { Video } from '@/components/video';
 
 ## Screenshot directory
 
-Open **Settings → Screenshots**, type a folder in **Save to**, then press Enter. It takes effect at once, and an empty field goes back to the default. The choice is saved in `~/.config/ummitos/screenshot.conf`. The same page has an **Open gallery** button (`Super + F`).
+On the **Screenshots** page in Settings, type a folder in **Save to** and press Enter. It takes effect at once, and an empty field goes back to the default. The choice is saved in `~/.config/ummitos/screenshot.conf`. The same page has an **Open gallery** button (`Super + F`).
 
 <Callout type="info">Use a full path like `~/Pictures`, not a relative one. The field shows a warning if the path is not full.</Callout>
 
@@ -53,10 +53,10 @@ Press `Super + Shift + R`, choose which sound to record (system, microphone, bot
   mp4="/ummitos-record.mp4"
   webm="/ummitos-record.webm"
   poster="/ummitos-record-poster.jpg"
-  caption="Super+Shift+R picks the sound (system, mic, both or none), counts 3-2-1, runs a timer on the bar, and Super+Shift+R again stops it. Settings → Record sets quality, frame rate and codec."
+  caption="Super+Shift+R picks the sound (system, mic, both or none), counts 3-2-1, runs a timer on the bar, and Super+Shift+R again stops it. The Record page in Settings sets quality, frame rate and codec."
 />
 
 - The first recording asks which screen to share. Tick **Remember** to skip the question next time.
-- The bar shows a timer once recording has really started. If you cancel the picker, you get "Recording did not start".
+- The bar shows a timer once recording starts. If you cancel the picker, you get "Recording did not start".
 - Files are saved as MP4 in `~/Videos/Recordings` by default.
-- **Settings → Record** sets the folder, the quality (Small, Balanced or Sharp, which are the high, very high and ultra presets), the frame rate (30, 60, 120, or the screen's own rate, which is the default), the codec (Auto, H.264, HEVC, AV1; HEVC by default), and whether the cursor shows. It also lists your recordings.
+- The **Record** page in Settings sets the folder, the quality (Small, Balanced or Sharp, which are the high, very high and ultra presets), the frame rate (30, 60, 120, or the screen's own rate, which is the default), the codec (Auto, H.264, HEVC, AV1; HEVC by default), and whether the cursor shows. It also lists your recordings.

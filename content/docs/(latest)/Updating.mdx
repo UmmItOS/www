@@ -10,7 +10,7 @@ The installer **copies** configs into place, so an installed copy never changes 
 - The **Quickshell** shell updates (and reloads itself).
 - The **Discord theme** updates (after a Vesktop reload).
 
-In the shell, **Settings → Update** shows whether the shell is linked and offers a **Pull** button. If the shell is still a copy, it shows a warning with a **Copy command** button that copies the `ln` command below.
+In the shell, the **Update** page in Settings shows whether the shell is linked and offers a **Pull** button. If the shell is still a copy, it shows a warning with a **Copy command** button that copies the `ln` command below.
 
 ## From Settings
 
@@ -105,7 +105,7 @@ Update later:
 cd ~/UmmItOS && git pull
 ```
 
-…or use **Settings → Update → Pull**.
+Or press **Pull** on the **Update** page in Settings.
 
 <Callout type="warn">Do **not** link `~/.config/hypr`. It holds your own values (monitor layout, etc.) and stays a copy. After a `git pull` or branch switch, the running shell can stay on the old code; if it doesn't reload, run the restart command above.</Callout>
 
@@ -138,6 +138,6 @@ ln -sfn ~/UmmItOS/configs/vesktop/themes/ummitos-style.css \
 
 ### Enable it
 
-In Vesktop → **Settings → Themes**, tick **UmmItOS Theme**. Turn window transparency **off** (Vencord settings) so it stays solid.
+In Vesktop, open Settings, go to **Themes**, and tick **UmmItOS Theme**. In the Vencord settings, turn window transparency **off** so the theme stays solid.
 
 <Callout type="warn">Fully quit and reopen Vesktop the first time so the Flatpak override applies. After later `git pull`s, press `Ctrl+R` to reload the theme.</Callout>

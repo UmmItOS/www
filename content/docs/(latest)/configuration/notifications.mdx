@@ -27,7 +27,9 @@ A history panel keeps notices grouped by app.
   mp4="/ummitos-heavy-warning.mp4"
   webm="/ummitos-heavy-warning.webm"
   poster="/ummitos-heavy-warning-poster.jpg"
-  caption="After 12 seconds of heavy CPU or GPU, the bar names the process beside the latest file change, and clears it when things calm down."
+  caption="After 12 seconds of heavy CPU or GPU, the bar names the process beside the latest file change, and clears it once the load drops."
 />
 
-When one process keeps more than half the CPU, or 80% of the GPU, for about 12 seconds, the bar shows a warning with its name, for example "⚠ ffmpeg CPU 75%", beside the file-change label. It only warns and never kills anything. Only your own processes show GPU use. Turn it off in **Settings → Misc → Warn about heavy processes**.
+When one process uses more than half the CPU, or 80% of the GPU, for about 12 seconds, the bar shows its name and load beside the file-change label, for example "⚠ ffmpeg CPU 75%". The warning never stops the process. GPU use is shown only for your own processes.
+
+To turn the warning off, open Settings, go to the **Misc** page, and switch off **Warn about heavy processes**.
