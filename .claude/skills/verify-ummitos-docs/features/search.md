@@ -5,9 +5,9 @@ The site has a search dialog, opened from the navbar search button or by pressin
 ## Sub-features
 
 - `search-hotkey` opens the dialog with `/` and closes it with `Escape`. **Passes.**
-- `search-match` shows results for a typed query such as `install`. **Fails (known defect).**
-- `search-open-result` opens a result. **Not driven**, because there are no results to open.
-- `search-empty` shows the empty state for a query with no match. **Not driven.**
+- `search-match` shows results for a typed query such as `install`. **Passes.**
+- `search-open-result` opens a result. **Passes.**
+- `search-empty` shows "No results found" for a query with no match. **Passes.**
 
 ## How to get to it (user POV)
 
@@ -21,12 +21,15 @@ Preconditions:
 - `$S/doctor.sh` reports `DOCTOR: OK`.
 
 - **Hotkey.** Run `goto|/docs`, `waitfor|#nd-sidebar|8000`, `press|/`, `waitfor|input[role="combobox"][aria-label="Search"]|3000`, `shot|open`, `press|Escape`, `assert-count|input[role="combobox"][aria-label="Search"]|==|0`.
-- **Matching.** Run `goto|/docs`, `click|button[data-search-full]`, `waitfor|input[role="combobox"][aria-label="Search"]|3000`, `type|install`, `sleep|1500`, `assert-count|#fd-search-list [role="option"]|>=|1`, then `shot|results`. Today this fails: the list stays `hidden` and has no options. The option selector is unverified, because no result has ever rendered.
+- **Matching.** Run `goto|/docs`, `click|button[data-search-full]`, `waitfor|input[role="combobox"][aria-label="Search"]|3000`, `type|install`, `sleep|1500`, `assert-count|#fd-search-list [role="option"]|>=|1`, then `shot|results`. The first option is v1.6.0 Installation.
+- **Open a result.** As above, then `click|#fd-search-list [role="option"]` and `assert-url|/docs/Installation`.
+- **Empty.** As above with `type|zzqxjvw`, then `assert-count|#fd-search-list [role="option"]|==|0` and `assert-text|#fd-search-list|No results found`.
 
-Recorded runs: `search-hotkey` passed, `search-match` failed, with evidence in `.verify/evidence/<run-id>/`.
+Recorded runs: all four passed (run `20261120T055719Z`), with evidence in `.verify/evidence/<run-id>/`.
 
 ## Gotchas
 
-- **Known defect.** `/api/search` returns `[]` (2 bytes), locally and on `https://docs.ummit.dev/api/search`. `src/app/api/search/route.ts` exports the dynamic `GET` under `force-static`, but the layout configures `RootProvider search={{ options: { type: 'static' } }}`, which fetches the index from a route that exports `staticGET`. Likely fix: `export const { staticGET: GET } = createFromSource(source)` and adjust `force-static`. Never weaken `search-match` to pass; fix the app, then update this file.
+- **Static index.** The layout uses `type: 'static'`, so the client downloads the whole index from `/api/search`. `route.ts` must export `staticGET` as `GET`. The dynamic `GET` returns `[]` without a `query`, which is what broke search until 2026-11-20. A 2-byte `/api/search` means this regressed.
+- Results include frozen versions too, so `install` also matches v1.5.0 pages. The current version ranks first.
 - Fetching `/api/search` is not a search proof. Always type into the dialog.
 - The dialog input is created on open, so `waitfor` it after the click or key press.

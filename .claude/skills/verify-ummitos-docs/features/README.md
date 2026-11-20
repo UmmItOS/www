@@ -37,7 +37,7 @@ Each feature file starts with an H1 title and one paragraph describing the user-
 - [Docs navigation](./docs-navigation.md) covers the sidebar groups, the active page, previous and next links, the edit link, and the last-updated line.
 - [Homepage](./homepage.md) covers the hero and version badge, the build time, the install command, the lazy video, and the path into the docs.
 - [Embedded media](./embedded-media.md) covers clips and stills on feature pages, with a whole-site asset check.
-- [Search](./search.md) covers opening search by button and by `/`, matching, and closing. **The matching journey currently fails.**
+- [Search](./search.md) covers opening search by button and by `/`, matching, opening a result, the empty state, and closing.
 
 ## Proof status when this map was created (build `bae0d23`, 2026-11-18 UTC)
 
@@ -48,6 +48,6 @@ Each feature file starts with an H1 title and one paragraph describing the user-
 | Homepage | `home-hero` | pass |
 | Embedded media | `media-desktop-shell`, `media-still`, `media-check.sh` | pass |
 | Search | `search-hotkey` | pass |
-| Search | `search-match` | **fail**, known defect (see `search.md`) |
+| Search | `search-match`, `search-open-result`, `search-empty` | pass |
 
-Not driven: the Changelog fallback (needs an offline build), the empty-search state, and opening a search result. Each is marked in its feature file.
+Not driven: the Changelog fallback (needs an offline build). It is marked in its feature file.

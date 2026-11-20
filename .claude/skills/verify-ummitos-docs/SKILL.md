@@ -105,4 +105,4 @@ Proof standards:
 
 ## Feature map
 
-[`features/README.md`](features/README.md) is the maintained source for what to verify and how: Changelog, docs navigation, homepage, embedded media, and search. **Search currently fails its results journey** (known defect, diagnosis in `features/search.md`). Keep the map honest as the app changes with `/maintain-verification-skill`.
+[`features/README.md`](features/README.md) is the maintained source for what to verify and how: Changelog, docs navigation, homepage, embedded media, and search. Keep the map honest as the app changes with `/maintain-verification-skill`.
