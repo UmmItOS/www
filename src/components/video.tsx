@@ -98,7 +98,7 @@ export function Video({
           <source src={mp4} type="video/mp4" />
         </video>
         <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end bg-gradient-to-t from-black/60 to-transparent p-3 pt-12 opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100 group-data-[playing=false]:opacity-100 motion-reduce:transition-none [@media(hover:none)]:opacity-100">
-          <div className="pointer-events-auto flex w-full items-center gap-3 rounded-full bg-black/55 px-2 py-1 text-xs text-white backdrop-blur-md">
+          <div className="pointer-events-auto flex w-full items-center gap-3 rounded-full bg-black/55 px-2 py-1 text-xs text-white">
             <button
               type="button"
               onClick={toggle}
