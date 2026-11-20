@@ -4,8 +4,13 @@
   "pages": [
     "index",
     "quickshell",
-    "fastfetch",
+    "notifications",
+    "wallpaper",
+    "displays",
+    "lock-screen",
+    "tools",
     "screenshots",
+    "fastfetch",
     "keybindings"
   ]
 }

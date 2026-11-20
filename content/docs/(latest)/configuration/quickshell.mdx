@@ -16,36 +16,40 @@ import { Video } from '@/components/video';
   caption="The bar folds its tools away, warns when one process keeps the CPU busy, and recolours the whole shell from one accent."
 />
 
-## Features
+## Pages
 
-Everything below is drawn by the Quickshell shell:
+- [Notifications and alerts](/docs/configuration/notifications): notices and the heavy process warning
+- [Desktop and wallpaper](/docs/configuration/wallpaper): `Alt + W`, the wallpaper drawer, and the desktop menu
+- [Displays](/docs/configuration/displays): two screens with `Super + P`
+- [Lock screen](/docs/configuration/lock-screen): `Super + L`
+- [Screenshots and recording](/docs/configuration/screenshots): pictures and video of the screen
+- [Shell tools](/docs/configuration/tools): lecture pen, QR scanner, and other one-key tools
+- [Privacy](/docs/Privacy): clipboard history (`Alt + V`) and anti-forensics
 
-- **Bar**: top panel with workspaces, status, and system info. When one process keeps the CPU or GPU busy, a warning such as "⚠ ffmpeg CPU 75%" shows on the bar
-- **Notifications**, with a history panel grouped by app
+## Everything the shell draws
+
+- **Bar**: top panel with workspaces, status, and system info
 - **App launcher**: `Super + Return`
-- **Clipboard manager**: `Alt + V`
-- **Wallpaper picker**: `Alt + W`
 - **Dashboard** and **session menu** (`Super + X`)
 - **Volume / brightness OSD**
-- **Flyouts** for Wi-Fi, Bluetooth, audio, and a user-selectable **accent colour**
+- **Flyouts** for Wi-Fi, Bluetooth, audio, and the accent colour
 - **Alt+Tab switcher** and a hot-corner **overview**
-- **SAO menu**: `Super + M`
-- **Keybind cheat sheet**: `Super + /`
-- **Screenshot gallery**: `Super + F`
-- **Battery usage**: `Super + B`
-- **Health check**: `Super + H`
-- **Picture converter**: `Super + I`
-- **Displays**: this screen only, duplicate, extend, or second screen only (`Super + P`, or **Displays…** in the desktop menu). The change is live only and reverts after 15 seconds unless you keep it
-- **Desktop menu**: right-click the empty desktop for Displays…, Wallpaper…, Settings, and switches for the weather card, now playing, the "Activate Linux" joke, and the FPS counter
-- **Screenshot tool**: region, window, or full screen
-- **Screen recording**: `Super + Shift + R` opens a dialog, press it again to stop (see below)
-- **Lecture pen**: draw and zoom over a frozen screen (`Super + D`)
-- **QR scanner**: opens links, joins Wi-Fi codes, copies text (`Super + Shift + Q`)
-- **Lock screen**: `Super + L`
+- **Health check**: `Super + H` (see [Staying Updated](/docs/Updating))
 - **Settings panel**: the gear beside the power button, with pages for Wi-Fi, Bar, Screenshots, Record, Privacy, Anti-forensics, Packages, Update, Language, Misc, and About. **Settings → Update** checks for updates and pulls the repo (see [Staying Updated](/docs/Updating)); **Settings → Language** picks English, 廣東話, or 台灣華語
-- **Desktop cards**: weather and now-playing
-- **FPS counter**, off by default
 - Copy notices and a charging ripple
+
+The full shortcut list is in [Keybindings](/docs/configuration/keybindings).
+
+## Dashboard
+
+The dashboard, from the clock: calendar, now-playing, system gauges, and workspaces.
+
+<Video
+  mp4="/ummitos-dashboard.mp4"
+  webm="/ummitos-dashboard.webm"
+  poster="/ummitos-dashboard-poster.jpg"
+  caption="The dashboard."
+/>
 
 ## Keyboard
 
@@ -58,104 +62,3 @@ You can pick the shell's accent colour from its flyout.
 ## Languages
 
 **Settings → Language** offers English, 廣東話 (written Cantonese), and 台灣華語 (Taiwanese Mandarin). Everything the shell draws is translated: the bar, notifications, lock screen, cheat sheet, QR scanner, weather, and dates. The choice switches live and is saved. For Traditional Chinese, `noto-fonts-cjk` is installed.
-
-## Wallpaper
-
-There are two pickers:
-
-- **Alt + W** opens the keyboard carousel.
-- **Wallpaper…** in the desktop right-click menu opens a mouse-first drawer on the right edge, with folder chips, named thumbnails, a check badge on the current picture, and a Shuffle button per folder. The desktop stays in view so you can preview a picture by hovering it.
-
-<Video
-  mp4="/ummitos-wallpaper-drawer.mp4"
-  webm="/ummitos-wallpaper-drawer.webm"
-  poster="/ummitos-wallpaper-drawer-poster.jpg"
-  caption="The wallpaper drawer: pick a folder, hover a picture to preview it on the desktop, click to set it, or shuffle."
-/>
-
-Pick the folder that random wallpapers are drawn from: right-click the bar's wallpaper button, or use **Shuffle from here** inside a folder in the carousel. A small dot on the button means the shuffle is limited to one folder.
-
-## Notifications
-
-- If a window on a workspace you can't see asks for attention, you get a notice with a **Go there** button. This covers every link that opens your browser on another workspace.
-- If a shortcut's program is missing, a notice names it and offers **Open Packages**.
-
-## Heavy process warning
-
-When one process keeps more than half the CPU, or 80% of the GPU, for about 12 seconds, the bar shows a warning with its name, for example "⚠ ffmpeg CPU 75%", beside the file-change label. It only warns and never kills anything. Only your own processes show GPU use. Turn it off in **Settings → Misc → Warn about heavy processes**.
-
-## Screen recording
-
-Press `Super + Shift + R`, choose which sound to record (system, microphone, both or none), and a 3 second countdown starts. Press `Super + Shift + R` again to stop and save. Recording uses `gpu-screen-recorder` through the desktop portal.
-
-<Video
-  mp4="/ummitos-record.mp4"
-  webm="/ummitos-record.webm"
-  poster="/ummitos-record-poster.jpg"
-  caption="Super+Shift+R picks the sound (system, mic, both or none), counts 3-2-1, runs a timer on the bar, and Super+Shift+R again stops it. Settings → Record sets quality, frame rate and codec."
-/>
-
-- The first recording asks which screen to share. Tick **Remember** to skip the question next time.
-- The bar shows a timer once recording has really started. If you cancel the picker, you get "Recording did not start".
-- Files are saved as MP4 in `~/Videos/Recordings` by default.
-- **Settings → Record** sets the folder, the quality (Small, Balanced or Sharp, which are the high, very high and ultra presets), the frame rate (30, 60, 120, or the screen's own rate, which is the default), the codec (Auto, H.264, HEVC, AV1; HEVC by default), and whether the cursor shows. It also lists your recordings.
-
-## In action
-
-The dashboard, from the clock: calendar, now-playing, system gauges, and workspaces.
-
-<Video
-  mp4="/ummitos-dashboard.mp4"
-  webm="/ummitos-dashboard.webm"
-  poster="/ummitos-dashboard-poster.jpg"
-  caption="The dashboard."
-/>
-
-The lock screen shows the weather card at the top left. While something plays, the now-playing card sits at the foot of the screen with its controls, and a music spectrum, coloured from the accent, plays behind the clock (hidden when reduce motion is on). A wrong password twice raises an intruder warning.
-
-<Video
-  mp4="/ummitos-lock.mp4"
-  webm="/ummitos-lock.webm"
-  poster="/ummitos-lock-poster.jpg"
-  caption="While music plays, the lock screen draws its spectrum behind the clock, with the weather in the corner and the track at the foot."
-/>
-
-The lecture pen (`Super + D`): draw and highlight over a frozen screen.
-
-<Video
-  mp4="/ummitos-pen.mp4"
-  webm="/ummitos-pen.webm"
-  poster="/ummitos-pen-poster.jpg"
-  caption="The lecture pen."
-/>
-
-The QR scanner (`Super + Shift + Q`): it freezes the screen, finds a code, and explains it.
-
-<Video
-  mp4="/ummitos-qr.mp4"
-  webm="/ummitos-qr.webm"
-  poster="/ummitos-qr-poster.jpg"
-  caption="The QR scanner."
-/>
-
-The desktop menu (right-click the empty desktop): Displays…, Wallpaper…, Settings, and what the desktop shows.
-
-<Video
-  mp4="/ummitos-desktop-menu.mp4"
-  webm="/ummitos-desktop-menu.webm"
-  poster="/ummitos-desktop-menu-poster.jpg"
-  caption="Right-click the empty desktop for Displays, Wallpaper and Settings, and switches for what the desktop shows."
-/>
-
-The display chooser (`Super + P`) for two screens.
-
-<Video
-  mp4="/ummitos-displays.mp4"
-  webm="/ummitos-displays.webm"
-  poster="/ummitos-displays-poster.jpg"
-  caption="Super+P chooses how two screens work: this screen only, duplicate, extend or second screen only, and reverts after 15 s unless you keep it."
-/>
-
-## Keybindings
-
-See [Keybindings](/docs/configuration/keybindings) for the full shortcut reference.

@@ -1,9 +1,9 @@
 ---
-title: Screenshots
-description: Set where screenshots are saved
+title: Screenshots and recording
+description: Capture the screen as a picture or a video
 ---
 
-# Screenshots
+# Screenshots and recording
 
 As of **v1.0.0-rc1**, screenshots are handled by the [Quickshell](/docs/configuration/quickshell) shell (the old Hyprshot is gone). Captures are copied to the clipboard and saved to disk.
 
@@ -44,3 +44,19 @@ The default is the `HYPRSHOT_DIR` variable in `~/.config/hypr/hyprland/env.lua`,
   poster="/ummitos-gallery-poster.jpg"
   caption="Super+F opens every screenshot. Type a word and only the pictures with that text inside them stay."
 />
+
+## Screen recording
+
+Press `Super + Shift + R`, choose which sound to record (system, microphone, both or none), and a 3 second countdown starts. Press `Super + Shift + R` again to stop and save. Recording uses `gpu-screen-recorder` through the desktop portal.
+
+<Video
+  mp4="/ummitos-record.mp4"
+  webm="/ummitos-record.webm"
+  poster="/ummitos-record-poster.jpg"
+  caption="Super+Shift+R picks the sound (system, mic, both or none), counts 3-2-1, runs a timer on the bar, and Super+Shift+R again stops it. Settings → Record sets quality, frame rate and codec."
+/>
+
+- The first recording asks which screen to share. Tick **Remember** to skip the question next time.
+- The bar shows a timer once recording has really started. If you cancel the picker, you get "Recording did not start".
+- Files are saved as MP4 in `~/Videos/Recordings` by default.
+- **Settings → Record** sets the folder, the quality (Small, Balanced or Sharp, which are the high, very high and ultra presets), the frame rate (30, 60, 120, or the screen's own rate, which is the default), the codec (Auto, H.264, HEVC, AV1; HEVC by default), and whether the cursor shows. It also lists your recordings.
