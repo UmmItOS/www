@@ -1,12 +1,13 @@
 # Embedded media
 
-Feature pages carry short looping clips and still screenshots that show what the page describes, each with a caption. Clips are muted and loop, start only when scrolled into view, pause when they leave, and have a player bar (play/pause, seek, time); stills are images.
+Feature pages carry short looping clips and still screenshots that show what the page describes, each with a caption. Clips are muted and loop, start only when scrolled into view, pause when they leave, and have a player overlay at the bottom of the video (play/pause, seek, time) that hides while a clip plays unless hovered or focused, and always shows on touch screens; stills are images.
 
 ## Sub-features
 
 - `media-clips` shows muted, looping `video` clips with captions (Desktop Shell has 9).
 - `media-scroll-play` plays a clip only while it is in view, and a clip the reader paused stays paused.
-- `media-player-bar` pauses, resumes and seeks a clip, and shows `m:ss / m:ss`.
+- `media-player-bar` pauses, resumes and seeks a clip, and shows `m:ss / m:ss`. Clicking the video also toggles.
+- `media-overlay` shows the controls when paused, hides them while playing without hover (opacity of `figure[data-clip] .absolute` is `0`), and keeps them shown under `DRIVE_TOUCH=1`.
 - `media-still` shows a captioned screenshot, for example `/docs-post-install.png` on Post-install.
 - `media-served` means every image and video the pages reference is actually served.
 
@@ -34,5 +35,7 @@ The journeys, as they were run (labels `media-desktop-shell`, `media-still`): th
 - The clip count changes when clips are added. Use `>=` when a page gains clips; `==9` is the Desktop Shell page at v1.6.0.
 - Clips below the fold never start (the component plays on scroll), so `currentTime` stays at 0 until scrolled in. To prove a clip plays, scroll it in first: `assert-js|(document.querySelector('video[poster="/<name>-poster.jpg"]').scrollIntoView({block:'center'}),true)`, `sleep|3000`, then `assert-js|` on `currentTime>1 && !paused`.
 - A just-loaded video may still be at `readyState` 0. If the metadata check fails, `sleep|1500` and retry before calling it a defect.
+- `drive.mjs` launches Chromium as a mouse desktop (`(hover: hover)`). Headless Chromium otherwise reports `(hover: none)`, so the overlay never hides. Use `DRIVE_TOUCH=1 $S/drive.mjs ...` to check the touch behaviour.
+- The wrapper carries `not-prose`. Without it the docs `prose` styles give the video a 32px top and bottom margin, which shows as black bands inside the frame. Assert the wrapper height minus 2px of border equals the video height.
 - A clip whose metadata loaded before hydration showed `0:00 / 0:00` until the component read the video once on mount. A `/ 0:00` readout means that regressed.
 - `media-check.sh` only sees assets in server-rendered HTML, not ones added by client scripts.

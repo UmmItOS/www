@@ -51,12 +51,15 @@ const transcript = join(evidence, `${label}.steps.txt`);
 writeFileSync(transcript, '');
 const log = (line) => { console.log(line); appendFileSync(transcript, line + '\n'); };
 
-// Start our own headless browser with its own profile.
+// Start our own headless browser with its own profile. Headless Chromium reports
+// (hover: none) like a touch screen; the blink settings make it a mouse desktop.
+// Set DRIVE_TOUCH=1 to keep the touch behaviour.
 const profile = resolve('.verify/run/chrome-profile-drive');
 mkdirSync(profile, { recursive: true });
 rmSync(join(profile, 'DevToolsActivePort'), { force: true });
 const chrome = spawn('chromium', [
   '--headless', '--disable-gpu', '--hide-scrollbars', '--window-size=1500,1000',
+  ...(process.env.DRIVE_TOUCH ? [] : ['--blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4']),
   '--remote-debugging-port=0', `--user-data-dir=${profile}`, 'about:blank',
 ], { stdio: 'ignore' });
 const stopBrowser = async () => {
