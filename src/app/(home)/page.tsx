@@ -74,7 +74,7 @@ const quickLinks = [
 ];
 
 // Frozen at build time for the statically prerendered page.
-const BUILD_TIME = new Date().toISOString().slice(0, 16).replace('T', ' ') + ' UTC';
+const BUILD_TIME = process.env.BUILD_TIME;
 
 export default function HomePage() {
   return (
