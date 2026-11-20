@@ -68,7 +68,7 @@ Pick the lightest tool that proves the behavior:
 | `count\|css`, `text\|css`, `sleep\|ms` | print a count / print text / wait |
 | `shot\|name`, `dom\|name` | save `<label>.<name>.png` / `.dom.html` |
 
-**Stable handles on this site** (prefer these over position or coordinates): `#nd-sidebar` (sidebar), `#nd-page` (page body), `#nd-sidebar a[data-active="true"]` (current page), `button[data-search-full]` and `input[role="combobox"][aria-label="Search"]` (search), `#fd-search-list` (results, `hidden` when empty), `details > summary` (Changelog notes), `button[aria-label^="Play"]` (YouTube lite embed), `video[autoplay][muted][loop][playsinline]` and `figure figcaption` (clips and stills). Page text is the best handle for content.
+**Stable handles on this site** (prefer these over position or coordinates): `#nd-sidebar` (sidebar), `#nd-page` (page body), `#nd-sidebar a[data-active="true"]` (current page), `button[data-search-full]` and `input[role="combobox"][aria-label="Search"]` (search), `#fd-search-list` (results, `hidden` when empty), `details > summary` (Changelog notes), `button[aria-label^="Play"]` (YouTube lite embed), `figure[data-clip] video` and `figure figcaption` (clips and stills), `figure[data-clip] button` and `input[type=range]` (clip player bar). Page text is the best handle for content.
 
 **`capture.sh <path> <label> [--size 1500x2000] [--budget 5000] [--no-shot] [--no-dom]`** writes `<label>.dom.html` (DOM after scripts ran) and `<label>.png`. `--budget` is virtual time in ms for client fetches and icon requests to finish. **`expect.sh <dom> <needle>...`**: `text` must appear, `!text` must not, `~regex` must match, `!~regex` must not; it saves `<dom>.expect.txt` and exits 1 on any failure.
 
@@ -99,7 +99,7 @@ Proof standards:
 - **Do not free a port with `fuser -k` or `pkill next`.** It kills other people's servers. Use `cleanup.sh`.
 - **Content moves daily.** Release versions, dates and counts change. Assert patterns (`~v[0-9]+\.[0-9]+\.[0-9]+`), never a literal version.
 - **Network dependencies.** Build time: GitHub Releases API (Changelog). Browser runtime: `api.github.com` (repo card on the Overview page), `api.iconify.design` (every icon), `youtube.com` and `img.youtube.com`. Offline, icons render blank and the Changelog shows its fallback; report that as an unmet precondition. The unauthenticated GitHub limit is 60 requests an hour, and `doctor.sh` shows what is left.
-- **Videos autoplay, so a screenshot shows a mid-clip frame.** Prove clips by markup, served assets and a decode check (`assert-js` with `readyState`), not by a visual match.
+- **Clips in view play, so a screenshot shows a mid-clip frame.** Prove clips by markup, served assets and a decode check (`assert-js` with `readyState`), not by a visual match.
 - **`Last built` on the homepage is the time of the isolated build**, not production's. "Last updated on" needs full git history.
 - The pre-commit hook runs a full `bun run build`; it is unrelated to verification.
 
