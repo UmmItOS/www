@@ -5,13 +5,29 @@ description: Notices from the shell and the heavy process warning on the bar
 
 # Notifications and alerts
 
+import { Video } from '@/components/video';
+
 ## Notifications
 
 A history panel keeps notices grouped by app.
+
+<Video
+  mp4="/ummitos-notifications.mp4"
+  webm="/ummitos-notifications.webm"
+  poster="/ummitos-notifications-poster.jpg"
+  caption="A window asking for attention on another workspace turns that workspace red, and Go there takes you to it. A shortcut whose program is missing says which one, and Open Packages shows what's missing in Settings."
+/>
 
 - If a window on a workspace you can't see asks for attention, you get a notice with a **Go there** button. This covers every link that opens your browser on another workspace.
 - If a shortcut's program is missing, a notice names it and offers **Open Packages**.
 
 ## Heavy process warning
+
+<Video
+  mp4="/ummitos-heavy-warning.mp4"
+  webm="/ummitos-heavy-warning.webm"
+  poster="/ummitos-heavy-warning-poster.jpg"
+  caption="After 12 seconds of heavy CPU or GPU, the bar names the process beside the latest file change, and clears it when things calm down."
+/>
 
 When one process keeps more than half the CPU, or 80% of the GPU, for about 12 seconds, the bar shows a warning with its name, for example "⚠ ffmpeg CPU 75%", beside the file-change label. It only warns and never kills anything. Only your own processes show GPU use. Turn it off in **Settings → Misc → Warn about heavy processes**.

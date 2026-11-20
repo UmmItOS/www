@@ -4,7 +4,7 @@ Feature pages carry short looping clips and still screenshots that show what the
 
 ## Sub-features
 
-- `media-clips` shows muted, looping `video` clips with captions (Desktop and wallpaper has 2; the 9 shell clips are spread over the Configuration pages).
+- `media-clips` shows muted, looping `video` clips with captions (Desktop and wallpaper has 3; the 12 shell clips are spread over the Configuration pages).
 - `media-scroll-play` plays a clip only while it is in view, and a clip the reader paused stays paused.
 - `media-player-bar` pauses, resumes and seeks a clip, and shows `m:ss / m:ss`. Clicking the video also toggles.
 - `media-overlay` shows the controls when paused, hides them while playing without hover (opacity of `figure[data-clip] .absolute` is `0`), and keeps them shown under `DRIVE_TOUCH=1`.
@@ -22,7 +22,7 @@ Preconditions:
 
 - `$S/doctor.sh` reports `DOCTOR: OK`.
 
-- **Clips.** Run `goto|/docs/configuration/wallpaper`, `waitfor|video|8000`, `assert-count|figure[data-clip] video[muted][loop][playsinline]|==|2`, `assert-count|video[autoplay]|==|0`, `assert-count|figure figcaption|>=|2`, `assert-js|[...document.querySelectorAll('video')].every(v => v.readyState >= 1)` (metadata only: clips not yet scrolled to stay at 1), then `shot|clips`.
+- **Clips.** Run `goto|/docs/configuration/wallpaper`, `waitfor|video|8000`, `assert-count|figure[data-clip] video[muted][loop][playsinline]|==|3`, `assert-count|video[autoplay]|==|0`, `assert-count|figure figcaption|>=|2`, `assert-js|[...document.querySelectorAll('video')].every(v => v.readyState >= 1)` (metadata only: clips not yet scrolled to stay at 1), then `shot|clips`.
 - **Still.** Run `goto|/docs/Post-install`, `waitfor|figure img|8000`, `assert-js|document.querySelector('figure img').naturalWidth > 0`, then `shot|still`.
 - **Scroll play and player bar.** With `V='document.querySelectorAll("figure[data-clip] video")'` and `F='document.querySelectorAll("figure[data-clip]")[1]'` (in zsh write `${V}[1]`, since `$V[1]` is a character of the string): `goto|/docs/configuration/wallpaper`, `sleep|3000`, assert every clip below the fold is `paused && currentTime===0`; scroll clip 1 into view, `sleep|3000`, assert `currentTime>1 && !paused`; click `${F}.querySelector('button')`, assert paused and `aria-label` is `Play clip`; scroll away and back, assert still paused; set the `input[type=range]` value to 2 with the native setter and dispatch `input`, assert `currentTime` is about 2; click the button again, assert playing. Also assert no `span.tabular-nums` ends in `/ 0:00`.
 - **Whole site.** Run `$S/media-check.sh`. It reads the sidebar, extracts every local `src`/`poster`, and requires HTTP 200, non-zero size and a correct content type. It fails when it finds zero assets.
@@ -32,7 +32,7 @@ The journeys, as they were run (labels `media-desktop-shell`, `media-still`): th
 ## Gotchas
 
 - Clips in view play, so a screenshot shows a mid-clip frame. Prove clips by markup, served assets and `readyState`, not by a visual match.
-- The clip count changes when clips are added. Use `>=` when a page gains clips; `==2` is the Desktop and wallpaper page at v1.6.0.
+- The clip count changes when clips are added. Use `>=` when a page gains clips; `==3` is the Desktop and wallpaper page at v1.6.0.
 - Clips below the fold never start (the component plays on scroll), so `currentTime` stays at 0 until scrolled in. To prove a clip plays, scroll it in first: `assert-js|(document.querySelector('video[poster="/<name>-poster.jpg"]').scrollIntoView({block:'center'}),true)`, `sleep|3000`, then `assert-js|` on `currentTime>1 && !paused`.
 - A just-loaded video may still be at `readyState` 0. If the metadata check fails, `sleep|1500` and retry before calling it a defect.
 - `drive.mjs` launches Chromium as a mouse desktop (`(hover: hover)`). Headless Chromium otherwise reports `(hover: none)`, so the overlay never hides. Use `DRIVE_TOUCH=1 $S/drive.mjs ...` to check the touch behaviour.
