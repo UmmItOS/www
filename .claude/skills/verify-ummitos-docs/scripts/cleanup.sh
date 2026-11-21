@@ -16,7 +16,6 @@ if [[ -n $pid ]] && kill -0 "$pid" 2>/dev/null; then
   if kill -0 "$pid" 2>/dev/null; then kill -KILL -- "-$pid" 2>/dev/null || kill -KILL "$pid" 2>/dev/null; fi
 fi
 
-# Keep the server log with the proof, then drop run state.
 if [[ -f $run/run-id && -f $run/server.log ]]; then
   cp "$run/server.log" ".verify/evidence/$(cat "$run/run-id")/server.log" 2>/dev/null || true
 fi

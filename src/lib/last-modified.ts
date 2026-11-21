@@ -2,7 +2,6 @@ import { execFileSync } from 'node:child_process';
 
 // The last git commit that changed a docs file's contents, read at build. Follows renames and
 // skips commits that only moved the file (old and new blob are the same).
-// Returns undefined when git history is unavailable (e.g. a shallow clone) so the page still renders.
 export function getLastModified(docPath: string): Date | undefined {
   try {
     const out = execFileSync(

@@ -1,13 +1,12 @@
 export interface Release {
   tag: string;
   name: string;
-  date: string; // ISO
+  date: string;
   prerelease: boolean;
   body: string;
   url: string;
 }
 
-// Fetched at build / revalidated hourly, so no client-side GitHub rate limits.
 export async function getReleases(): Promise<Release[]> {
   try {
     const res = await fetch(

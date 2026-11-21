@@ -73,7 +73,6 @@ const quickLinks = [
   },
 ];
 
-// Frozen at build time for the statically prerendered page.
 const BUILD_TIME = process.env.BUILD_TIME;
 
 export default function HomePage() {
@@ -82,11 +81,9 @@ export default function HomePage() {
       <div className="mx-auto w-full max-w-[var(--fd-layout-width)] px-4 pt-3 text-right text-xs text-fd-muted-foreground/60">
         Last built {BUILD_TIME}
       </div>
-      {/* Hero Section */}
       <section className="relative flex flex-col justify-center py-24 md:py-32 px-4 mx-auto w-full max-w-[var(--fd-layout-width)]">
         <div className="hidden lg:block absolute -top-40 -right-24 w-[32rem] h-[32rem] bg-[#bb9af7]/15 rounded-full blur-3xl pointer-events-none" />
         <div className="relative grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* Left: copy */}
           <div>
             <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 text-sm font-medium text-fd-muted-foreground bg-fd-muted/50 border border-fd-border rounded-full">
               <Icon icon="mdi:arch" width={16} height={16} />
@@ -129,7 +126,6 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Right: ummitfetch-style terminal */}
           <div className="relative">
             <div className="absolute -inset-1 bg-[#a78bfa]/10 rounded-2xl blur-2xl opacity-70 pointer-events-none" />
             <div className="relative rounded-xl border border-fd-border shadow-2xl overflow-hidden font-mono text-sm">
@@ -167,7 +163,6 @@ export default function HomePage() {
                   <span className="inline-block w-2 h-4 align-middle bg-fd-muted-foreground animate-pulse" />
                 </div>
               </div>
-              {/* Bottom status bar */}
               <div className="flex items-center gap-2 border-t border-fd-border px-3 py-1.5 text-xs">
                 <span className="text-fd-foreground font-medium">ummit@ummitos</span>
                 <span className="text-[#a78bfa]">~</span>
@@ -178,7 +173,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Features Grid */}
       <section className="py-16 md:py-24 px-4 mx-auto w-full max-w-[var(--fd-layout-width)]">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-normal mb-4" style={{ fontFamily: 'var(--font-eb-garamond)' }}>
@@ -204,7 +198,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Quick Links */}
       <section className="py-16 md:py-24 px-4 mx-auto w-full max-w-[var(--fd-layout-width)]">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-normal mb-4" style={{ fontFamily: 'var(--font-eb-garamond)' }}>
@@ -231,7 +224,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* One-Command Install */}
       <section className="py-16 md:py-24 px-4 mx-auto w-full max-w-[var(--fd-layout-width)]">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
@@ -275,7 +267,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Software Stack */}
       <section className="py-16 md:py-24 px-4 mx-auto w-full max-w-[var(--fd-layout-width)]">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-normal mb-4" style={{ fontFamily: 'var(--font-eb-garamond)' }}>
@@ -330,7 +321,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Video Preview Section */}
       <section className="py-16 md:py-24 px-4 mx-auto w-full max-w-[var(--fd-layout-width)]">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-normal mb-4" style={{ fontFamily: 'var(--font-eb-garamond)' }}>
@@ -347,7 +337,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-24 md:py-32 px-4 mx-auto w-full max-w-[var(--fd-layout-width)]">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-normal mb-6" style={{ fontFamily: 'var(--font-eb-garamond)' }}>
@@ -375,7 +364,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="py-10 px-4 border-t border-fd-border">
         <div className="mx-auto max-w-[var(--fd-layout-width)] flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-fd-muted-foreground">
           <div className="flex items-center gap-3">

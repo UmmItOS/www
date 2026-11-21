@@ -31,7 +31,7 @@ No `test`, `typecheck`, `lint`, or `preview` scripts. TS checks happen during `n
 ## Architecture
 
 - **Aliases**: `@/` → `src/`, `@/.source` → `.source/index.ts`.
-- **Components**: Server components by default. Only `src/components/youtube-player.tsx` and `src/components/video.tsx` (docs clips: play on scroll, player bar) are `'use client'`; the Fumadocs template scaffold (theme-toggle, collapsible, scroll-area, popover, button, toc-thumb, cn/is-active/merge-refs helpers) was deleted as unused.
+- **Components**: Server components by default. Only `src/components/youtube-player.tsx`, `src/components/video.tsx` (docs clips: play on scroll, player bar) and `src/components/repo-card.tsx` are `'use client'`; the Fumadocs template scaffold (theme-toggle, collapsible, scroll-area, popover, button, toc-thumb, cn/is-active/merge-refs helpers) was deleted as unused.
 - **CSS**: Tailwind v4 via `postcss.config.mjs`. Fumadocs CSS vars (`bg-fd-background`, `text-fd-foreground`, `border-fd-border`, etc.). No `tailwind.config.*`.
 - **Icons**: `@iconify/react`.
 - **Theme**: Dark-only, hardcoded `dark` class on `<html>` (handled by Fumadocs `RootProvider`). Theme toggle removed from navbar.

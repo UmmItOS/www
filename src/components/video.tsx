@@ -1,12 +1,5 @@
 'use client';
 
-/* Inline docs clip: a short, muted, looping <video> with a small player bar.
- * Clips start only when scrolled into view (and pause when they leave), so a
- * page with several clips doesn't decode them all on load. Usage in MDX:
- *
- *   import { Video } from '@/components/video';
- *   <Video mp4="/clip.mp4" webm="/clip.webm" poster="/clip.jpg" caption="…" />
- */
 import { useEffect, useRef, useState } from 'react';
 
 type Clip = {

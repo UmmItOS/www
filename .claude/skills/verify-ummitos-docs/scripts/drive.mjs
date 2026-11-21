@@ -51,8 +51,8 @@ const transcript = join(evidence, `${label}.steps.txt`);
 writeFileSync(transcript, '');
 const log = (line) => { console.log(line); appendFileSync(transcript, line + '\n'); };
 
-// Start our own headless browser with its own profile. Headless Chromium reports
-// (hover: none) like a touch screen; the blink settings make it a mouse desktop.
+// Headless Chromium reports (hover: none) like a touch screen; the blink settings
+// make it a mouse desktop.
 // Set DRIVE_TOUCH=1 to keep the touch behaviour.
 const profile = resolve('.verify/run/chrome-profile-drive');
 mkdirSync(profile, { recursive: true });
@@ -170,7 +170,7 @@ async function run(step) {
       return `${a} contains ${JSON.stringify(b)}`;
     }
     case 'assert-js': {
-      const expr = step.slice('assert-js|'.length);   // the expression may contain "|", so take the whole remainder
+      const expr = step.slice('assert-js|'.length);
       const v = await evaluate(expr);
       if (!v) throw new Error(`falsy (${JSON.stringify(v)}): ${expr}`);
       return `true: ${expr}`;

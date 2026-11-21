@@ -14,17 +14,14 @@ export function YouTubePlayer({ videoId, title = 'Video' }: YouTubePlayerProps) 
   if (!isLoaded) {
     return (
       <div className="group relative aspect-video w-full overflow-hidden rounded-xl bg-black">
-        {/* Thumbnail */}
         <img
           src={thumbnailUrl}
           alt={title}
           className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
         
-        {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
         
-        {/* Play button */}
         <button
           onClick={() => setIsLoaded(true)}
           className="absolute inset-0 flex items-center justify-center"
@@ -41,7 +38,6 @@ export function YouTubePlayer({ videoId, title = 'Video' }: YouTubePlayerProps) 
           </div>
         </button>
 
-        {/* Bottom info bar */}
         <div className="absolute bottom-0 left-0 right-0 flex items-center gap-3 p-4">
           <div className="flex items-center gap-2 text-white/80">
             <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">

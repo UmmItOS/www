@@ -1,12 +1,5 @@
 'use client';
 
-/* Hallmark · component: repo-card · genre: atmospheric
- * theme: project (near-black fd-* + brand purple #a78bfa)
- * states: default · hover · focus-visible · active · loading · error (stats fetch)
- *         disabled/success · n/a (static link card)
- * contrast: pass
- */
-
 import { useEffect, useState } from 'react';
 import { Icon } from '@iconify/react';
 
@@ -99,7 +92,6 @@ export function RepoCard({
           </>
         )}
 
-        {/* always-true fact, no network needed */}
         <span className="inline-flex items-center gap-1.5 rounded-full bg-fd-muted/50 px-2.5 py-1 font-medium text-fd-muted-foreground">
           <Icon icon="lucide:scale" className="size-3.5" aria-hidden />
           GPL-3.0

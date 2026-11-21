@@ -39,7 +39,6 @@ pages=$({ echo /; echo /docs; curl -s --max-time 10 "$base/docs" | grep -oE 'hre
     done < <(grep -oE '(src|poster)="/[^"]+\.(mp4|webm|jpe?g|png|svg|webp)"' <<< "$html" | sed -E 's/^[a-z]+="//; s/"$//' | sort -u)
   done
   echo "checked $n asset references across $(wc -w <<< "$pages") pages"
-  # Finding nothing is a failure, not a pass: it means the server is down or the pages changed shape.
   (( n == 0 )) && { echo "FAIL found no asset references to check"; fail=1; }
   (( fail )) && echo "MEDIA: FAIL" || echo "MEDIA: OK"
   exit $fail

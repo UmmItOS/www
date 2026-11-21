@@ -39,8 +39,6 @@ for p in / /docs /docs/Installation /docs/Changelog; do
   if [[ $code == 200 ]]; then ok "GET $p -> 200"; else bad "GET $p -> $code"; fi
 done
 
-# The Changelog is built from the GitHub Releases API and the Overview repo card
-# calls it from the browser. Offline or rate-limited runs degrade, so say so.
 rem=$(curl -s --max-time 6 https://api.github.com/rate_limit | python3 -I -c 'import sys,json
 try: print(json.load(sys.stdin)["resources"]["core"]["remaining"])
 except Exception: print("unreachable")')

@@ -1,8 +1,3 @@
-/* A still screenshot for docs, framed to match the Video component. Usage:
- *
- *   import { Shot } from '@/components/shot';
- *   <Shot src="/screen.png" alt="…" caption="…" />
- */
 export function Shot({
   src,
   alt,
@@ -14,7 +9,6 @@ export function Shot({
 }) {
   return (
     <figure className="my-5">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={src}
         alt={alt ?? caption ?? ''}

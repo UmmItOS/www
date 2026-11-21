@@ -12,8 +12,7 @@ function fmtDate(iso: string): string {
   });
 }
 
-// A one-line teaser: the first plain-prose paragraph (not a heading, list or table).
-function teaser(body: string): string {
+function firstProseParagraph(body: string): string {
   const paras = body.replace(/\r\n/g, '\n').split(/\n\s*\n/);
   for (const p of paras) {
     const t = p.trim();
@@ -51,7 +50,7 @@ export async function Releases() {
       {releases.map((r) => {
         const isLatest = r.tag === latestTag;
         const badge = isLatest ? 'Latest' : r.prerelease ? 'Pre-release' : null;
-        const summary = teaser(r.body);
+        const summary = firstProseParagraph(r.body);
         const hasNotes = r.body.trim().length > 0;
 
         return (

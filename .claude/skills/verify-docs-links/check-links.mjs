@@ -14,7 +14,6 @@ const walk = (d) => readdirSync(d).flatMap((n) => {
   return statSync(p).isDirectory() ? walk(p) : [p];
 });
 
-// URL path -> mdx file. index.mdx maps to its folder.
 const pages = new Map();
 for (const f of walk(DOCS).filter((f) => f.endsWith('.mdx'))) {
   let s = relative(DOCS, f).replace(/\.mdx$/, '').replace(/(^|\/)\([^/]+\)(?=\/|$)/g, '').replace(/^\//, '');
@@ -26,7 +25,6 @@ const errors = [];
 const anchors = (f) => new Set([...readFileSync(f, 'utf8').matchAll(/^#{1,6}\s+(.+?)\s*$/gm)]
   .map((m) => ghSlug(m[1].replace(/[`*_]/g, ''))));
 
-// P1, P2
 const sources = [...walk(DOCS).filter((f) => f.endsWith('.mdx')), ...walk('src').filter((f) => /\.tsx?$/.test(f))];
 const re = /\]\((\/docs[^)\s]*)\)|href=["'](\/docs[^"']*)["']|href:\s*['"](\/docs[^'"]*)['"]/g;
 for (const f of sources) {
@@ -38,7 +36,6 @@ for (const f of sources) {
   }
 }
 
-// P3, P4
 const reachable = new Set();
 const meta = (dir) => {
   const mf = join(dir, 'meta.json');

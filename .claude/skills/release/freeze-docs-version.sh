@@ -9,7 +9,6 @@ cd "$(git rev-parse --show-toplevel)/content/docs"
 
 cp -r '(latest)' "$v"
 rm -f "$v/Changelog.mdx"
-# The Changelog is shared and lives only in (latest), so links to it stay unversioned.
 find "$v" -name '*.mdx' -exec sed -i -E "s#(\]\(|href=[\"'])/docs(/|[\"')\#])#\1/docs/$v\2#g; s#/docs/$v/Changelog#/docs/Changelog#g" {} +
 
 node -e '

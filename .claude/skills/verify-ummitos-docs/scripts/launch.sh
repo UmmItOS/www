@@ -35,7 +35,6 @@ export NEXT_DIST_DIR=.verify/next
 export NODE_OPTIONS=--no-deprecation
 next="node node_modules/next/dist/bin/next"
 
-# Rebuild when forced, missing, or older than any source the site is built from.
 stale=0
 if [[ ! -f .verify/next/BUILD_ID ]]; then
   stale=1
@@ -64,7 +63,6 @@ echo "$run_id" > "$run/run-id"
 mkdir -p ".verify/evidence/$run_id"
 echo "$port" > "$run/port"
 
-# New session so cleanup can signal the whole process group. exec keeps the pid.
 setsid sh -c "echo \$\$ > $run/server.pid; exec $next start -p $port -H 127.0.0.1" > "$run/server.log" 2>&1 &
 
 for _ in $(seq 1 60); do
